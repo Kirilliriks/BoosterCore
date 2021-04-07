@@ -1,0 +1,27 @@
+***************
+*** 24,35 ****
+          }
+      }
+  
+-     void func_381_a(DataOutput dataoutput)
+      {
+          dataoutput.writeUTF(field_732_a);
+      }
+  
+-     void func_382_a(DataInput datainput)
+      {
+          field_732_a = datainput.readUTF();
+      }
+--- 24,35 ----
+          }
+      }
+  
++     void func_381_a(DataOutput dataoutput) throws IOException
+      {
+          dataoutput.writeUTF(field_732_a);
+      }
+  
++     void func_382_a(DataInput datainput) throws IOException
+      {
+          field_732_a = datainput.readUTF();
+      }

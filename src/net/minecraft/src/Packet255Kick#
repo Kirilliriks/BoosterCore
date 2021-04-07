@@ -1,0 +1,27 @@
+***************
+*** 17,28 ****
+          field_41_a = s;
+      }
+  
+-     public void func_70_a(DataInputStream datainputstream)
+      {
+          field_41_a = datainputstream.readUTF();
+      }
+  
+-     public void func_68_a(DataOutputStream dataoutputstream)
+      {
+          dataoutputstream.writeUTF(field_41_a);
+      }
+--- 17,28 ----
+          field_41_a = s;
+      }
+  
++     public void func_70_a(DataInputStream datainputstream) throws IOException
+      {
+          field_41_a = datainputstream.readUTF();
+      }
+  
++     public void func_68_a(DataOutputStream dataoutputstream) throws IOException
+      {
+          dataoutputstream.writeUTF(field_41_a);
+      }

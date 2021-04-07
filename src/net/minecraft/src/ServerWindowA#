@@ -1,0 +1,16 @@
+***************
+*** 13,19 ****
+      ServerWindowAdapter(MinecraftServer minecraftserver)
+      {
+          field_997_a = minecraftserver;
+-         super();
+      }
+  
+      public void windowClosing(WindowEvent windowevent)
+--- 13,18 ----
+      ServerWindowAdapter(MinecraftServer minecraftserver)
+      {
+          field_997_a = minecraftserver;
+      }
+  
+      public void windowClosing(WindowEvent windowevent)

@@ -1,0 +1,16 @@
+***************
+*** 10,16 ****
+      ThreadMonitorConnection(NetworkManager networkmanager)
+      {
+          field_828_a = networkmanager;
+-         super();
+      }
+  
+      public void run()
+--- 10,15 ----
+      ThreadMonitorConnection(NetworkManager networkmanager)
+      {
+          field_828_a = networkmanager;
+      }
+  
+      public void run()
