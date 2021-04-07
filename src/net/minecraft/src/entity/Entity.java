@@ -3,6 +3,7 @@ package net.minecraft.src.entity;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import com.kirillirik.core.entity.BoosterEntity;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFluids;
@@ -15,11 +16,74 @@ import net.minecraft.src.nbt.NBTTagList;
 import java.util.List;
 import java.util.Random;
 
-public abstract class Entity
-{
+public abstract class Entity {
 
-    public Entity(World world)
-    {
+    // Booster
+    protected BoosterEntity boosterEntity;
+    //
+
+    private static int nextEntityID = 0;
+    public int entityId;
+    public double renderDistanceWeight;
+    public boolean preventEntitySpawning;
+    public Entity riddenByEntity;
+    public Entity ridingEntity;
+    public World worldObj;
+    public double prevPosX;
+    public double prevPosY;
+    public double prevPosZ;
+    public double posX;
+    public double posY;
+    public double posZ;
+    public double motionX;
+    public double motionY;
+    public double motionZ;
+    public float rotationYaw;
+    public float rotationPitch;
+    public float prevRotationYaw;
+    public float prevRotationPitch;
+    public final AxisAlignedBB boundingBox = AxisAlignedBB.getBoundingBox(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
+    public boolean onGround;
+    public boolean isCollidedHorizontally;
+    public boolean isCollidedVertically;
+    public boolean isCollided;
+    public boolean beenAttacked;
+    public boolean field_9077_F; //??
+    public boolean isDead;
+    public float yOffset;
+    public float width;
+    public float height;
+    public float prevDistanceWalkedModified;
+    public float distanceWalkedModified;
+    protected float fallDistance;
+    private int nextStepDistance;
+    public double lastTickPosX;
+    public double lastTickPosY;
+    public double lastTickPosZ;
+    public float ySize;
+    public float stepHeight;
+    public boolean noClip;
+    public float entityCollisionReduction;
+    public boolean field_9065_V; //??
+    protected Random rand;
+    public int ticksExisted;
+    public int fireResistance;
+    public int fire;
+    protected int maxAir;
+    protected boolean inWater;
+    public int field_9083_ac;
+    public int air;
+    private boolean firstUpdate;
+    protected boolean isImmuneToFire;
+    protected DataWatcher dataWatcher;
+    private double entityRiderPitchDelta;
+    private double entityRiderYawDelta;
+    public boolean addedToChunk;
+    public int chunkCoordX;
+    public int chunkCoordY;
+    public int chunkCoordZ;
+
+    public Entity(World world) {
         entityId = nextEntityID++;
         renderDistanceWeight = 1.0D;
         preventEntitySpawning = false;
@@ -54,8 +118,12 @@ public abstract class Entity
         addedToChunk = false;
         worldObj = world;
         setPosition(0.0D, 0.0D, 0.0D);
-        dataWatcher.addObject(0, Byte.valueOf((byte)0));
+        dataWatcher.addObject(0, (byte) 0);
         entityInit();
+
+        // Booster
+        boosterEntity = new BoosterEntity(this);
+        //
     }
 
     protected abstract void entityInit();
@@ -968,65 +1036,12 @@ public abstract class Entity
         }
     }
 
-    private static int nextEntityID = 0;
-    public int entityId;
-    public double renderDistanceWeight;
-    public boolean preventEntitySpawning;
-    public Entity riddenByEntity;
-    public Entity ridingEntity;
-    public World worldObj;
-    public double prevPosX;
-    public double prevPosY;
-    public double prevPosZ;
-    public double posX;
-    public double posY;
-    public double posZ;
-    public double motionX;
-    public double motionY;
-    public double motionZ;
-    public float rotationYaw;
-    public float rotationPitch;
-    public float prevRotationYaw;
-    public float prevRotationPitch;
-    public final AxisAlignedBB boundingBox = AxisAlignedBB.getBoundingBox(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
-    public boolean onGround;
-    public boolean isCollidedHorizontally;
-    public boolean isCollidedVertically;
-    public boolean isCollided;
-    public boolean beenAttacked;
-    public boolean field_9077_F;
-    public boolean isDead;
-    public float yOffset;
-    public float width;
-    public float height;
-    public float prevDistanceWalkedModified;
-    public float distanceWalkedModified;
-    protected float fallDistance;
-    private int nextStepDistance;
-    public double lastTickPosX;
-    public double lastTickPosY;
-    public double lastTickPosZ;
-    public float ySize;
-    public float stepHeight;
-    public boolean noClip;
-    public float entityCollisionReduction;
-    public boolean field_9065_V;
-    protected Random rand;
-    public int ticksExisted;
-    public int fireResistance;
-    public int fire;
-    protected int maxAir;
-    protected boolean inWater;
-    public int field_9083_ac;
-    public int air;
-    private boolean firstUpdate;
-    protected boolean isImmuneToFire;
-    protected DataWatcher dataWatcher;
-    private double entityRiderPitchDelta;
-    private double entityRiderYawDelta;
-    public boolean addedToChunk;
-    public int chunkCoordX;
-    public int chunkCoordY;
-    public int chunkCoordZ;
+    // Booster
 
+    public BoosterEntity getBoosterEntity() {
+        if (boosterEntity == null) throw new RuntimeException("BoosterEntity not found");
+        return boosterEntity;
+    }
+
+    //
 }

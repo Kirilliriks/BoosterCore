@@ -52,7 +52,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
     public String currentTask;
     public int percentDone;
     private List field_9010_p;
-    private List commands;
+    private List<ServerCommand> commands;
     public EntityTracker entityTracker;
     public boolean onlineMode;
     public boolean spawnPeacefulMobs;
@@ -385,17 +385,15 @@ public class MinecraftServer implements Runnable, ICommandListener {
         }
     }
 
-    public void addCommand(String s, ICommandListener icommandlistener)
-    {
+    public void addCommand(String s, ICommandListener icommandlistener) {
         commands.add(new ServerCommand(s, icommandlistener));
     }
 
-    public void commandLineParser()
-    {
+    public void commandLineParser() {
         ServerCommand servercommand;
         for(; commands.size() > 0; commandHandler.handleCommand(servercommand))
         {
-            servercommand = (ServerCommand)commands.remove(0);
+            servercommand = commands.remove(0);
         }
 
     }
@@ -405,7 +403,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
         field_9010_p.add(iupdateplayerlistbox);
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         try
         {

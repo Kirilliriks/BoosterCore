@@ -21,41 +21,41 @@ public class DataWatcher
         Integer integer = (Integer)dataTypes.get(obj.getClass());
         if(integer == null)
         {
-            throw new IllegalArgumentException((new StringBuilder()).append("Unknown data type: ").append(obj.getClass()).toString());
+            throw new IllegalArgumentException("Unknown data type: " + obj.getClass());
         }
         if(i > 31)
         {
-            throw new IllegalArgumentException((new StringBuilder()).append("Data value id is too big with ").append(i).append("! (Max is ").append(31).append(")").toString());
+            throw new IllegalArgumentException("Data value id is too big with " + i + "! (Max is " + 31 + ")");
         }
-        if(watchedObjects.containsKey(Integer.valueOf(i)))
+        if(watchedObjects.containsKey(i))
         {
-            throw new IllegalArgumentException((new StringBuilder()).append("Duplicate id value for ").append(i).append("!").toString());
+            throw new IllegalArgumentException("Duplicate id value for " + i + "!");
         } else
         {
-            WatchableObject watchableobject = new WatchableObject(integer.intValue(), i, obj);
-            watchedObjects.put(Integer.valueOf(i), watchableobject);
+            WatchableObject watchableobject = new WatchableObject(integer, i, obj);
+            watchedObjects.put(i, watchableobject);
             return;
         }
     }
 
     public byte getWatchableObjectByte(int i)
     {
-        return ((Byte)((WatchableObject)watchedObjects.get(Integer.valueOf(i))).getObject()).byteValue();
+        return (Byte) ((WatchableObject) watchedObjects.get(i)).getObject();
     }
 
     public int func_25075_b(int i)
     {
-        return ((Integer)((WatchableObject)watchedObjects.get(Integer.valueOf(i))).getObject()).intValue();
+        return (Integer) ((WatchableObject) watchedObjects.get(i)).getObject();
     }
 
     public String func_25076_c(int i)
     {
-        return (String)((WatchableObject)watchedObjects.get(Integer.valueOf(i))).getObject();
+        return (String)((WatchableObject)watchedObjects.get(i)).getObject();
     }
 
     public void updateObject(int i, Object obj)
     {
-        WatchableObject watchableobject = (WatchableObject)watchedObjects.get(Integer.valueOf(i));
+        WatchableObject watchableobject = (WatchableObject)watchedObjects.get(i);
         if(!obj.equals(watchableobject.getObject()))
         {
             watchableobject.setObject(obj);

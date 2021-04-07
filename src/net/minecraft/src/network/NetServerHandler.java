@@ -5,6 +5,9 @@ package net.minecraft.src.network;
 
 import java.util.*;
 import java.util.logging.Logger;
+
+import com.kirillirik.core.entity.BoosterEntity;
+import com.kirillirik.core.util.ChatColor;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.chunk.ChunkCoordinates;
@@ -30,8 +33,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
     private boolean hasMoved;
     private Map<Integer, Short> field_10_k;
 
-    public NetServerHandler(MinecraftServer minecraftserver, NetworkManager networkmanager, EntityPlayerMP entityplayermp)
-    {
+    public NetServerHandler(MinecraftServer minecraftserver, NetworkManager networkmanager, EntityPlayerMP entityplayermp) {
         connectionClosed = false;
         hasMoved = true;
         field_10_k = new HashMap<>();
@@ -42,45 +44,36 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
         entityplayermp.playerNetServerHandler = this;
     }
 
-    public void handlePackets()
-    {
+    public void handlePackets() {
         field_22003_h = false;
         netManager.processReadPackets();
-        if(field_15_f - field_22004_g > 20)
-        {
+        if(field_15_f - field_22004_g > 20) {
             sendPacket(new Packet0KeepAlive());
         }
     }
 
-    public void kickPlayer(String s)
-    {
+    public void kickPlayer(String s) {
         sendPacket(new ItemInWorldManager(s));
         netManager.serverShutdown();
-        mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat((new StringBuilder()).append("\247e").append(playerEntity.username).append(" left the game.").toString()));
+        mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat("\247e" + playerEntity.username + " left the game."));
         mcServer.configManager.playerLoggedOut(playerEntity);
         connectionClosed = true;
     }
 
-    public void handleMovementTypePacket(Packet27 packet27)
-    {
+    public void handleMovementTypePacket(Packet27 packet27) {
         playerEntity.setMovementType(packet27.func_22031_c(), packet27.func_22028_e(), packet27.func_22032_g(), packet27.func_22030_h(), packet27.func_22029_d(), packet27.func_22033_f());
     }
 
-    public void handleFlying(Packet10Flying packet10flying)
-    {
+    public void handleFlying(Packet10Flying packet10flying) {
         field_22003_h = true;
-        if(!hasMoved)
-        {
+        if(!hasMoved) {
             double d = packet10flying.yPosition - lastPosY;
-            if(packet10flying.xPosition == lastPosX && d * d < 0.01D && packet10flying.zPosition == lastPosZ)
-            {
+            if(packet10flying.xPosition == lastPosX && d * d < 0.01D && packet10flying.zPosition == lastPosZ) {
                 hasMoved = true;
             }
         }
-        if(hasMoved)
-        {
-            if(playerEntity.ridingEntity != null)
-            {
+        if(hasMoved) {
+            if(playerEntity.ridingEntity != null) {
                 float f = playerEntity.rotationYaw;
                 float f1 = playerEntity.rotationPitch;
                 playerEntity.ridingEntity.updateRiderPosition();
@@ -89,30 +82,32 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
                 double d6 = playerEntity.posZ;
                 double d8 = 0.0D;
                 double d9 = 0.0D;
-                if(packet10flying.rotating)
-                {
+
+                if(packet10flying.rotating) {
                     f = packet10flying.yaw;
                     f1 = packet10flying.pitch;
                 }
-                if(packet10flying.moving && packet10flying.yPosition == -999D && packet10flying.stance == -999D)
-                {
+
+                if(packet10flying.moving && packet10flying.yPosition == -999D && packet10flying.stance == -999D) {
                     d8 = packet10flying.xPosition;
                     d9 = packet10flying.zPosition;
                 }
+
                 playerEntity.onGround = packet10flying.onGround;
                 playerEntity.onUpdateEntity(true);
                 playerEntity.moveEntity(d8, 0.0D, d9);
                 playerEntity.setPositionAndRotation(d2, d4, d6, f, f1);
                 playerEntity.motionX = d8;
                 playerEntity.motionZ = d9;
-                if(playerEntity.ridingEntity != null)
-                {
+
+                if(playerEntity.ridingEntity != null) {
                     mcServer.worldManager.func_12017_b(playerEntity.ridingEntity, true);
                 }
-                if(playerEntity.ridingEntity != null)
-                {
+
+                if(playerEntity.ridingEntity != null) {
                     playerEntity.ridingEntity.updateRiderPosition();
                 }
+
                 mcServer.configManager.func_613_b(playerEntity);
                 lastPosX = playerEntity.posX;
                 lastPosY = playerEntity.posY;
@@ -120,6 +115,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
                 mcServer.worldManager.updateEntity(playerEntity);
                 return;
             }
+
             double d1 = playerEntity.posY;
             lastPosX = playerEntity.posX;
             lastPosY = playerEntity.posY;
@@ -129,12 +125,12 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             double d7 = playerEntity.posZ;
             float f2 = playerEntity.rotationYaw;
             float f3 = playerEntity.rotationPitch;
-            if(packet10flying.moving && packet10flying.yPosition == -999D && packet10flying.stance == -999D)
-            {
+
+            if(packet10flying.moving && packet10flying.yPosition == -999D && packet10flying.stance == -999D) {
                 packet10flying.moving = false;
             }
-            if(packet10flying.moving)
-            {
+
+            if(packet10flying.moving) {
                 d3 = packet10flying.xPosition;
                 d5 = packet10flying.yPosition;
                 d7 = packet10flying.zPosition;
@@ -142,17 +138,19 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
                 if(d10 > 1.6499999999999999D || d10 < 0.10000000000000001D)
                 {
                     kickPlayer("Illegal stance");
-                    logger.warning((new StringBuilder()).append(playerEntity.username).append(" had an illegal stance: ").append(d10).toString());
+                    logger.warning(playerEntity.username + " had an illegal stance: " + d10);
                 }
             }
-            if(packet10flying.rotating)
-            {
+
+            if(packet10flying.rotating) {
                 f2 = packet10flying.yaw;
                 f3 = packet10flying.pitch;
             }
+
             playerEntity.onUpdateEntity(true);
             playerEntity.ySize = 0.0F;
             playerEntity.setPositionAndRotation(lastPosX, lastPosY, lastPosZ, f2, f3);
+
             double d11 = d3 - playerEntity.posX;
             double d12 = d5 - playerEntity.posY;
             double d13 = d7 - playerEntity.posZ;
@@ -161,24 +159,26 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             playerEntity.moveEntity(d11, d12, d13);
             d11 = d3 - playerEntity.posX;
             d12 = d5 - playerEntity.posY;
-            if(d12 > -0.5D || d12 < 0.5D)
-            {
+
+            if(d12 > -0.5D || d12 < 0.5D) {
                 d12 = 0.0D;
             }
+
             d13 = d7 - playerEntity.posZ;
             double d14 = d11 * d11 + d12 * d12 + d13 * d13;
             boolean flag1 = false;
-            if(d14 > 0.0625D && !playerEntity.isPlayerSleeping())
-            {
+
+            if(d14 > 0.0625D && !playerEntity.isPlayerSleeping()) {
                 flag1 = true;
-                logger.warning((new StringBuilder()).append(playerEntity.username).append(" moved wrongly!").toString());
-                System.out.println((new StringBuilder()).append("Got position ").append(d3).append(", ").append(d5).append(", ").append(d7).toString());
-                System.out.println((new StringBuilder()).append("Expected ").append(playerEntity.posX).append(", ").append(playerEntity.posY).append(", ").append(playerEntity.posZ).toString());
+                logger.warning(playerEntity.username + " moved wrongly!");
+                System.out.println("Got position " + d3 + ", " + d5 + ", " + d7);
+                System.out.println("Expected " + playerEntity.posX + ", " + playerEntity.posY + ", " + playerEntity.posZ);
             }
+
             playerEntity.setPositionAndRotation(d3, d5, d7, f2, f3);
             boolean flag2 = mcServer.worldManager.getCollidingBoundingBoxes(playerEntity, playerEntity.boundingBox.copy().func_694_e(f4, f4, f4)).size() == 0;
-            if(flag && (flag1 || !flag2) && !playerEntity.isPlayerSleeping())
-            {
+
+            if(flag && (flag1 || !flag2) && !playerEntity.isPlayerSleeping()) {
                 teleportTo(lastPosX, lastPosY, lastPosZ, f2, f3);
                 return;
             }
@@ -335,15 +335,15 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
 
     public void handleErrorMessage(String s, Object aobj[])
     {
-        logger.info((new StringBuilder()).append(playerEntity.username).append(" lost connection: ").append(s).toString());
-        mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat((new StringBuilder()).append("\247e").append(playerEntity.username).append(" left the game.").toString()));
+        logger.info(playerEntity.username + " lost connection: " + s);
+        mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat("\247e" + playerEntity.username + " left the game."));
         mcServer.configManager.playerLoggedOut(playerEntity);
         connectionClosed = true;
     }
 
     public void registerPacket(Packet packet)
     {
-        logger.warning((new StringBuilder()).append(getClass()).append(" wasn't prepared to deal with a ").append(packet.getClass()).toString());
+        logger.warning(getClass() + " wasn't prepared to deal with a " + packet.getClass());
         kickPlayer("Protocol error, unexpected packet");
     }
 
@@ -357,7 +357,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
     {
         if(packet16blockitemswitch.id < 0 || packet16blockitemswitch.id > InventoryPlayer.func_25054_e())
         {
-            logger.warning((new StringBuilder()).append(playerEntity.username).append(" tried to set an invalid carried item").toString());
+            logger.warning(playerEntity.username + " tried to set an invalid carried item");
             return;
         } else
         {
@@ -384,58 +384,51 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             }
         }
 
-        if(s.startsWith("/"))
-        {
+        if(s.startsWith("/")) {
             handleSlashCommand(s);
-        } else
-        {
-            s = (new StringBuilder()).append("<").append(playerEntity.username).append("> ").append(s).toString();
+        } else {
+            s = "<" + playerEntity.username + "> " + s;
             logger.info(s);
             mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat(s));
         }
     }
 
-    private void handleSlashCommand(String s)
-    {
-        if(s.toLowerCase().startsWith("/me "))
-        {
-            s = (new StringBuilder()).append("* ").append(playerEntity.username).append(" ").append(s.substring(s.indexOf(" ")).trim()).toString();
+    private void handleSlashCommand(String s) {
+        // Booster
+        BoosterEntity boosterEntity = playerEntity.getBoosterEntity();
+        if(s.toLowerCase().startsWith("/hello")) {
+            mcServer.configManager.sendChatMessageToPlayer(playerEntity.username, ChatColor.LightRed + "Cool!");
+        }
+        //
+
+        if(s.toLowerCase().startsWith("/me ")) {
+            s = "* " + playerEntity.username + " " + s.substring(s.indexOf(" ")).trim();
             logger.info(s);
             mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat(s));
-        } else
-        if(s.toLowerCase().startsWith("/kill"))
-        {
+        } else if(s.toLowerCase().startsWith("/kill")) {
             playerEntity.attackEntityFrom(null, 1000);
-        } else
-        if(s.toLowerCase().startsWith("/tell "))
-        {
+        } else if(s.toLowerCase().startsWith("/tell ")) {
             String as[] = s.split(" ");
-            if(as.length >= 3)
-            {
+            if(as.length >= 3) {
                 s = s.substring(s.indexOf(" ")).trim();
                 s = s.substring(s.indexOf(" ")).trim();
                 s = (new StringBuilder()).append("\2477").append(playerEntity.username).append(" whispers ").append(s).toString();
                 logger.info((new StringBuilder()).append(s).append(" to ").append(as[1]).toString());
-                if(!mcServer.configManager.sendPacketToPlayer(as[1], new Packet3Chat(s)))
-                {
+                if(!mcServer.configManager.sendPacketToPlayer(as[1], new Packet3Chat(s))) {
                     sendPacket(new Packet3Chat("\247cThere's no player by that name online."));
                 }
             }
-        } else
-        if(mcServer.configManager.isOp(playerEntity.username))
-        {
+        } else if(mcServer.configManager.isOp(playerEntity.username)) {
             String s1 = s.substring(1);
             logger.info((new StringBuilder()).append(playerEntity.username).append(" issued server command: ").append(s1).toString());
             mcServer.addCommand(s1, this);
-        } else
-        {
+        } else {
             String s2 = s.substring(1);
             logger.info((new StringBuilder()).append(playerEntity.username).append(" tried command: ").append(s2).toString());
         }
     }
 
-    public void handleArmAnimation(Packet18ArmAnimation packet18armanimation)
-    {
+    public void handleArmAnimation(Packet18ArmAnimation packet18armanimation) {
         if(packet18armanimation.animate == 1)
         {
             playerEntity.swingItem();

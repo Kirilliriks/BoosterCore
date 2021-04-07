@@ -123,7 +123,7 @@ public class ServerConfigurationManager {
         }
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)playerEntities.get(i);
+            EntityPlayerMP entityplayermp = playerEntities.get(i);
             if(entityplayermp.username.equalsIgnoreCase(s))
             {
                 entityplayermp.playerNetServerHandler.kickPlayer("You logged in from another location");
@@ -446,7 +446,7 @@ public class ServerConfigurationManager {
         Packet3Chat packet3chat = new Packet3Chat(s);
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)playerEntities.get(i);
+            EntityPlayerMP entityplayermp = playerEntities.get(i);
             if(isOp(entityplayermp.username))
             {
                 entityplayermp.playerNetServerHandler.sendPacket(packet3chat);

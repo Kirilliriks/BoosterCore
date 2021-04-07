@@ -21,8 +21,7 @@ public class ConsoleCommandHandler
         minecraftServer = minecraftserver;
     }
 
-    public void handleCommand(ServerCommand servercommand)
-    {
+    public void handleCommand(ServerCommand servercommand) {
         String s = servercommand.command;
         ICommandListener icommandlistener = servercommand.commandListener;
         String s1 = icommandlistener.getUsername();
@@ -34,7 +33,7 @@ public class ConsoleCommandHandler
         } else
         if(s.toLowerCase().startsWith("list"))
         {
-            icommandlistener.log((new StringBuilder()).append("Connected players: ").append(serverConfigurationManager.getPlayerList()).toString());
+            icommandlistener.log("Connected players: " + serverConfigurationManager.getPlayerList());
         } else
         if(s.toLowerCase().startsWith("stop"))
         {
@@ -61,7 +60,7 @@ public class ConsoleCommandHandler
         {
             String s2 = s.substring(s.indexOf(" ")).trim();
             serverConfigurationManager.opPlayer(s2);
-            broadcast(s1, (new StringBuilder()).append("Opping ").append(s2).toString());
+            broadcast(s1, "Opping " + s2);
             serverConfigurationManager.sendChatMessageToPlayer(s2, "\247eYou are now op!");
         } else
         if(s.toLowerCase().startsWith("deop "))
@@ -106,7 +105,7 @@ public class ConsoleCommandHandler
             EntityPlayerMP entityplayermp1 = null;
             for(int i = 0; i < serverConfigurationManager.playerEntities.size(); i++)
             {
-                EntityPlayerMP entityplayermp5 = (EntityPlayerMP)serverConfigurationManager.playerEntities.get(i);
+                EntityPlayerMP entityplayermp5 = serverConfigurationManager.playerEntities.get(i);
                 if(entityplayermp5.username.equalsIgnoreCase(s8))
                 {
                     entityplayermp1 = entityplayermp5;
