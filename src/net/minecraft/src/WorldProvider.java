@@ -7,8 +7,7 @@ import net.minecraft.src.nbt.NBTBase;
 
 import java.io.*;
 
-public class WorldProvider extends NBTBase
-{
+public class WorldProvider extends NBTBase {
 
     public WorldProvider()
     {
@@ -26,7 +25,7 @@ public class WorldProvider extends NBTBase
         }
     }
 
-    void writeTagContents(DataOutput dataoutput)
+    public void writeTagContents(DataOutput dataoutput)
     {
         try {
             dataoutput.writeUTF(worldObj);
@@ -35,7 +34,7 @@ public class WorldProvider extends NBTBase
         }
     }
 
-    void readTagContents(DataInput datainput)
+    public void readTagContents(DataInput datainput)
     {
         try {
             worldObj = datainput.readUTF();

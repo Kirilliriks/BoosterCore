@@ -17,12 +17,12 @@ public class NBTTagLong extends NBTBase
         longValue = l;
     }
 
-    void writeTagContents(DataOutput dataoutput) throws IOException
+    public void writeTagContents(DataOutput dataoutput) throws IOException
     {
         dataoutput.writeLong(longValue);
     }
 
-    void readTagContents(DataInput datainput) throws IOException
+    public void readTagContents(DataInput datainput) throws IOException
     {
         longValue = datainput.readLong();
     }

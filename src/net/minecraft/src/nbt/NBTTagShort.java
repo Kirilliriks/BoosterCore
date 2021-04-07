@@ -17,12 +17,12 @@ public class NBTTagShort extends NBTBase
         shortValue = word0;
     }
 
-    void writeTagContents(DataOutput dataoutput) throws IOException
+    public void writeTagContents(DataOutput dataoutput) throws IOException
     {
         dataoutput.writeShort(shortValue);
     }
 
-    void readTagContents(DataInput datainput) throws IOException
+    public void readTagContents(DataInput datainput) throws IOException
     {
         shortValue = datainput.readShort();
     }

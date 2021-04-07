@@ -16,7 +16,7 @@ public class NBTTagCompound extends NBTBase
         tagMap = new HashMap();
     }
 
-    void writeTagContents(DataOutput dataoutput) throws IOException
+    public void writeTagContents(DataOutput dataoutput) throws IOException
     {
         NBTBase nbtbase;
         for(Iterator iterator = tagMap.values().iterator(); iterator.hasNext(); NBTBase.writeTag(nbtbase, dataoutput))
@@ -27,7 +27,7 @@ public class NBTTagCompound extends NBTBase
         dataoutput.writeByte(0);
     }
 
-    void readTagContents(DataInput datainput) throws IOException
+    public void readTagContents(DataInput datainput) throws IOException
     {
         tagMap.clear();
         NBTBase nbtbase;

@@ -17,12 +17,12 @@ public class NBTTagInt extends NBTBase
         intValue = i;
     }
 
-    void writeTagContents(DataOutput dataoutput) throws IOException
+    public void writeTagContents(DataOutput dataoutput) throws IOException
     {
         dataoutput.writeInt(intValue);
     }
 
-    void readTagContents(DataInput datainput) throws IOException
+    public void readTagContents(DataInput datainput) throws IOException
     {
         intValue = datainput.readInt();
     }

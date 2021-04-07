@@ -17,12 +17,12 @@ public class NBTTagDouble extends NBTBase
         doubleValue = d;
     }
 
-    void writeTagContents(DataOutput dataoutput) throws IOException
+    public void writeTagContents(DataOutput dataoutput) throws IOException
     {
         dataoutput.writeDouble(doubleValue);
     }
 
-    void readTagContents(DataInput datainput) throws IOException
+    public void readTagContents(DataInput datainput) throws IOException
     {
         doubleValue = datainput.readDouble();
     }

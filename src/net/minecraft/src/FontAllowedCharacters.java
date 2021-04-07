@@ -5,6 +5,7 @@ package net.minecraft.src;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class FontAllowedCharacters
 {
@@ -18,7 +19,7 @@ public class FontAllowedCharacters
         String s = "";
         try
         {
-            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((FontAllowedCharacters.class).getResourceAsStream("/font.txt"), "UTF-8"));
+            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((FontAllowedCharacters.class).getResourceAsStream("/font.txt"), StandardCharsets.UTF_8));
             String s1 = "";
             do
             {
@@ -33,8 +34,7 @@ public class FontAllowedCharacters
                 }
             } while(true);
             bufferedreader.close();
-        }
-        catch(Exception exception) { }
+        } catch(Exception exception) { }
         return s;
     }
 

@@ -24,7 +24,7 @@ import net.minecraft.src.packet.Packet9;
 public class ServerConfigurationManager {
 
     public static Logger logger = Logger.getLogger("Minecraft");
-    public List playerEntities;
+    public List<EntityPlayerMP> playerEntities;
     private MinecraftServer mcServer;
     private ISaveHandler playerManagerObj;
     private int maxPlayers;
@@ -73,14 +73,14 @@ public class ServerConfigurationManager {
         return playerManagerObj.func_26687_b();
     }
 
-    public void playerLoggedIn(EntityPlayerMP entityplayermp)
+    public void playerLoggedIn(EntityPlayerMP entityPlayerMP)
     {
-        playerEntities.add(entityplayermp);
-        playerNBTManagerObj.readPlayerData(entityplayermp);
-        mcServer.worldManager.chunkProvider.loadChunk((int)entityplayermp.posX >> 4, (int)entityplayermp.posZ >> 4);
-        for(; mcServer.worldManager.getCollidingBoundingBoxes(entityplayermp, entityplayermp.boundingBox).size() != 0; entityplayermp.setPosition(entityplayermp.posX, entityplayermp.posY + 1.0D, entityplayermp.posZ)) { }
-        mcServer.worldManager.entityJoinedWorld(entityplayermp);
-        playerManagerObj.func_26682_a(entityplayermp);
+        playerEntities.add(entityPlayerMP);
+        playerNBTManagerObj.readPlayerData(entityPlayerMP);
+        mcServer.worldManager.chunkProvider.loadChunk((int)entityPlayerMP.posX >> 4, (int)entityPlayerMP.posZ >> 4);
+        for(; mcServer.worldManager.getCollidingBoundingBoxes(entityPlayerMP, entityPlayerMP.boundingBox).size() != 0; entityPlayerMP.setPosition(entityPlayerMP.posX, entityPlayerMP.posY + 1.0D, entityPlayerMP.posZ)) { }
+        mcServer.worldManager.entityJoinedWorld(entityPlayerMP);
+        playerManagerObj.func_26682_a(entityPlayerMP);
     }
 
     public void func_613_b(EntityPlayerMP entityplayermp)

@@ -17,12 +17,12 @@ public class NBTTagByte extends NBTBase
         byteValue = byte0;
     }
 
-    void writeTagContents(DataOutput dataoutput) throws IOException
+    public void writeTagContents(DataOutput dataoutput) throws IOException
     {
         dataoutput.writeByte(byteValue);
     }
 
-    void readTagContents(DataInput datainput) throws IOException
+    public void readTagContents(DataInput datainput) throws IOException
     {
         byteValue = datainput.readByte();
     }

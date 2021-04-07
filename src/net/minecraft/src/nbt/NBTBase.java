@@ -15,9 +15,9 @@ public abstract class NBTBase
         key = null;
     }
 
-    abstract void writeTagContents(DataOutput dataoutput) throws IOException;
+    public abstract void writeTagContents(DataOutput dataoutput) throws IOException;
 
-    abstract void readTagContents(DataInput datainput) throws IOException;
+    public abstract void readTagContents(DataInput datainput) throws IOException;
 
     public abstract byte getType();
 
