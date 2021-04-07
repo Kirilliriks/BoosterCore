@@ -3,7 +3,8 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.lang.reflect.Constructor;
+import net.minecraft.src.block.BlockBed;
+
 import java.util.*;
 
 public final class SpawnerAnimals

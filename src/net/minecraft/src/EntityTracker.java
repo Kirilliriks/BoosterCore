@@ -106,7 +106,7 @@ public class EntityTracker
             EntityTrackerEntry entitytrackerentry = new EntityTrackerEntry(entity, i, j, flag);
             trackedEntitySet.add(entitytrackerentry);
             trackedEntityHashTable.addKey(entity.entityId, entitytrackerentry);
-            entitytrackerentry.updatePlayerEntities(mcServer.worldMngr.playerEntities);
+            entitytrackerentry.updatePlayerEntities(mcServer.worldManager.playerEntities);
             return;
         }
     }
@@ -142,7 +142,7 @@ public class EntityTracker
                 break;
             }
             EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry)iterator.next();
-            entitytrackerentry.updatePlayerList(mcServer.worldMngr.playerEntities);
+            entitytrackerentry.updatePlayerList(mcServer.worldManager.playerEntities);
             if(entitytrackerentry.playerEntitiesUpdated && (entitytrackerentry.trackedEntity instanceof EntityPlayerMP))
             {
                 arraylist.add((EntityPlayerMP)entitytrackerentry.trackedEntity);

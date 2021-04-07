@@ -3,6 +3,8 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.network.NetHandler;
+
 import java.io.*;
 
 public class Packet130 extends Packet

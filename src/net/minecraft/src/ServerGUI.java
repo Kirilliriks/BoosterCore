@@ -10,6 +10,7 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.block.BlockSnowBlock;
 
 public class ServerGUI extends JComponent
     implements ICommandListener

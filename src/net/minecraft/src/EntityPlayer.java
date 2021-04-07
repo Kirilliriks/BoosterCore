@@ -3,6 +3,9 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.block.Block;
+import net.minecraft.src.block.BlockBed;
+
 import java.util.*;
 
 public abstract class EntityPlayer extends EntityLiving

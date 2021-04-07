@@ -7,6 +7,8 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.Logger;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.block.BlockFire;
+import net.minecraft.src.network.NetLoginHandler;
 
 public class ServerConfigurationManager
 {
@@ -50,9 +52,9 @@ public class ServerConfigurationManager
     {
         playerEntities.add(entityplayermp);
         playerNBTManagerObj.readPlayerData(entityplayermp);
-        mcServer.worldMngr.chunkProvider.loadChunk((int)entityplayermp.posX >> 4, (int)entityplayermp.posZ >> 4);
-        for(; mcServer.worldMngr.getCollidingBoundingBoxes(entityplayermp, entityplayermp.boundingBox).size() != 0; entityplayermp.setPosition(entityplayermp.posX, entityplayermp.posY + 1.0D, entityplayermp.posZ)) { }
-        mcServer.worldMngr.entityJoinedWorld(entityplayermp);
+        mcServer.worldManager.chunkProvider.loadChunk((int)entityplayermp.posX >> 4, (int)entityplayermp.posZ >> 4);
+        for(; mcServer.worldManager.getCollidingBoundingBoxes(entityplayermp, entityplayermp.boundingBox).size() != 0; entityplayermp.setPosition(entityplayermp.posX, entityplayermp.posY + 1.0D, entityplayermp.posZ)) { }
+        mcServer.worldManager.entityJoinedWorld(entityplayermp);
         playerManagerObj.func_26682_a(entityplayermp);
     }
 
@@ -64,7 +66,7 @@ public class ServerConfigurationManager
     public void playerLoggedOut(EntityPlayerMP entityplayermp)
     {
         playerNBTManagerObj.writePlayerData(entityplayermp);
-        mcServer.worldMngr.func_22085_d(entityplayermp);
+        mcServer.worldManager.func_22085_d(entityplayermp);
         playerEntities.remove(entityplayermp);
         playerManagerObj.func_26681_b(entityplayermp);
     }
@@ -103,7 +105,7 @@ public class ServerConfigurationManager
             }
         }
 
-        return new EntityPlayerMP(mcServer, mcServer.worldMngr, s, new BlockFire(mcServer.worldMngr));
+        return new EntityPlayerMP(mcServer, mcServer.worldManager, s, new BlockFire(mcServer.worldManager));
     }
 
     public EntityPlayerMP recreatePlayerEntity(EntityPlayerMP entityplayermp)
@@ -112,14 +114,14 @@ public class ServerConfigurationManager
         mcServer.entityTracker.untrackEntity(entityplayermp);
         playerManagerObj.func_26681_b(entityplayermp);
         playerEntities.remove(entityplayermp);
-        mcServer.worldMngr.removePlayer(entityplayermp);
+        mcServer.worldManager.removePlayer(entityplayermp);
         ChunkCoordinates chunkcoordinates = entityplayermp.func_25049_H();
-        EntityPlayerMP entityplayermp1 = new EntityPlayerMP(mcServer, mcServer.worldMngr, entityplayermp.username, new BlockFire(mcServer.worldMngr));
+        EntityPlayerMP entityplayermp1 = new EntityPlayerMP(mcServer, mcServer.worldManager, entityplayermp.username, new BlockFire(mcServer.worldManager));
         entityplayermp1.entityId = entityplayermp.entityId;
         entityplayermp1.playerNetServerHandler = entityplayermp.playerNetServerHandler;
         if(chunkcoordinates != null)
         {
-            ChunkCoordinates chunkcoordinates1 = EntityPlayer.func_25051_a(mcServer.worldMngr, chunkcoordinates);
+            ChunkCoordinates chunkcoordinates1 = EntityPlayer.func_25051_a(mcServer.worldManager, chunkcoordinates);
             if(chunkcoordinates1 != null)
             {
                 entityplayermp1.setLocationAndAngles((float)chunkcoordinates1.posX + 0.5F, (float)chunkcoordinates1.posY + 0.1F, (float)chunkcoordinates1.posZ + 0.5F, 0.0F, 0.0F);
@@ -129,12 +131,12 @@ public class ServerConfigurationManager
                 entityplayermp1.playerNetServerHandler.sendPacket(new Packet70(0));
             }
         }
-        mcServer.worldMngr.chunkProvider.loadChunk((int)entityplayermp1.posX >> 4, (int)entityplayermp1.posZ >> 4);
-        for(; mcServer.worldMngr.getCollidingBoundingBoxes(entityplayermp1, entityplayermp1.boundingBox).size() != 0; entityplayermp1.setPosition(entityplayermp1.posX, entityplayermp1.posY + 1.0D, entityplayermp1.posZ)) { }
+        mcServer.worldManager.chunkProvider.loadChunk((int)entityplayermp1.posX >> 4, (int)entityplayermp1.posZ >> 4);
+        for(; mcServer.worldManager.getCollidingBoundingBoxes(entityplayermp1, entityplayermp1.boundingBox).size() != 0; entityplayermp1.setPosition(entityplayermp1.posX, entityplayermp1.posY + 1.0D, entityplayermp1.posZ)) { }
         entityplayermp1.playerNetServerHandler.sendPacket(new Packet9());
         entityplayermp1.playerNetServerHandler.teleportTo(entityplayermp1.posX, entityplayermp1.posY, entityplayermp1.posZ, entityplayermp1.rotationYaw, entityplayermp1.rotationPitch);
         playerManagerObj.func_26682_a(entityplayermp1);
-        mcServer.worldMngr.entityJoinedWorld(entityplayermp1);
+        mcServer.worldManager.entityJoinedWorld(entityplayermp1);
         playerEntities.add(entityplayermp1);
         entityplayermp1.func_20057_k();
         entityplayermp1.func_22068_s();

@@ -6,7 +6,6 @@ package net.minecraft.server;
 
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.ChunkCoordinates;
-import net.minecraft.src.ChunkProviderServer;
 import net.minecraft.src.ConsoleCommandHandler;
 import net.minecraft.src.ConsoleLogManager;
 import net.minecraft.src.ConvertProgressUpdater;
@@ -14,7 +13,7 @@ import net.minecraft.src.EntityTracker;
 import net.minecraft.src.ICommandListener;
 import net.minecraft.src.ISaveFormat;
 import net.minecraft.src.IUpdatePlayerListBox;
-import net.minecraft.src.NetworkListenThread;
+import net.minecraft.src.network.NetworkListenThread;
 import net.minecraft.src.Packet4UpdateTime;
 import net.minecraft.src.PropertyManager;
 import net.minecraft.src.SaveConverterMcRegion;
@@ -33,21 +32,32 @@ import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MinecraftServer
-    implements Runnable, ICommandListener
-{
+public class MinecraftServer implements Runnable, ICommandListener {
 
-    public MinecraftServer()
-    {
+    public static Logger logger = Logger.getLogger("Minecraft");
+    public static HashMap field_6037_b = new HashMap();
+    public NetworkListenThread networkServer;
+    public PropertyManager propertyManagerObj;
+    public WorldServer worldManager;
+    public ServerConfigurationManager configManager;
+    private ConsoleCommandHandler commandHandler;
+    private boolean serverRunning;
+    public boolean serverStopped;
+    int deathTime;
+    public String currentTask;
+    public int percentDone;
+    private List field_9010_p;
+    private List commands;
+    public EntityTracker entityTracker;
+    public boolean onlineMode;
+    public boolean spawnPeacefulMobs;
+    public boolean pvpOn;
+
+    public MinecraftServer() {
         serverRunning = true;
         serverStopped = false;
         deathTime = 0;
@@ -56,8 +66,7 @@ public class MinecraftServer
         new ThreadSleepForever(this);
     }
 
-    private boolean startServer() throws UnknownHostException
-    {
+    private boolean startServer() throws UnknownHostException {
         commandHandler = new ConsoleCommandHandler(this);
         ThreadCommandReader threadcommandreader = new ThreadCommandReader(this);
         threadcommandreader.setDaemon(true);
@@ -131,14 +140,14 @@ public class MinecraftServer
             isaveformat.func_26729_a(s, new ConvertProgressUpdater(this));
         }
         logger.info("Preparing start region");
-        worldMngr = new WorldServer(this, new SaveOldDir(new File("."), s, true), s, propertyManagerObj.getBooleanProperty("hellworld", false) ? -1 : 0, l);
-        worldMngr.addWorldAccess(new WorldManager(this));
-        worldMngr.difficultySetting = propertyManagerObj.getBooleanProperty("spawn-monsters", true) ? 1 : 0;
-        worldMngr.setAllowedSpawnTypes(propertyManagerObj.getBooleanProperty("spawn-monsters", true), spawnPeacefulMobs);
-        configManager.setPlayerManager(worldMngr);
+        worldManager = new WorldServer(this, new SaveOldDir(new File("."), s, true), s, propertyManagerObj.getBooleanProperty("hellworld", false) ? -1 : 0, l);
+        worldManager.addWorldAccess(new WorldManager(this));
+        worldManager.difficultySetting = propertyManagerObj.getBooleanProperty("spawn-monsters", true) ? 1 : 0;
+        worldManager.setAllowedSpawnTypes(propertyManagerObj.getBooleanProperty("spawn-monsters", true), spawnPeacefulMobs);
+        configManager.setPlayerManager(worldManager);
         char c = '\304';
         long l1 = System.currentTimeMillis();
-        ChunkCoordinates chunkcoordinates = worldMngr.getSpawnPoint();
+        ChunkCoordinates chunkcoordinates = worldManager.getSpawnPoint();
         for(int i = -c; i <= c && serverRunning; i += 16)
         {
             for(int j = -c; j <= c && serverRunning; j += 16)
@@ -155,8 +164,8 @@ public class MinecraftServer
                     outputPercentRemaining("Preparing spawn area", (i1 * 100) / k);
                     l1 = l2;
                 }
-                worldMngr.chunkProvider.loadChunk(chunkcoordinates.posX + i >> 4, chunkcoordinates.posZ + j >> 4);
-                while(worldMngr.func_6156_d() && serverRunning) ;
+                worldManager.chunkProvider.loadChunk(chunkcoordinates.posX + i >> 4, chunkcoordinates.posZ + j >> 4);
+                while(worldManager.func_6156_d() && serverRunning) ;
             }
 
         }
@@ -180,8 +189,8 @@ public class MinecraftServer
     private void saveServerWorld()
     {
         logger.info("Saving chunks");
-        worldMngr.func_26660_a(true, null);
-        worldMngr.func_22088_r();
+        worldManager.func_26660_a(true, null);
+        worldManager.func_22088_r();
     }
 
     private void stopServer()
@@ -191,7 +200,7 @@ public class MinecraftServer
         {
             configManager.savePlayerStates();
         }
-        if(worldMngr != null)
+        if(worldManager != null)
         {
             saveServerWorld();
         }
@@ -226,7 +235,7 @@ public class MinecraftServer
                     }
                     l1 += l3;
                     l = l2;
-                    if(worldMngr.isAllPlayersFullyAsleep())
+                    if(worldManager.isAllPlayersFullyAsleep())
                     {
                         doTick();
                         l1 = 0L;
@@ -345,11 +354,11 @@ public class MinecraftServer
         deathTime++;
         if(deathTime % 20 == 0)
         {
-            configManager.sendPacketToAllPlayers(new Packet4UpdateTime(worldMngr.getWorldTime()));
+            configManager.sendPacketToAllPlayers(new Packet4UpdateTime(worldManager.getWorldTime()));
         }
-        worldMngr.tick();
-        while(worldMngr.func_6156_d()) ;
-        worldMngr.updateEntities();
+        worldManager.tick();
+        while(worldManager.func_6156_d()) ;
+        worldManager.updateEntities();
         networkServer.func_715_a();
         configManager.onTick();
         entityTracker.updateTrackedEntities();
@@ -429,24 +438,4 @@ public class MinecraftServer
     {
         return minecraftserver.serverRunning;
     }
-
-    public static Logger logger = Logger.getLogger("Minecraft");
-    public static HashMap field_6037_b = new HashMap();
-    public NetworkListenThread networkServer;
-    public PropertyManager propertyManagerObj;
-    public WorldServer worldMngr;
-    public ServerConfigurationManager configManager;
-    private ConsoleCommandHandler commandHandler;
-    private boolean serverRunning;
-    public boolean serverStopped;
-    int deathTime;
-    public String currentTask;
-    public int percentDone;
-    private java.util.List field_9010_p;
-    private java.util.List commands;
-    public EntityTracker entityTracker;
-    public boolean onlineMode;
-    public boolean spawnPeacefulMobs;
-    public boolean pvpOn;
-
 }

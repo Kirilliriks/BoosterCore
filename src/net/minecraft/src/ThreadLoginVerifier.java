@@ -3,15 +3,17 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.network.NetLoginHandler;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
 
-class ThreadLoginVerifier extends Thread
+public class ThreadLoginVerifier extends Thread
 {
 
-    ThreadLoginVerifier(NetLoginHandler netloginhandler, Packet1Login packet1login)
+    public ThreadLoginVerifier(NetLoginHandler netloginhandler, Packet1Login packet1login)
     {
         loginHandler = netloginhandler;
         loginPacket = packet1login;

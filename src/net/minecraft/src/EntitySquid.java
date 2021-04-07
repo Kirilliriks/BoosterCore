@@ -4,7 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-class EntitySquid
+public class EntitySquid
 {
 
     public EntitySquid(int i, int j, int k, long l)
@@ -15,8 +15,8 @@ class EntitySquid
         field_26659_d = l;
     }
 
-    int field_21063_a;
-    int field_21062_b;
-    int field_21061_c;
-    long field_26659_d;
+    public int field_21063_a;
+    public int field_21062_b;
+    public int field_21061_c;
+    public long field_26659_d;
 }

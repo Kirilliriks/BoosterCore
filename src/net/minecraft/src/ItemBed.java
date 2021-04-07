@@ -4,6 +4,9 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.block.Block;
+import net.minecraft.src.block.BlockBed;
+
 public class ItemBed extends Item
 {
 
@@ -19,7 +22,7 @@ public class ItemBed extends Item
             return false;
         }
         j++;
-        BlockBed blockbed = (BlockBed)Block.bed;
+        BlockBed blockbed = (BlockBed) Block.bed;
         int i1 = MathHelper.floor_double((double)((entityplayer.rotationYaw * 4F) / 360F) + 0.5D) & 3;
         byte byte0 = 0;
         byte byte1 = 0;

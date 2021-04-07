@@ -3,9 +3,9 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.io.PrintStream;
 import java.util.*;
-import net.minecraft.server.MinecraftServer;
+
+import net.minecraft.src.block.Block;
 
 class PlayerInstance
 {
@@ -20,7 +20,7 @@ class PlayerInstance
         chunkX = i;
         chunkY = j;
         currentChunk = new SlotCrafting(i, j);
-        ISaveHandler.func_26686_a(isavehandler).worldMngr.chunkProvider.loadChunk(i, j);
+        ISaveHandler.func_26686_a(isavehandler).worldManager.chunkProvider.loadChunk(i, j);
     }
 
     public void addPlayer(EntityPlayerMP entityplayermp)
@@ -54,7 +54,7 @@ class PlayerInstance
             {
                 ISaveHandler.func_26690_c(playerManager).remove(this);
             }
-            ISaveHandler.func_26686_a(playerManager).worldMngr.chunkProvider.func_374_c(chunkX, chunkY);
+            ISaveHandler.func_26686_a(playerManager).worldManager.chunkProvider.func_374_c(chunkX, chunkY);
         }
         entityplayermp.loadedChunks.remove(currentChunk);
         if(entityplayermp.field_420_ah.contains(currentChunk))
@@ -135,10 +135,10 @@ class PlayerInstance
             int i = chunkX * 16 + minX;
             int l = minY;
             int k1 = chunkY * 16 + minZ;
-            sendPacketToPlayersInInstance(new Packet53BlockChange(i, l, k1, ISaveHandler.func_26686_a(playerManager).worldMngr));
-            if(Block.isBlockContainer[ISaveHandler.func_26686_a(playerManager).worldMngr.getBlockId(i, l, k1)])
+            sendPacketToPlayersInInstance(new Packet53BlockChange(i, l, k1, ISaveHandler.func_26686_a(playerManager).worldManager));
+            if(Block.isBlockContainer[ISaveHandler.func_26686_a(playerManager).worldManager.getBlockId(i, l, k1)])
             {
-                updateTileEntity(ISaveHandler.func_26686_a(playerManager).worldMngr.getBlockTileEntity(i, l, k1));
+                updateTileEntity(ISaveHandler.func_26686_a(playerManager).worldManager.getBlockTileEntity(i, l, k1));
             }
         } else
         if(numBlocksToUpdate == 10)
@@ -151,8 +151,8 @@ class PlayerInstance
             int j2 = (maxX - minX) + 1;
             int l2 = (maxY - minY) + 2;
             int i3 = (maxZ - minZ) + 1;
-            sendPacketToPlayersInInstance(new Packet51MapChunk(j, i1, l1, j2, l2, i3, ISaveHandler.func_26686_a(playerManager).worldMngr));
-            List list = ISaveHandler.func_26686_a(playerManager).worldMngr.getTileEntityList(j, i1, l1, j + j2, i1 + l2, l1 + i3);
+            sendPacketToPlayersInInstance(new Packet51MapChunk(j, i1, l1, j2, l2, i3, ISaveHandler.func_26686_a(playerManager).worldManager));
+            List list = ISaveHandler.func_26686_a(playerManager).worldManager.getTileEntityList(j, i1, l1, j + j2, i1 + l2, l1 + i3);
             for(int j3 = 0; j3 < list.size(); j3++)
             {
                 updateTileEntity((TileEntity)list.get(j3));
@@ -160,16 +160,16 @@ class PlayerInstance
 
         } else
         {
-            sendPacketToPlayersInInstance(new EntityChicken(chunkX, chunkY, blocksToUpdate, numBlocksToUpdate, ISaveHandler.func_26686_a(playerManager).worldMngr));
+            sendPacketToPlayersInInstance(new EntityChicken(chunkX, chunkY, blocksToUpdate, numBlocksToUpdate, ISaveHandler.func_26686_a(playerManager).worldManager));
             for(int k = 0; k < numBlocksToUpdate; k++)
             {
                 int j1 = chunkX * 16 + (numBlocksToUpdate >> 12 & 0xf);
                 int i2 = numBlocksToUpdate & 0xff;
                 int k2 = chunkY * 16 + (numBlocksToUpdate >> 8 & 0xf);
-                if(Block.isBlockContainer[ISaveHandler.func_26686_a(playerManager).worldMngr.getBlockId(j1, i2, k2)])
+                if(Block.isBlockContainer[ISaveHandler.func_26686_a(playerManager).worldManager.getBlockId(j1, i2, k2)])
                 {
                     System.out.println("Sending!");
-                    updateTileEntity(ISaveHandler.func_26686_a(playerManager).worldMngr.getBlockTileEntity(j1, i2, k2));
+                    updateTileEntity(ISaveHandler.func_26686_a(playerManager).worldManager.getBlockTileEntity(j1, i2, k2));
                 }
             }
 

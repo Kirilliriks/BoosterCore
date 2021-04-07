@@ -4,6 +4,8 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.block.Block;
+
 public class ItemBlock extends Item
 {
 

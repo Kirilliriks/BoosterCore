@@ -5,13 +5,12 @@ package net.minecraft.src;
 
 import java.util.*;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.block.BlockFire;
+import net.minecraft.src.network.NetServerHandler;
 
-public class EntityPlayerMP extends EntityPlayer
-    implements ICrafting
-{
+public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 
-    public EntityPlayerMP(MinecraftServer minecraftserver, World world, String s, BlockFire blockfire)
-    {
+    public EntityPlayerMP(MinecraftServer minecraftserver, World world, String s, BlockFire blockfire) {
         super(world);
         loadedChunks = new LinkedList();
         field_420_ah = new HashSet();
@@ -135,8 +134,8 @@ public class EntityPlayerMP extends EntityPlayer
                 if(flag1)
                 {
                     loadedChunks.remove(slotcrafting);
-                    playerNetServerHandler.sendPacket(new Packet51MapChunk(slotcrafting.field_26507_a * 16, 0, slotcrafting.field_26506_b * 16, 16, 128, 16, mcServer.worldMngr));
-                    List list = mcServer.worldMngr.getTileEntityList(slotcrafting.field_26507_a * 16, 0, slotcrafting.field_26506_b * 16, slotcrafting.field_26507_a * 16 + 16, 128, slotcrafting.field_26506_b * 16 + 16);
+                    playerNetServerHandler.sendPacket(new Packet51MapChunk(slotcrafting.field_26507_a * 16, 0, slotcrafting.field_26506_b * 16, 16, 128, 16, mcServer.worldManager));
+                    List list = mcServer.worldManager.getTileEntityList(slotcrafting.field_26507_a * 16, 0, slotcrafting.field_26506_b * 16, slotcrafting.field_26507_a * 16 + 16, 128, slotcrafting.field_26506_b * 16 + 16);
                     for(int i = 0; i < list.size(); i++)
                     {
                         getTileEntityInfo((TileEntity)list.get(i));

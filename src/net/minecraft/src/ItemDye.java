@@ -4,6 +4,11 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.block.Block;
+import net.minecraft.src.block.BlockCloth;
+import net.minecraft.src.block.BlockCrops;
+import net.minecraft.src.block.BlockSapling;
+
 public class ItemDye extends Item
 {
 

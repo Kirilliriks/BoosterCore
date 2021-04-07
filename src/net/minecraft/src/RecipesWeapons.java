@@ -4,10 +4,12 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.block.Block;
+
 public class RecipesWeapons extends Block
 {
 
-    protected RecipesWeapons(int i)
+    public RecipesWeapons(int i)
     {
         super(i, Material.sponge);
         blockIndexInTexture = 48;

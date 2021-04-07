@@ -3,7 +3,11 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.io.PrintStream;
+import net.minecraft.src.achievement.Achievement;
+import net.minecraft.src.achievement.AchievementList;
+import net.minecraft.src.achievement.AchievementMap;
+import net.minecraft.src.block.Block;
+
 import java.util.*;
 
 public class StatList

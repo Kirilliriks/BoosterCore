@@ -4,10 +4,12 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-class ThreadMonitorConnection extends Thread
+import net.minecraft.src.network.NetworkManager;
+
+public class ThreadMonitorConnection extends Thread
 {
 
-    ThreadMonitorConnection(NetworkManager networkmanager, String s)
+    public ThreadMonitorConnection(NetworkManager networkmanager, String s)
     {
         super(s);
         netManager = networkmanager;

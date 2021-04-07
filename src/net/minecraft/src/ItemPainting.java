@@ -3,12 +3,14 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.block.Block;
+
 import java.util.Random;
 
 public class ItemPainting extends Block
 {
 
-    protected ItemPainting(int i, int j)
+    public ItemPainting(int i, int j)
     {
         super(i, j, Material.fire);
         field_26530_a = new int[256];

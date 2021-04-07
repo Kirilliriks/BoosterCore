@@ -3,8 +3,9 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.block.Block;
+
 import java.util.List;
-import java.util.Random;
 
 public class TileEntitySign extends Entity
     implements IInventory

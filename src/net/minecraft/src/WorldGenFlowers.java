@@ -3,6 +3,8 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.block.Block;
+
 import java.util.Random;
 
 public class WorldGenFlowers extends WorldGenerator
@@ -20,7 +22,7 @@ public class WorldGenFlowers extends WorldGenerator
             int i1 = (i + random.nextInt(8)) - random.nextInt(8);
             int j1 = (j + random.nextInt(4)) - random.nextInt(4);
             int k1 = (k + random.nextInt(8)) - random.nextInt(8);
-            if(world.isAirBlock(i1, j1, k1) && ((ItemArmor)Block.blocksList[plantBlockId]).canBlockStay(world, i1, j1, k1))
+            if(world.isAirBlock(i1, j1, k1) && ((ItemArmor) Block.blocksList[plantBlockId]).canBlockStay(world, i1, j1, k1))
             {
                 world.setBlock(i1, j1, k1, plantBlockId);
             }

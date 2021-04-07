@@ -3,6 +3,9 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.block.Block;
+import net.minecraft.src.block.BlockBloodStone;
+
 import java.util.*;
 
 public class MobSpawnerBase
@@ -10,7 +13,7 @@ public class MobSpawnerBase
 
     protected MobSpawnerBase()
     {
-        topBlock = (byte)Block.grass.blockID;
+        topBlock = (byte) Block.grass.blockID;
         fillerBlock = (byte)Block.dirt.blockID;
         field_6161_q = 0x4ee031;
         field_25058_r = new ArrayList();

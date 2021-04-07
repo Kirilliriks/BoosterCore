@@ -4,6 +4,8 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.block.Block;
+
 public final class ItemStack
 {
 
@@ -37,12 +39,11 @@ public final class ItemStack
         this(item.shiftedIndex, i, j);
     }
 
-    public ItemStack(int i, int j, int k)
+    public ItemStack(int itemID, int stackSize, int itemDamage)
     {
-        stackSize = 0;
-        itemID = i;
-        stackSize = j;
-        itemDamage = k;
+        this.itemID = itemID;
+        this.stackSize = stackSize;
+        this.itemDamage = itemDamage;
     }
 
     public ItemStack(NBTTagCompound nbttagcompound)

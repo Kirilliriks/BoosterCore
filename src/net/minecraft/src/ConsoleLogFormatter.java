@@ -3,12 +3,14 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.block.Block;
+
 import java.util.Random;
 
 public class ConsoleLogFormatter extends Block
 {
 
-    protected ConsoleLogFormatter(int i, boolean flag)
+    public ConsoleLogFormatter(int i, boolean flag)
     {
         super(i, 102, Material.circuits);
         field_26534_c = flag;
