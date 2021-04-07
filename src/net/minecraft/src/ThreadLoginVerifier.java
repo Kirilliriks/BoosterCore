@@ -4,6 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.network.NetLoginHandler;
+import net.minecraft.src.packet.Packet1Login;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

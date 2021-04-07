@@ -5,7 +5,11 @@ package net.minecraft.src;
 
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockSand;
+import net.minecraft.src.chunk.Chunk;
+import net.minecraft.src.chunk.IChunkProvider;
+import net.minecraft.src.entity.EntityPigZombie;
 import net.minecraft.src.network.NetworkWriterThread;
+import net.minecraft.src.packet.Packet52MultiBlockChange;
 
 import java.util.Calendar;
 import java.util.Random;

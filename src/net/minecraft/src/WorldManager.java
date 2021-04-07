@@ -4,6 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.entity.Entity;
 
 public class WorldManager
     implements IWorldAccess

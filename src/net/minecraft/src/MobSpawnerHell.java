@@ -3,7 +3,7 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.util.List;
+import net.minecraft.src.entity.EntityGhast;
 
 public class MobSpawnerHell extends MobSpawnerBase
 {

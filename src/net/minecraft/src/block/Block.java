@@ -4,6 +4,11 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
+import net.minecraft.src.chunk.ChunkBlockMap;
+import net.minecraft.src.entity.*;
+import net.minecraft.src.item.*;
+import net.minecraft.src.packet.Packet255KickDisconnect;
+import net.minecraft.src.server.ServerWindowAdapter;
 
 import java.util.ArrayList;
 import java.util.Random;

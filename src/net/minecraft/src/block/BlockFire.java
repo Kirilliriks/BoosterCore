@@ -5,6 +5,10 @@ package net.minecraft.src.block;
 
 
 import net.minecraft.src.*;
+import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.packet.Packet53BlockChange;
 
 public class BlockFire
 {

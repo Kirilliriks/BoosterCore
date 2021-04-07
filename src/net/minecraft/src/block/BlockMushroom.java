@@ -4,7 +4,7 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.ItemArmor;
+import net.minecraft.src.item.ItemArmor;
 import net.minecraft.src.World;
 
 public class BlockMushroom extends ItemArmor

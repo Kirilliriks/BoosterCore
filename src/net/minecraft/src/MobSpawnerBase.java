@@ -5,6 +5,8 @@ package net.minecraft.src;
 
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockBloodStone;
+import net.minecraft.src.chunk.ChunkPosition;
+import net.minecraft.src.entity.*;
 
 import java.util.*;
 

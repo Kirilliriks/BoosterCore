@@ -6,6 +6,12 @@ package net.minecraft.src;
 import java.util.*;
 import java.util.logging.Logger;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.item.Item;
+import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.packet.Packet3Chat;
+import net.minecraft.src.server.ServerCommand;
+import net.minecraft.src.server.ServerConfigurationManager;
 
 public class ConsoleCommandHandler
 {

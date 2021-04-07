@@ -3,7 +3,6 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.io.IOException;
 import java.util.logging.*;
 
 public class ConsoleLogManager

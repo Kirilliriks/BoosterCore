@@ -5,7 +5,7 @@ package net.minecraft.src.block;
 
 
 import net.minecraft.src.EnumToolMaterial;
-import net.minecraft.src.ItemTool;
+import net.minecraft.src.item.ItemTool;
 
 public class BlockFlower extends ItemTool
 {

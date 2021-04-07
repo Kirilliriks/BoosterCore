@@ -3,7 +3,7 @@ package net.minecraft.src.network;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.Packet;
+import net.minecraft.src.packet.Packet;
 import net.minecraft.src.ThreadMonitorConnection;
 import net.minecraft.src.block.BlockSponge;
 

@@ -3,8 +3,8 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.util.logging.Logger;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.entity.EntityPigZombie;
 
 public class ConvertProgressUpdater
     implements EntityPigZombie

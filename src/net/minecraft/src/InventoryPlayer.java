@@ -5,6 +5,12 @@ package net.minecraft.src;
 
 
 import net.minecraft.src.block.Block;
+import net.minecraft.src.entity.Entity;
+import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.nbt.NBTTagCompound;
+import net.minecraft.src.nbt.NBTTagList;
+import net.minecraft.src.packet.Packet54;
 
 public class InventoryPlayer
     implements IInventory

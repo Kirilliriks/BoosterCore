@@ -4,7 +4,7 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 

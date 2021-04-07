@@ -6,12 +6,29 @@ package net.minecraft.src;
 import java.util.*;
 
 import net.minecraft.src.block.Block;
+import net.minecraft.src.entity.EntityChicken;
+import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.packet.Packet;
+import net.minecraft.src.packet.Packet50PreChunk;
+import net.minecraft.src.packet.Packet51MapChunk;
+import net.minecraft.src.packet.Packet53BlockChange;
 
-class PlayerInstance
-{
+class PlayerInstance {
+    private List players;
+    private int chunkX;
+    private int chunkY;
+    private SlotCrafting currentChunk;
+    private short blocksToUpdate[];
+    private int numBlocksToUpdate;
+    private int minX;
+    private int maxX;
+    private int minY;
+    private int maxY;
+    private int minZ;
+    private int maxZ;
+    final ISaveHandler playerManager; /* synthetic field */
 
-    public PlayerInstance(ISaveHandler isavehandler, int i, int j)
-    {
+    public PlayerInstance(ISaveHandler isavehandler, int i, int j) {
         super();
         playerManager = isavehandler;
         players = new ArrayList();
@@ -188,18 +205,4 @@ class PlayerInstance
             }
         }
     }
-
-    private List players;
-    private int chunkX;
-    private int chunkY;
-    private SlotCrafting currentChunk;
-    private short blocksToUpdate[];
-    private int numBlocksToUpdate;
-    private int minX;
-    private int maxX;
-    private int minY;
-    private int maxY;
-    private int minZ;
-    private int maxZ;
-    final ISaveHandler playerManager; /* synthetic field */
 }

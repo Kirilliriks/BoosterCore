@@ -4,6 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.block.Block;
+import net.minecraft.src.entity.Entity;
 
 import java.util.*;
 

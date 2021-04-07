@@ -4,6 +4,10 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.nbt.NBTTagCompound;
+import net.minecraft.src.packet.Packet;
+import net.minecraft.src.packet.Packet130;
+
 public class MobSpawnerRainforest extends TileEntity
 {
 

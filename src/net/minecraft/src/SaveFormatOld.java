@@ -3,6 +3,9 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.nbt.NBTTagCompound;
+
 import java.io.File;
 import java.io.FileInputStream;
 

@@ -3,8 +3,9 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.util.List;
-import java.util.Random;
+import net.minecraft.src.entity.EntityList;
+import net.minecraft.src.entity.EntityLiving;
+import net.minecraft.src.nbt.NBTTagCompound;
 
 public class TileEntityMobSpawner extends TileEntity
 {
@@ -57,7 +58,7 @@ public class TileEntityMobSpawner extends TileEntity
         byte byte0 = 4;
         for(int i = 0; i < byte0; i++)
         {
-            EntityLiving entityliving = (EntityLiving)EntityList.createEntityInWorld(mobID, worldObj);
+            EntityLiving entityliving = (EntityLiving) EntityList.createEntityInWorld(mobID, worldObj);
             if(entityliving == null)
             {
                 return;

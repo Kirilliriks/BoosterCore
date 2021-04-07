@@ -5,6 +5,8 @@ package net.minecraft.src;
 
 
 import net.minecraft.src.block.Block;
+import net.minecraft.src.chunk.IChunkProvider;
+import net.minecraft.src.item.ItemSpade;
 
 public class WorldGenPumpkin
 {

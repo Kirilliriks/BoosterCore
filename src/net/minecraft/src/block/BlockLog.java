@@ -3,7 +3,7 @@ package net.minecraft.src.block;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 import net.minecraft.src.achievement.AchievementList;

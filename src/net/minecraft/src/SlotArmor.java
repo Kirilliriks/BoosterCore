@@ -5,11 +5,14 @@ package net.minecraft.src;
 
 
 import net.minecraft.src.block.Block;
+import net.minecraft.src.crafting.CraftingInventoryPlayerCB;
+import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.packet.Packet54;
 
-class SlotArmor extends Slot
+public class SlotArmor extends Slot
 {
 
-    SlotArmor(CraftingInventoryPlayerCB craftinginventoryplayercb, IInventory iinventory, int i, int j, int k, int l)
+    public SlotArmor(CraftingInventoryPlayerCB craftinginventoryplayercb, IInventory iinventory, int i, int j, int k, int l)
     {
         super(iinventory, i, j, k);
         field_20101_b = craftinginventoryplayercb;

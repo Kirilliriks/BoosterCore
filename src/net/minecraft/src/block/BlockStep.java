@@ -4,9 +4,9 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
+import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.item.Item;
+import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.World;
 
 public class BlockStep extends Item

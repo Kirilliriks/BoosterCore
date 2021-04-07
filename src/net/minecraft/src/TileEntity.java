@@ -3,7 +3,9 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.io.PrintStream;
+import net.minecraft.src.nbt.NBTTagCompound;
+import net.minecraft.src.packet.Packet;
+
 import java.util.HashMap;
 import java.util.Map;
 

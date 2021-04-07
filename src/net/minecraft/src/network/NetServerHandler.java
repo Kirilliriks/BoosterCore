@@ -7,6 +7,12 @@ import java.util.*;
 import java.util.logging.Logger;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
+import net.minecraft.src.chunk.ChunkCoordinates;
+import net.minecraft.src.entity.Entity;
+import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.item.ItemInWorldManager;
+import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.packet.*;
 
 public class NetServerHandler extends NetHandler implements ICommandListener {
 

@@ -7,6 +7,9 @@ import net.minecraft.src.achievement.Achievement;
 import net.minecraft.src.achievement.AchievementList;
 import net.minecraft.src.achievement.AchievementMap;
 import net.minecraft.src.block.Block;
+import net.minecraft.src.crafting.CraftingManager;
+import net.minecraft.src.item.Item;
+import net.minecraft.src.item.ItemStack;
 
 import java.util.*;
 

@@ -5,6 +5,10 @@ package net.minecraft.src.network;
 
 
 import net.minecraft.src.*;
+import net.minecraft.src.entity.EntityChicken;
+import net.minecraft.src.entity.EntityEgg;
+import net.minecraft.src.item.ItemInWorldManager;
+import net.minecraft.src.packet.*;
 
 public class NetHandler
 {

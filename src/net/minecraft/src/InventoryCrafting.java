@@ -4,6 +4,10 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.crafting.CraftingInventoryCB;
+import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.item.ItemStack;
+
 public class InventoryCrafting
     implements IInventory
 {

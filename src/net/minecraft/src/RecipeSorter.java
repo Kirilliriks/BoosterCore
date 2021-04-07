@@ -3,13 +3,15 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.crafting.CraftingManager;
+
 import java.util.Comparator;
 
-class RecipeSorter
+public class RecipeSorter
     implements Comparator
 {
 
-    RecipeSorter(CraftingManager craftingmanager)
+    public RecipeSorter(CraftingManager craftingmanager)
     {
         craftingManager = craftingmanager;
     }

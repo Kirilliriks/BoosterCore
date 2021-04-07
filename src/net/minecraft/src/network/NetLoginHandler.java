@@ -9,6 +9,10 @@ import java.util.Random;
 import java.util.logging.Logger;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
+import net.minecraft.src.chunk.ChunkCoordinates;
+import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.item.ItemInWorldManager;
+import net.minecraft.src.packet.*;
 
 public class NetLoginHandler extends NetHandler
 {

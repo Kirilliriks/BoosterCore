@@ -3,6 +3,9 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.chunk.ChunkCoordinates;
+import net.minecraft.src.item.ItemStack;
+
 import java.io.*;
 import java.util.*;
 

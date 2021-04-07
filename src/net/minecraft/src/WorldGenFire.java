@@ -3,7 +3,11 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import java.util.Random;
+import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityWaterMob;
+import net.minecraft.src.item.Item;
+import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.nbt.NBTTagCompound;
 
 public class WorldGenFire extends EntityWaterMob
 {

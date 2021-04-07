@@ -3,9 +3,10 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.chunk.ChunkFilePattern;
+
 import java.io.File;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 class FileMatcher
     implements Comparable

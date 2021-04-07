@@ -6,6 +6,12 @@ package net.minecraft.src;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.chunk.ChunkProviderServer;
+import net.minecraft.src.chunk.IChunkLoader;
+import net.minecraft.src.chunk.IChunkProvider;
+import net.minecraft.src.entity.*;
+import net.minecraft.src.packet.Packet38;
+import net.minecraft.src.packet.Packet60;
 
 public class WorldServer extends World
 {

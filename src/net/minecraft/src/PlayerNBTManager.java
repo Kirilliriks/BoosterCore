@@ -3,6 +3,12 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.chunk.ChunkLoader;
+import net.minecraft.src.chunk.IChunkLoader;
+import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.item.ItemSpade;
+import net.minecraft.src.nbt.NBTTagCompound;
+
 import java.io.*;
 import java.util.List;
 import java.util.logging.Logger;

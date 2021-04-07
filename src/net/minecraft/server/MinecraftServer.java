@@ -4,23 +4,24 @@
 
 package net.minecraft.server;
 
+import com.kirillirik.core.BoosterServer;
 import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.ChunkCoordinates;
+import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.ConsoleCommandHandler;
 import net.minecraft.src.ConsoleLogManager;
 import net.minecraft.src.ConvertProgressUpdater;
-import net.minecraft.src.EntityTracker;
+import net.minecraft.src.entity.EntityTracker;
 import net.minecraft.src.ICommandListener;
 import net.minecraft.src.ISaveFormat;
 import net.minecraft.src.IUpdatePlayerListBox;
 import net.minecraft.src.network.NetworkListenThread;
-import net.minecraft.src.Packet4UpdateTime;
+import net.minecraft.src.packet.Packet4UpdateTime;
 import net.minecraft.src.PropertyManager;
 import net.minecraft.src.SaveConverterMcRegion;
 import net.minecraft.src.SaveOldDir;
-import net.minecraft.src.ServerCommand;
-import net.minecraft.src.ServerConfigurationManager;
-import net.minecraft.src.ServerGUI;
+import net.minecraft.src.server.ServerCommand;
+import net.minecraft.src.server.ServerConfigurationManager;
+import net.minecraft.src.server.ServerGUI;
 import net.minecraft.src.ThreadCommandReader;
 import net.minecraft.src.ThreadServerApplication;
 import net.minecraft.src.ThreadSleepForever;
@@ -56,6 +57,10 @@ public class MinecraftServer implements Runnable, ICommandListener {
     public boolean onlineMode;
     public boolean spawnPeacefulMobs;
     public boolean pvpOn;
+
+    //Booster
+    private BoosterServer boosterServer;
+    //
 
     public MinecraftServer() {
         serverRunning = true;
@@ -111,6 +116,9 @@ public class MinecraftServer implements Runnable, ICommandListener {
         }
         configManager = new ServerConfigurationManager(this);
         entityTracker = new EntityTracker(this);
+        // Booster
+        boosterServer = new BoosterServer(this);
+        //
         long l = System.nanoTime();
         String s1 = propertyManagerObj.getStringProperty("level-name", "world");
         String s2 = propertyManagerObj.getStringProperty("level-seed", "");

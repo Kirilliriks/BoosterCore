@@ -3,7 +3,7 @@ package net.minecraft.src.block;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.EntitySquid;
+import net.minecraft.src.entity.EntitySquid;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenLiquids;
 

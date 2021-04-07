@@ -4,6 +4,6 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-class Empty2
+public class Empty2
 {
 }

@@ -3,6 +3,11 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.chunk.Chunk;
+import net.minecraft.src.chunk.ChunkLoader;
+import net.minecraft.src.chunk.IChunkLoader;
+import net.minecraft.src.nbt.NBTTagCompound;
+
 import java.io.*;
 
 public class McRegionChunkLoader
