@@ -7,6 +7,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.entity.*;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.packet.Packet25;
 
 import java.util.Random;

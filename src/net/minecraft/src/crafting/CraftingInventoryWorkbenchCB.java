@@ -7,6 +7,9 @@ package net.minecraft.src.crafting;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.inventory.IInventory;
+import net.minecraft.src.inventory.InventoryCrafting;
+import net.minecraft.src.inventory.InventoryPlayer;
 import net.minecraft.src.item.ItemFood;
 import net.minecraft.src.item.ItemStack;
 

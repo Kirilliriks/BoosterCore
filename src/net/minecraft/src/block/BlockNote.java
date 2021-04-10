@@ -6,6 +6,7 @@ package net.minecraft.src.block;
 
 import net.minecraft.src.*;
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.material.Material;
 
 public class BlockNote extends BlockContainer
 {

@@ -5,7 +5,7 @@ package net.minecraft.src.item;
 
 
 import net.minecraft.src.MathHelper;
-import net.minecraft.src.MobSpawnerRainforest;
+import net.minecraft.src.mobspawner.MobSpawnerRainforest;
 import net.minecraft.src.World;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.entity.EntityPlayer;

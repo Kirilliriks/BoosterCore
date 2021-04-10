@@ -4,6 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.block.BlockBloodStone;
+import net.minecraft.src.mobspawner.MobSpawnerBase;
 
 import java.util.Random;
 

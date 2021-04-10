@@ -4,6 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagList;

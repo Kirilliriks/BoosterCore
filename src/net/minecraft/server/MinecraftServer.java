@@ -4,8 +4,8 @@
 
 package net.minecraft.server;
 
-import com.kirillirik.core.BoosterServer;
-import net.minecraft.src.AxisAlignedBB;
+import com.booster.core.BoosterServer;
+import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.ConsoleCommandHandler;
 import net.minecraft.src.ConsoleLogManager;
@@ -444,4 +444,10 @@ public class MinecraftServer implements Runnable, ICommandListener {
     {
         return minecraftserver.serverRunning;
     }
+
+    // Booster
+    public BoosterServer getBoosterServer(){
+        return boosterServer;
+    }
+    //
 }

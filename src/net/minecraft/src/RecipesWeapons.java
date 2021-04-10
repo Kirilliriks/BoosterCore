@@ -5,6 +5,7 @@ package net.minecraft.src;
 
 
 import net.minecraft.src.block.Block;
+import net.minecraft.src.material.Material;
 
 public class RecipesWeapons extends Block
 {

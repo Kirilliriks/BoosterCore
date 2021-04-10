@@ -8,6 +8,8 @@ import net.minecraft.src.block.BlockSand;
 import net.minecraft.src.chunk.Chunk;
 import net.minecraft.src.chunk.IChunkProvider;
 import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.material.Material;
+import net.minecraft.src.mobspawner.MobSpawnerBase;
 import net.minecraft.src.network.NetworkWriterThread;
 import net.minecraft.src.packet.Packet52MultiBlockChange;
 

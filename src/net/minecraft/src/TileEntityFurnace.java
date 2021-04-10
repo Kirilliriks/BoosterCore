@@ -7,8 +7,10 @@ package net.minecraft.src;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFurnace;
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagList;
 

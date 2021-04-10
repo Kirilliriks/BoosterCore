@@ -4,8 +4,10 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
+import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.item.Item;
+import net.minecraft.src.material.Material;
 
 import java.util.Random;
 

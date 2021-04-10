@@ -4,6 +4,7 @@ package net.minecraft.src.packet;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
+import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityLiving;
 import net.minecraft.src.entity.EntityPlayer;

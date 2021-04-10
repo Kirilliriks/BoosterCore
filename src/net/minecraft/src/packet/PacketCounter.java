@@ -4,8 +4,6 @@ package net.minecraft.src.packet;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.Empty1;
-
 class PacketCounter
 {
 

@@ -6,10 +6,12 @@ package net.minecraft.src;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFluids;
 import net.minecraft.src.chunk.*;
+import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityPigZombie;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.item.ItemSpade;
+import net.minecraft.src.material.Material;
 
 import java.util.*;
 

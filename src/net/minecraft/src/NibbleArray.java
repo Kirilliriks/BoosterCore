@@ -5,6 +5,7 @@ package net.minecraft.src;
 
 
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.item.ItemStack;
 
 public class NibbleArray

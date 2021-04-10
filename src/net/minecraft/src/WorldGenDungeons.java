@@ -6,6 +6,7 @@ package net.minecraft.src;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.material.Material;
 
 import java.util.Random;
 

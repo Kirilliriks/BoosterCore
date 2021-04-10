@@ -9,6 +9,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.block.BlockFire;
 import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.crafting.*;
+import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.item.ItemFood;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.network.NetServerHandler;

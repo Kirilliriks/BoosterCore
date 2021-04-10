@@ -4,7 +4,7 @@ package net.minecraft.src.crafting;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.IInventory;
+import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.Slot;
 import net.minecraft.src.entity.EntityPlayer;
 

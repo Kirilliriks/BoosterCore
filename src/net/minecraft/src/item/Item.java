@@ -12,6 +12,7 @@ import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityLiving;
 import net.minecraft.src.entity.EntityMinecart;
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.packet.Packet54;
 
 import java.util.Random;

@@ -7,6 +7,7 @@ import net.minecraft.src.block.Block;
 import net.minecraft.src.entity.EntityLiving;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.item.Item;
+import net.minecraft.src.material.Material;
 
 import java.util.Random;
 

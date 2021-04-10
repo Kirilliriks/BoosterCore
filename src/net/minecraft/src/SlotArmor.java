@@ -6,6 +6,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.block.Block;
 import net.minecraft.src.crafting.CraftingInventoryPlayerCB;
+import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.packet.Packet54;
 

@@ -6,15 +6,17 @@ package net.minecraft.src.network;
 import java.util.*;
 import java.util.logging.Logger;
 
-import com.kirillirik.core.entity.BoosterEntity;
-import com.kirillirik.core.util.ChatColor;
+import com.booster.core.BoosterServer;
+import com.booster.core.entity.BoosterEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.inventory.InventoryPlayer;
 import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.mobspawner.MobSpawnerRainforest;
 import net.minecraft.src.packet.*;
 
 public class NetServerHandler extends NetHandler implements ICommandListener {
@@ -22,7 +24,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
     public static Logger logger = Logger.getLogger("Minecraft");
     public NetworkManager netManager;
     public boolean connectionClosed;
-    private MinecraftServer mcServer;
+    private MinecraftServer minecraftServer;
     private EntityPlayerMP playerEntity;
     private int field_15_f;
     private int field_22004_g;
@@ -33,15 +35,23 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
     private boolean hasMoved;
     private Map<Integer, Short> field_10_k;
 
-    public NetServerHandler(MinecraftServer minecraftserver, NetworkManager networkmanager, EntityPlayerMP entityplayermp) {
+    //Booster
+    private BoosterServer boosterServer;
+    //
+
+    public NetServerHandler(MinecraftServer minecraftServer, NetworkManager networkmanager, EntityPlayerMP entityplayermp) {
         connectionClosed = false;
         hasMoved = true;
         field_10_k = new HashMap<>();
-        mcServer = minecraftserver;
+        this.minecraftServer = minecraftServer;
         netManager = networkmanager;
         networkmanager.setNetHandler(this);
         playerEntity = entityplayermp;
         entityplayermp.playerNetServerHandler = this;
+
+        //Booster
+        this.boosterServer = minecraftServer.getBoosterServer();
+        //
     }
 
     public void handlePackets() {
@@ -55,8 +65,8 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
     public void kickPlayer(String s) {
         sendPacket(new ItemInWorldManager(s));
         netManager.serverShutdown();
-        mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat("\247e" + playerEntity.username + " left the game."));
-        mcServer.configManager.playerLoggedOut(playerEntity);
+        minecraftServer.configManager.sendPacketToAllPlayers(new Packet3Chat("\247e" + playerEntity.username + " left the game."));
+        minecraftServer.configManager.playerLoggedOut(playerEntity);
         connectionClosed = true;
     }
 
@@ -101,18 +111,18 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
                 playerEntity.motionZ = d9;
 
                 if(playerEntity.ridingEntity != null) {
-                    mcServer.worldManager.func_12017_b(playerEntity.ridingEntity, true);
+                    minecraftServer.worldManager.func_12017_b(playerEntity.ridingEntity, true);
                 }
 
                 if(playerEntity.ridingEntity != null) {
                     playerEntity.ridingEntity.updateRiderPosition();
                 }
 
-                mcServer.configManager.func_613_b(playerEntity);
+                minecraftServer.configManager.func_613_b(playerEntity);
                 lastPosX = playerEntity.posX;
                 lastPosY = playerEntity.posY;
                 lastPosZ = playerEntity.posZ;
-                mcServer.worldManager.updateEntity(playerEntity);
+                minecraftServer.worldManager.updateEntity(playerEntity);
                 return;
             }
 
@@ -155,7 +165,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             double d12 = d5 - playerEntity.posY;
             double d13 = d7 - playerEntity.posZ;
             float f4 = 0.0625F;
-            boolean flag = mcServer.worldManager.getCollidingBoundingBoxes(playerEntity, playerEntity.boundingBox.copy().func_694_e(f4, f4, f4)).size() == 0;
+            boolean flag = minecraftServer.worldManager.getCollidingBoundingBoxes(playerEntity, playerEntity.boundingBox.copy().func_694_e(f4, f4, f4)).size() == 0;
             playerEntity.moveEntity(d11, d12, d13);
             d11 = d3 - playerEntity.posX;
             d12 = d5 - playerEntity.posY;
@@ -176,14 +186,14 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             }
 
             playerEntity.setPositionAndRotation(d3, d5, d7, f2, f3);
-            boolean flag2 = mcServer.worldManager.getCollidingBoundingBoxes(playerEntity, playerEntity.boundingBox.copy().func_694_e(f4, f4, f4)).size() == 0;
+            boolean flag2 = minecraftServer.worldManager.getCollidingBoundingBoxes(playerEntity, playerEntity.boundingBox.copy().func_694_e(f4, f4, f4)).size() == 0;
 
             if(flag && (flag1 || !flag2) && !playerEntity.isPlayerSleeping()) {
                 teleportTo(lastPosX, lastPosY, lastPosZ, f2, f3);
                 return;
             }
             playerEntity.onGround = packet10flying.onGround;
-            mcServer.configManager.func_613_b(playerEntity);
+            minecraftServer.configManager.func_613_b(playerEntity);
             playerEntity.handleFalling(playerEntity.posY - d1, packet10flying.onGround);
         }
     }
@@ -206,7 +216,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             playerEntity.dropCurrentItem();
             return;
         }
-        boolean flag = mcServer.worldManager.field_819_z = mcServer.configManager.isOp(playerEntity.username);
+        boolean flag = minecraftServer.worldManager.field_819_z = minecraftServer.configManager.isOp(playerEntity.username);
         boolean flag1 = false;
         if(packet14blockdig.status == 0)
         {
@@ -230,7 +240,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
                 return;
             }
         }
-        ChunkCoordinates chunkcoordinates = mcServer.worldManager.getSpawnPoint();
+        ChunkCoordinates chunkcoordinates = minecraftServer.worldManager.getSpawnPoint();
         int l = (int)MathHelper.abs(i - chunkcoordinates.posX);
         int i1 = (int)MathHelper.abs(k - chunkcoordinates.posZ);
         if(l > i1)
@@ -256,30 +266,30 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             double d7 = d2 * d2 + d4 * d4 + d6 * d6;
             if(d7 < 256D)
             {
-                playerEntity.playerNetServerHandler.sendPacket(new Packet53BlockChange(i, j, k, mcServer.worldManager));
+                playerEntity.playerNetServerHandler.sendPacket(new Packet53BlockChange(i, j, k, minecraftServer.worldManager));
             }
         }
-        mcServer.worldManager.field_819_z = false;
+        minecraftServer.worldManager.field_819_z = false;
     }
 
     public void handlePlace(Packet15Place packet15place)
     {
         ItemStack itemstack = playerEntity.inventory.getCurrentItem();
-        boolean flag = mcServer.worldManager.field_819_z = mcServer.configManager.isOp(playerEntity.username);
+        boolean flag = minecraftServer.worldManager.field_819_z = minecraftServer.configManager.isOp(playerEntity.username);
         if(packet15place.direction == 255)
         {
             if(itemstack == null)
             {
                 return;
             }
-            playerEntity.itemInWorldManager.func_26554_a(playerEntity, mcServer.worldManager, itemstack);
+            playerEntity.itemInWorldManager.func_26554_a(playerEntity, minecraftServer.worldManager, itemstack);
         } else
         {
             int i = packet15place.xPosition;
             int j = packet15place.yPosition;
             int k = packet15place.zPosition;
             int l = packet15place.direction;
-            ChunkCoordinates chunkcoordinates = mcServer.worldManager.getSpawnPoint();
+            ChunkCoordinates chunkcoordinates = minecraftServer.worldManager.getSpawnPoint();
             int i1 = (int)MathHelper.abs(i - chunkcoordinates.posX);
             int j1 = (int)MathHelper.abs(k - chunkcoordinates.posZ);
             if(i1 > j1)
@@ -288,9 +298,9 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             }
             if(j1 > 16 || flag)
             {
-                playerEntity.itemInWorldManager.func_26555_a(playerEntity, mcServer.worldManager, itemstack, i, j, k, l);
+                playerEntity.itemInWorldManager.func_26555_a(playerEntity, minecraftServer.worldManager, itemstack, i, j, k, l);
             }
-            playerEntity.playerNetServerHandler.sendPacket(new Packet53BlockChange(i, j, k, mcServer.worldManager));
+            playerEntity.playerNetServerHandler.sendPacket(new Packet53BlockChange(i, j, k, minecraftServer.worldManager));
             if(l == 0)
             {
                 j--;
@@ -315,7 +325,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             {
                 i++;
             }
-            playerEntity.playerNetServerHandler.sendPacket(new Packet53BlockChange(i, j, k, mcServer.worldManager));
+            playerEntity.playerNetServerHandler.sendPacket(new Packet53BlockChange(i, j, k, minecraftServer.worldManager));
         }
         if(itemstack != null && itemstack.stackSize == 0)
         {
@@ -330,14 +340,14 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
         {
             sendPacket(new Packet103(playerEntity.currentCraftingInventory.windowId, slot.id, playerEntity.inventory.getCurrentItem()));
         }
-        mcServer.worldManager.field_819_z = false;
+        minecraftServer.worldManager.field_819_z = false;
     }
 
     public void handleErrorMessage(String s, Object aobj[])
     {
         logger.info(playerEntity.username + " lost connection: " + s);
-        mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat("\247e" + playerEntity.username + " left the game."));
-        mcServer.configManager.playerLoggedOut(playerEntity);
+        minecraftServer.configManager.sendPacketToAllPlayers(new Packet3Chat("\247e" + playerEntity.username + " left the game."));
+        minecraftServer.configManager.playerLoggedOut(playerEntity);
         connectionClosed = true;
     }
 
@@ -389,42 +399,40 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
         } else {
             s = "<" + playerEntity.username + "> " + s;
             logger.info(s);
-            mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat(s));
+            minecraftServer.configManager.sendPacketToAllPlayers(new Packet3Chat(s));
         }
     }
 
-    private void handleSlashCommand(String s) {
+    private void handleSlashCommand(String command) {
         // Booster
         BoosterEntity boosterEntity = playerEntity.getBoosterEntity();
-        if(s.toLowerCase().startsWith("/hello")) {
-            mcServer.configManager.sendChatMessageToPlayer(playerEntity.username, ChatColor.LightRed + "Cool!");
-        }
+        if (boosterServer.dispatchCommand(command.substring(1), boosterEntity)) return;
         //
 
-        if(s.toLowerCase().startsWith("/me ")) {
-            s = "* " + playerEntity.username + " " + s.substring(s.indexOf(" ")).trim();
-            logger.info(s);
-            mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat(s));
-        } else if(s.toLowerCase().startsWith("/kill")) {
+        if(command.toLowerCase().startsWith("/me ")) {
+            command = "* " + playerEntity.username + " " + command.substring(command.indexOf(" ")).trim();
+            logger.info(command);
+            minecraftServer.configManager.sendPacketToAllPlayers(new Packet3Chat(command));
+        } else if(command.toLowerCase().startsWith("/kill")) {
             playerEntity.attackEntityFrom(null, 1000);
-        } else if(s.toLowerCase().startsWith("/tell ")) {
-            String as[] = s.split(" ");
+        } else if(command.toLowerCase().startsWith("/tell ")) {
+            String[] as = command.split(" ");
             if(as.length >= 3) {
-                s = s.substring(s.indexOf(" ")).trim();
-                s = s.substring(s.indexOf(" ")).trim();
-                s = (new StringBuilder()).append("\2477").append(playerEntity.username).append(" whispers ").append(s).toString();
-                logger.info((new StringBuilder()).append(s).append(" to ").append(as[1]).toString());
-                if(!mcServer.configManager.sendPacketToPlayer(as[1], new Packet3Chat(s))) {
+                command = command.substring(command.indexOf(" ")).trim();
+                command = command.substring(command.indexOf(" ")).trim();
+                command = "\2477" + playerEntity.username + " whispers " + command;
+                logger.info(command + " to " + as[1]);
+                if(!minecraftServer.configManager.sendPacketToPlayer(as[1], new Packet3Chat(command))) {
                     sendPacket(new Packet3Chat("\247cThere's no player by that name online."));
                 }
             }
-        } else if(mcServer.configManager.isOp(playerEntity.username)) {
-            String s1 = s.substring(1);
-            logger.info((new StringBuilder()).append(playerEntity.username).append(" issued server command: ").append(s1).toString());
-            mcServer.addCommand(s1, this);
+        } else if(minecraftServer.configManager.isOp(playerEntity.username)) {
+            String s1 = command.substring(1);
+            logger.info(playerEntity.username + " issued server command: " + s1);
+            minecraftServer.addCommand(s1, this);
         } else {
-            String s2 = s.substring(1);
-            logger.info((new StringBuilder()).append(playerEntity.username).append(" tried command: ").append(s2).toString());
+            String s2 = command.substring(1);
+            logger.info(playerEntity.username + " tried command: " + s2);
         }
     }
 
@@ -464,7 +472,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
 
     public void log(String s)
     {
-        sendPacket(new Packet3Chat((new StringBuilder()).append("\2477").append(s).toString()));
+        sendPacket(new Packet3Chat("\2477" + s));
     }
 
     public String getUsername()
@@ -474,7 +482,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
 
     public void func_6006_a(Packet7 packet7)
     {
-        Entity entity = mcServer.worldManager.func_6158_a(packet7.targetEntity);
+        Entity entity = minecraftServer.worldManager.func_6158_a(packet7.targetEntity);
         if(entity != null && playerEntity.canEntityBeSeen(entity) && playerEntity.getDistanceToEntity(entity) < 4F)
         {
             if(packet7.isLeftClick == 0)
@@ -495,7 +503,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
             return;
         } else
         {
-            playerEntity = mcServer.configManager.recreatePlayerEntity(playerEntity);
+            playerEntity = minecraftServer.configManager.recreatePlayerEntity(playerEntity);
             return;
         }
     }
@@ -519,7 +527,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
                 playerEntity.isChangingQuantityOnly = false;
             } else
             {
-                field_10_k.put(Integer.valueOf(playerEntity.currentCraftingInventory.windowId), Short.valueOf(packet102.action));
+                field_10_k.put(playerEntity.currentCraftingInventory.windowId, packet102.action);
                 playerEntity.playerNetServerHandler.sendPacket(new Packet106(packet102.window_Id, packet102.action, false));
                 playerEntity.currentCraftingInventory.setCanCraft(playerEntity, false);
                 ArrayList arraylist = new ArrayList();
@@ -535,63 +543,51 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
 
     public void func_20008_a(Packet106 packet106)
     {
-        Short short1 = (Short)field_10_k.get(Integer.valueOf(playerEntity.currentCraftingInventory.windowId));
-        if(short1 != null && packet106.shortWindowId == short1.shortValue() && playerEntity.currentCraftingInventory.windowId == packet106.windowId && !playerEntity.currentCraftingInventory.getCanCraft(playerEntity))
+        Short short1 = field_10_k.get(playerEntity.currentCraftingInventory.windowId);
+        if(short1 != null && packet106.shortWindowId == short1 && playerEntity.currentCraftingInventory.windowId == packet106.windowId && !playerEntity.currentCraftingInventory.getCanCraft(playerEntity))
         {
             playerEntity.currentCraftingInventory.setCanCraft(playerEntity, true);
         }
     }
 
-    public void func_20005_a(Packet130 packet130)
-    {
-        if(mcServer.worldManager.blockExists(packet130.xPosition, packet130.yPosition, packet130.zPosition))
-        {
-            TileEntity tileentity = mcServer.worldManager.getBlockTileEntity(packet130.xPosition, packet130.yPosition, packet130.zPosition);
-            if(tileentity instanceof MobSpawnerRainforest)
-            {
+    public void func_20005_a(Packet130 packet130) {
+        if(minecraftServer.worldManager.blockExists(packet130.xPosition, packet130.yPosition, packet130.zPosition)) {
+            TileEntity tileentity = minecraftServer.worldManager.getBlockTileEntity(packet130.xPosition, packet130.yPosition, packet130.zPosition);
+            if(tileentity instanceof MobSpawnerRainforest) {
                 MobSpawnerRainforest mobspawnerrainforest = (MobSpawnerRainforest)tileentity;
-                if(!mobspawnerrainforest.func_26608_a())
-                {
-                    mcServer.func_25002_c((new StringBuilder()).append("Player ").append(playerEntity.username).append(" just tried to change non-editable sign").toString());
+                if(!mobspawnerrainforest.func_26608_a()) {
+                    minecraftServer.func_25002_c("Player " + playerEntity.username + " just tried to change non-editable sign");
                     return;
                 }
             }
-            for(int i = 0; i < 4; i++)
-            {
+            for(int i = 0; i < 4; i++) {
                 boolean flag = true;
-                if(packet130.signLines[i].length() > 15)
-                {
+                if(packet130.signLines[i].length() > 15) {
                     flag = false;
-                } else
-                {
-                    for(int l = 0; l < packet130.signLines[i].length(); l++)
-                    {
-                        if(FontAllowedCharacters.allowedCharacters.indexOf(packet130.signLines[i].charAt(l)) < 0)
-                        {
+                } else {
+                    for(int l = 0; l < packet130.signLines[i].length(); l++) {
+                        if(FontAllowedCharacters.allowedCharacters.indexOf(packet130.signLines[i].charAt(l)) < 0) {
                             flag = false;
                         }
                     }
 
                 }
-                if(!flag)
-                {
+                if(!flag) {
                     packet130.signLines[i] = "!?";
                 }
             }
 
-            if(tileentity instanceof MobSpawnerRainforest)
-            {
+            if(tileentity instanceof MobSpawnerRainforest) {
                 int j = packet130.xPosition;
                 int k = packet130.yPosition;
                 int i1 = packet130.zPosition;
                 MobSpawnerRainforest mobspawnerrainforest1 = (MobSpawnerRainforest)tileentity;
-                for(int j1 = 0; j1 < 4; j1++)
-                {
+                for(int j1 = 0; j1 < 4; j1++) {
                     mobspawnerrainforest1.field_26610_a[j1] = packet130.signLines[j1];
                 }
 
                 mobspawnerrainforest1.onInventoryChanged();
-                mcServer.worldManager.markBlockNeedsUpdate(j, k, i1);
+                minecraftServer.worldManager.markBlockNeedsUpdate(j, k, i1);
             }
         }
     }

@@ -3,6 +3,7 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.mobspawner.MobSpawnerRainforest;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.packet.Packet;
 

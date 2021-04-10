@@ -5,6 +5,7 @@ package net.minecraft.src.crafting;
 
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
+import net.minecraft.src.inventory.InventoryCrafting;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.nbt.NBTTagString;

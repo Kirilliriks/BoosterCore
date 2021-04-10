@@ -4,21 +4,19 @@ package net.minecraft.src.chunk;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
+import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
 
 import java.util.*;
 
-public class EmptyChunk extends Chunk
-{
+public class EmptyChunk extends Chunk {
 
-    public EmptyChunk(World world, int i, int j)
-    {
+    public EmptyChunk(World world, int i, int j) {
         super(world, i, j);
         neverSave = true;
     }
 
-    public EmptyChunk(World world, byte abyte0[], int i, int j)
-    {
+    public EmptyChunk(World world, byte abyte0[], int i, int j) {
         super(world, abyte0, i, j);
         neverSave = true;
     }
@@ -33,17 +31,11 @@ public class EmptyChunk extends Chunk
         return 0;
     }
 
-    public void func_348_a()
-    {
-    }
+    public void func_348_a() { }
 
-    public void func_353_b()
-    {
-    }
+    public void func_353_b() { }
 
-    public void func_4053_c()
-    {
-    }
+    public void func_4053_c() { }
 
     public int getBlockID(int i, int j, int k)
     {

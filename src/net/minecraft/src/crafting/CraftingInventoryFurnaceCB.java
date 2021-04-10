@@ -5,6 +5,7 @@ package net.minecraft.src.crafting;
 
 import net.minecraft.src.*;
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.inventory.IInventory;
 
 public class CraftingInventoryFurnaceCB extends CraftingInventoryCB
 {

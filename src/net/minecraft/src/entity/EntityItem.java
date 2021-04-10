@@ -6,6 +6,7 @@ package net.minecraft.src.entity;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.nbt.NBTTagCompound;
 
 public class EntityItem extends Entity

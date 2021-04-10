@@ -4,8 +4,7 @@ package net.minecraft.src.item;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.EnumToolMaterial;
-import net.minecraft.src.Material;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.block.Block;
 
 public class ItemPickaxe extends ItemTool

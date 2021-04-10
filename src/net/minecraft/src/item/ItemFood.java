@@ -4,7 +4,7 @@ package net.minecraft.src.item;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.IInventory;
+import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.Slot;
 import net.minecraft.src.StatList;
 import net.minecraft.src.achievement.AchievementList;

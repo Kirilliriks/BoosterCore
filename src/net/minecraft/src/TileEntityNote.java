@@ -4,6 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.material.Material;
 import net.minecraft.src.nbt.NBTTagCompound;
 
 public class TileEntityNote extends TileEntity

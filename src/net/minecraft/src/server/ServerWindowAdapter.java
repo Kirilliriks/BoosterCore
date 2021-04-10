@@ -4,7 +4,7 @@ package net.minecraft.src.server;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.EnumSkyBlock;
-import net.minecraft.src.Material;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.World;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.item.Item;

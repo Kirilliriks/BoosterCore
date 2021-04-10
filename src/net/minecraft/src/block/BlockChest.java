@@ -6,7 +6,10 @@ package net.minecraft.src.block;
 import net.minecraft.src.*;
 import net.minecraft.src.entity.EntityItem;
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.inventory.IInventory;
+import net.minecraft.src.inventory.InventoryLargeChest;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.material.Material;
 
 import java.util.Random;
 

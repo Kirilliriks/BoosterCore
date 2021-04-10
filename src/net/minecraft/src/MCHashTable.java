@@ -4,6 +4,8 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.inventory.InventoryCraftResult;
+
 public class MCHashTable
 {
 
@@ -172,7 +174,7 @@ public class MCHashTable
         }
     }
 
-    static int getHash(int i)
+    public static int getHash(int i)
     {
         return computeHash(i);
     }

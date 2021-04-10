@@ -3,11 +3,12 @@ package net.minecraft.src.entity;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import com.kirillirik.core.entity.BoosterEntity;
+import com.booster.core.entity.BoosterEntity;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFluids;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagDouble;
 import net.minecraft.src.nbt.NBTTagFloat;

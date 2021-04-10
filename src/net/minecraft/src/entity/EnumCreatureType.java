@@ -4,7 +4,7 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.Material;
+import net.minecraft.src.material.Material;
 
 public enum EnumCreatureType
 {

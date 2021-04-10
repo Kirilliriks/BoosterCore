@@ -10,8 +10,12 @@ import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.chunk.IChunkProvider;
 import net.minecraft.src.crafting.CraftingInventoryCB;
 import net.minecraft.src.crafting.CraftingInventoryPlayerCB;
+import net.minecraft.src.inventory.IInventory;
+import net.minecraft.src.inventory.InventoryPlayer;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.material.Material;
+import net.minecraft.src.mobspawner.MobSpawnerRainforest;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagList;
 

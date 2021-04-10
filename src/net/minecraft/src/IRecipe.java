@@ -4,6 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.inventory.InventoryCrafting;
 import net.minecraft.src.item.ItemStack;
 
 public interface IRecipe

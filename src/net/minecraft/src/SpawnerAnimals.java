@@ -6,6 +6,7 @@ package net.minecraft.src;
 import net.minecraft.src.block.BlockBed;
 import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.entity.*;
+import net.minecraft.src.material.Material;
 
 import java.util.*;
 

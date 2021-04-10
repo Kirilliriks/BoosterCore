@@ -5,7 +5,7 @@ package net.minecraft.src.block;
 
 
 import net.minecraft.src.entity.EntityPlayer;
-import net.minecraft.src.Material;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.World;
 
 public class BlockWorkbench extends Block

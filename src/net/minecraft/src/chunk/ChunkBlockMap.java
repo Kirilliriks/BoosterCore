@@ -3,9 +3,9 @@ package net.minecraft.src.chunk;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.AxisAlignedBB;
+import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
-import net.minecraft.src.Material;
+import net.minecraft.src.material.Material;
 import net.minecraft.src.World;
 import net.minecraft.src.block.Block;
 

@@ -4,7 +4,7 @@ package net.minecraft.src.item;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.MobSpawnerBase;
+import net.minecraft.src.mobspawner.MobSpawnerBase;
 import net.minecraft.src.WorldChunkManagerHell;
 import net.minecraft.src.WorldGenPumpkin;
 import net.minecraft.src.block.Block;

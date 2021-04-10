@@ -5,6 +5,7 @@ package net.minecraft.src;
 
 
 import net.minecraft.src.entity.Entity;
+import net.minecraft.src.material.Material;
 
 public class Pathfinder
 {

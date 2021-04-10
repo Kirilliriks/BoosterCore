@@ -4,7 +4,6 @@ package net.minecraft.src.item;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.block.Block;
 
 public class ItemAxe extends ItemTool
