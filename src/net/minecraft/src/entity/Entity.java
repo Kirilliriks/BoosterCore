@@ -4,6 +4,7 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 import com.booster.core.entity.BoosterEntity;
+import com.booster.core.entity.BoosterPlayer;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFluids;
@@ -123,9 +124,16 @@ public abstract class Entity {
         entityInit();
 
         // Booster
-        boosterEntity = new BoosterEntity(this);
+        boosterEntity = BoosterEntity.newBoosterEntity(this);
         //
     }
+
+    // Booster
+    public BoosterEntity<? extends Entity> getBoosterEntity() {
+        if (boosterEntity == null) throw new RuntimeException("BoosterEntity not found");
+        return boosterEntity;
+    }
+    //
 
     protected abstract void entityInit();
 
@@ -1036,13 +1044,4 @@ public abstract class Entity {
             dataWatcher.updateObject(0, Byte.valueOf((byte)(byte0 & ~(1 << i))));
         }
     }
-
-    // Booster
-
-    public BoosterEntity getBoosterEntity() {
-        if (boosterEntity == null) throw new RuntimeException("BoosterEntity not found");
-        return boosterEntity;
-    }
-
-    //
 }

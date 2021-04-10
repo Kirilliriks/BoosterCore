@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import com.booster.core.BoosterServer;
 import com.booster.core.entity.BoosterEntity;
+import com.booster.core.entity.BoosterPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.chunk.ChunkCoordinates;
@@ -405,7 +406,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
 
     private void handleSlashCommand(String command) {
         // Booster
-        BoosterEntity boosterEntity = playerEntity.getBoosterEntity();
+        BoosterPlayer boosterEntity = (BoosterPlayer) playerEntity.getBoosterEntity();
         if (boosterServer.dispatchCommand(command.substring(1), boosterEntity)) return;
         //
 

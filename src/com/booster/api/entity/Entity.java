@@ -1,6 +1,10 @@
 package com.booster.api.entity;
 
+import com.booster.core.util.Vector;
+
 public interface Entity {
 
-    void teleport(double x, double y, double z);
+    Vector getPosition();
+
+    void teleport(Vector vector);
 }

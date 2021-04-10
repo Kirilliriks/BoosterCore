@@ -49,7 +49,7 @@ public class NetLoginHandler extends NetHandler
     {
         try
         {
-            logger.info((new StringBuilder()).append("Disconnecting ").append(getUserAndIPString()).append(": ").append(s).toString());
+            logger.info("Disconnecting " + getUserAndIPString() + ": " + s);
             netManager.addToSendQueue(new ItemInWorldManager(s));
             netManager.serverShutdown();
             finishedProcessing = true;
@@ -100,12 +100,12 @@ public class NetLoginHandler extends NetHandler
         EntityPlayerMP entityplayermp = mcServer.configManager.login(this, packet1login.username, packet1login.password);
         if(entityplayermp != null)
         {
-            logger.info((new StringBuilder()).append(getUserAndIPString()).append(" logged in with entity id ").append(entityplayermp.entityId).toString());
+            logger.info(getUserAndIPString() + " logged in with entity id " + entityplayermp.entityId);
             ChunkCoordinates chunkcoordinates = mcServer.worldManager.getSpawnPoint();
             NetServerHandler netserverhandler = new NetServerHandler(mcServer, netManager, entityplayermp);
             netserverhandler.sendPacket(new Packet1Login("", "", entityplayermp.entityId, mcServer.worldManager.func_22079_j(), (byte)mcServer.worldManager.worldProvider.field_26676_g));
             netserverhandler.sendPacket(new Packet6SpawnPosition(chunkcoordinates.posX, chunkcoordinates.posY, chunkcoordinates.posZ));
-            mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat((new StringBuilder()).append("\247e").append(entityplayermp.username).append(" joined the game.").toString()));
+            mcServer.configManager.sendPacketToAllPlayers(new Packet3Chat("\247e" + entityplayermp.username + " joined the game."));
             mcServer.configManager.playerLoggedIn(entityplayermp);
             netserverhandler.teleportTo(entityplayermp.posX, entityplayermp.posY, entityplayermp.posZ, entityplayermp.rotationYaw, entityplayermp.rotationPitch);
             mcServer.networkServer.addPlayer(netserverhandler);
@@ -117,7 +117,7 @@ public class NetLoginHandler extends NetHandler
 
     public void handleErrorMessage(String s, Object aobj[])
     {
-        logger.info((new StringBuilder()).append(getUserAndIPString()).append(" lost connection").toString());
+        logger.info(getUserAndIPString() + " lost connection");
         finishedProcessing = true;
     }
 
@@ -130,7 +130,7 @@ public class NetLoginHandler extends NetHandler
     {
         if(username != null)
         {
-            return (new StringBuilder()).append(username).append(" [").append(netManager.getRemoteAddress().toString()).append("]").toString();
+            return username + " [" + netManager.getRemoteAddress().toString() + "]";
         } else
         {
             return netManager.getRemoteAddress().toString();

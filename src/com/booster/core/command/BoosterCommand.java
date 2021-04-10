@@ -1,5 +1,6 @@
 package com.booster.core.command;
 
+import com.booster.api.entity.Entity;
 import com.booster.core.BoosterServer;
 
 public class BoosterCommand extends Command {
@@ -14,5 +15,7 @@ public class BoosterCommand extends Command {
     @Override
     public void execute(CommandSender sender) {
         sender.sendMessage("Booster version: " + boosterServer.getBoosterVersion());
+        if (sender instanceof Entity)
+        sender.sendMessage(((Entity)sender).getPosition().toString());
     }
 }
