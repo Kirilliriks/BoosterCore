@@ -22,7 +22,7 @@ public class CommandHandler {
     public boolean dispatchCommand(String commandLine, CommandSender sender){
         String[] args = commandLine.split(" ");
         Command command = commands.get(args[0]);
-        if (args.length > 1) args = Arrays.copyOfRange(args, 1, args.length - 1);
+        if (args.length > 1) args = Arrays.copyOfRange(args, 1, args.length);
         if (command == null) return false;
         command.execute(args, sender);
         return true;
