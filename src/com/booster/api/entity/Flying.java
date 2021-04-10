@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Flying {
+public interface Flying extends LivingEntity {
 }

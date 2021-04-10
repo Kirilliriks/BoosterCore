@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Creeper {
+public interface Creeper extends Monster {
 }

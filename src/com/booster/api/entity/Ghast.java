@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Ghast {
+public interface Ghast extends Flying {
 }

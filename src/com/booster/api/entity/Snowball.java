@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Snowball {
+public interface Snowball extends Entity {
 }

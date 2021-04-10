@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Painting {
+public interface Painting extends Entity {
 }

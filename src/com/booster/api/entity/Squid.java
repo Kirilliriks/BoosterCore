@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Squid {
+public interface Squid extends WaterMob {
 }

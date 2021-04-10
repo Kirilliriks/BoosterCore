@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Arrow {
+public interface Arrow extends Entity{
 }

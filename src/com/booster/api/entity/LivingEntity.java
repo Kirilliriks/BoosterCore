@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface LivingEntity {
+public interface LivingEntity extends Entity {
 }

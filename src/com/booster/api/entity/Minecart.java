@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Minecart {
+public interface Minecart extends Vehicle {
 }

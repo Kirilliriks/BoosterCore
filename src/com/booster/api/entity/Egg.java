@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Egg {
+public interface Egg extends Entity {
 }

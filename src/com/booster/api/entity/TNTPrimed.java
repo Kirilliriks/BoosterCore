@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface TNTPrimed {
+public interface TNTPrimed extends Entity {
 }

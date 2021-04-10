@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Player {
+public interface Player extends HumanEntity {
 }

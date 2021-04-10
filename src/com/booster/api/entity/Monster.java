@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface Monster {
+public interface Monster extends Creature {
 }

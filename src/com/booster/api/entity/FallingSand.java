@@ -1,4 +1,4 @@
 package com.booster.api.entity;
 
-public interface FallingSand {
+public interface FallingSand extends Entity {
 }
