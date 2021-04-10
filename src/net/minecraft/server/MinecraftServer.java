@@ -201,9 +201,11 @@ public class MinecraftServer implements Runnable, ICommandListener {
         worldManager.func_22088_r();
     }
 
-    private void stopServer()
-    {
+    private void stopServer() {
         logger.info("Stopping server");
+        // Booster
+            boosterServer.stopServer();
+        //
         if(configManager != null)
         {
             configManager.savePlayerStates();

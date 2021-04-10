@@ -21,12 +21,15 @@ public class BoosterServer implements Server {
     public BoosterServer(MinecraftServer server){
         this.server = server;
         logger = MinecraftServer.logger;
+        logger.info( "This server running on Booster version " + boosterVersion);
 
-        this.pluginManager = new PluginManager();
         this.commandHandler = new CommandHandler();
         this.commandHandler.registerCommand(new BoosterCommand(this));
+        this.pluginManager = new PluginManager(this);
+    }
 
-        logger.info( "This server running on Booster version " + boosterVersion);
+    public void stopServer(){
+        pluginManager.disablePlugins();
     }
 
     public boolean dispatchCommand(String command, CommandSender sender){
@@ -35,5 +38,15 @@ public class BoosterServer implements Server {
 
     public String getBoosterVersion() {
         return boosterVersion;
+    }
+
+    @Override
+    public Logger getLogger() {
+        return logger;
+    }
+
+    @Override
+    public CommandHandler getCommandHandler() {
+        return commandHandler;
     }
 }

@@ -1,3 +1,12 @@
 package com.booster.api;
 
-public interface Server { }
+import com.booster.core.command.CommandHandler;
+
+import java.util.logging.Logger;
+
+public interface Server {
+
+    Logger getLogger();
+
+    CommandHandler getCommandHandler();
+}

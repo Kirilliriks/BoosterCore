@@ -9,11 +9,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.jar.JarEntry;
@@ -21,9 +19,12 @@ import java.util.jar.JarFile;
 
 public class PluginManager {
 
+    private final BoosterServer boosterServer;
+
     private final List<Plugin> plugins;
 
-    public PluginManager(){
+    public PluginManager(BoosterServer boosterServer){
+        this.boosterServer = boosterServer;
         this.plugins = new ArrayList<>();
         loadPlugins("plugins/");
     }
@@ -36,11 +37,19 @@ public class PluginManager {
         File[] files = mainDirectory.listFiles();
         if (files == null) return;
         for (File file : files){
-            Plugin plugin = loadPlugin(file);
+            JavaPlugin plugin = loadPlugin(file);
             if (plugin == null) continue;
             plugins.add(plugin);
+            plugin.initialize(boosterServer);
             plugin.onEnable();
         }
+    }
+
+    public void disablePlugins(){
+        for (Plugin plugin : plugins){
+            plugin.onDisable();
+        }
+        plugins.clear();
     }
 
     public JavaPlugin loadPlugin(File pluginFile){
