@@ -19,7 +19,7 @@ public class FontAllowedCharacters
         String s = "";
         try
         {
-            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((FontAllowedCharacters.class).getResourceAsStream("/font.txt"), StandardCharsets.UTF_8));
+            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((FontAllowedCharacters.class).getResourceAsStream("/net/minecraft/font.txt"), StandardCharsets.UTF_8));
             String s1 = "";
             do
             {

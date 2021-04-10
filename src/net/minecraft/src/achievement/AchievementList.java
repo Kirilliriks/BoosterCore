@@ -22,8 +22,8 @@ public class AchievementList
 
     static 
     {
-        field_25128_b = new Achievement(0x500000, StatCollector.func_25136_a("achievement.openInventory"), 0, 0, null);
-        field_25131_c = new Achievement(0x500001, StatCollector.func_25136_a("achievement.mineWood"), 4, 1, field_25128_b);
-        field_25130_d = new Achievement(0x500001, StatCollector.func_25136_a("achievement.buildWorkBench"), 8, -1, field_25131_c);
+        field_25128_b = new Achievement(0x500000, StatCollector.func_25136_a("net.minecraft.achievement.openInventory"), 0, 0, null);
+        field_25131_c = new Achievement(0x500001, StatCollector.func_25136_a("net.minecraft.achievement.mineWood"), 4, 1, field_25128_b);
+        field_25130_d = new Achievement(0x500001, StatCollector.func_25136_a("net.minecraft.achievement.buildWorkBench"), 8, -1, field_25131_c);
     }
 }

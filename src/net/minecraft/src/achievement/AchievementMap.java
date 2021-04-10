@@ -17,7 +17,7 @@ public class AchievementMap
         field_25133_b = new HashMap();
         try
         {
-            InputStream streamReader = (AchievementMap.class).getResourceAsStream("/achievement/map.txt");
+            InputStream streamReader = (AchievementMap.class).getResourceAsStream("/net/minecraft/achievement/map.txt");
             BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(streamReader));
             String s;
             while((s = bufferedreader.readLine()) != null) 

@@ -14,8 +14,8 @@ public class StringTranslate
         field_25081_b = new Properties();
         try
         {
-            field_25081_b.load((StringTranslate.class).getResourceAsStream("/lang/en_US.lang"));
-            field_25081_b.load((StringTranslate.class).getResourceAsStream("/lang/stats_US.lang"));
+            field_25081_b.load((StringTranslate.class).getResourceAsStream("/net/minecraft/lang/en_US.lang"));
+            field_25081_b.load((StringTranslate.class).getResourceAsStream("/net/minecraft/lang/stats_US.lang"));
         }
         catch(IOException ioexception)
         {
