@@ -1,24 +1,23 @@
 package com.booster.core.entity;
 
-import com.booster.core.BoosterServer;
+import com.booster.api.entity.Entity;
 import com.booster.core.command.CommandSender;
-import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityPlayerMP;
 import net.minecraft.src.packet.Packet3Chat;
 
-public class BoosterEntity implements CommandSender {
+public class BoosterEntity implements Entity, CommandSender {
 
-    private final Entity entity;
+    private final net.minecraft.src.entity.Entity entity;
 
-    public BoosterEntity(Entity entity){
+    public BoosterEntity(net.minecraft.src.entity.Entity entity){
         this.entity = entity;
-        BoosterServer.logger.info("Register new BoosterEntity with id " + entity.entityId);
     }
 
-    public Entity getEntity() {
+    public net.minecraft.src.entity.Entity getEntity() {
         return entity;
     }
 
+    @Override
     public void teleport(double x, double y, double z){
         entity.setPosition(x, y, z);
     }

@@ -1,5 +1,6 @@
 package com.booster.core;
 
+import com.booster.api.Server;
 import com.booster.core.command.BoosterCommand;
 import com.booster.core.command.CommandHandler;
 import com.booster.core.command.CommandSender;
@@ -7,7 +8,7 @@ import net.minecraft.server.MinecraftServer;
 
 import java.util.logging.Logger;
 
-public class BoosterServer {
+public class BoosterServer implements Server {
 
     public static Logger logger;
     private final MinecraftServer server;
