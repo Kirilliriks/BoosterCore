@@ -33,7 +33,8 @@ public class PluginManager {
         if (!mainDirectory.exists()) {
             if (!mainDirectory.mkdir()) throw new RuntimeException("Error with create directory");
         }
-        List<File> files = Arrays.asList(mainDirectory.listFiles());
+        File[] files = mainDirectory.listFiles();
+        if (files == null) return;
         for (File file : files){
             Plugin plugin = loadPlugin(file);
             if (plugin == null) continue;
