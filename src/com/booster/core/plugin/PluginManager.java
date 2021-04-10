@@ -71,7 +71,8 @@ public class PluginManager {
             }
             JavaPlugin result = null;
             try {
-                result = constructor.newInstance(new Object[0]);
+                if (constructor == null) throw new RuntimeException("Plugin constructor error");
+                result = constructor.newInstance();
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
             }
