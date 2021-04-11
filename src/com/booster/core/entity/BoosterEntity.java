@@ -29,6 +29,7 @@ public class BoosterEntity <T extends net.minecraft.src.entity.Entity> implement
     public static BoosterEntity<? extends net.minecraft.src.entity.Entity> newBoosterEntity(net.minecraft.src.entity.Entity entity){
         if (entity instanceof EntityPlayerMP) return new BoosterPlayer((EntityPlayerMP) entity);
         return null;
+
         // TODO Добавить когда все сущности будут работать на API
         // throw new RuntimeException("Find unknown entity " + entity.getClass().getName());
     }
