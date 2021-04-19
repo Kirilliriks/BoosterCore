@@ -19,7 +19,7 @@ public class SaveConverterMcRegion extends SaveFormatOld
         super(file);
     }
 
-    public WorldGenTaiga2 func_26730_a(String s, boolean flag)
+    public IDataManager func_26730_a(String s, boolean flag)
     {
         return new SaveOldDir(field_22106_a, s, flag);
     }
@@ -51,7 +51,7 @@ public class SaveConverterMcRegion extends SaveFormatOld
         func_26731_a(file1, arraylist2, arraylist.size(), i, entitypigzombie);
         WorldInfo worldinfo = func_22103_b(s);
         worldinfo.setVersion(19132);
-        WorldGenTaiga2 worldgentaiga2 = func_26730_a(s, false);
+        IDataManager worldgentaiga2 = func_26730_a(s, false);
         worldgentaiga2.func_22094_a(worldinfo);
         func_26732_a(arraylist1, arraylist.size() + arraylist2.size(), i, entitypigzombie);
         if(file1.exists())

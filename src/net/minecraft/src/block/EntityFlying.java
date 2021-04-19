@@ -8,10 +8,10 @@ import net.minecraft.src.entity.EntityLiving;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.World;
 
-public class BlockGrass extends EntityLiving
+public class EntityFlying extends EntityLiving
 {
 
-    public BlockGrass(World world)
+    public EntityFlying(World world)
     {
         super(world);
     }

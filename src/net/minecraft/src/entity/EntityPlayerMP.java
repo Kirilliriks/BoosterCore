@@ -17,6 +17,21 @@ import net.minecraft.src.packet.*;
 
 public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 
+    public NetServerHandler playerNetServerHandler;
+    public MinecraftServer mcServer;
+    public BlockFire itemInWorldManager;
+    public double field_9155_d;
+    public double field_9154_e;
+    public List loadedChunks;
+    public Set field_420_ah;
+    private int lastHealth;
+    private int ticksOfInvuln;
+    private ItemStack playerInventory[] = {
+            null, null, null, null, null
+    };
+    private int currentWindowId;
+    public boolean isChangingQuantityOnly;
+
     public EntityPlayerMP(MinecraftServer minecraftserver, World world, String s, BlockFire blockfire) {
         super(world);
         loadedChunks = new LinkedList();
@@ -325,8 +340,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
         if(isChangingQuantityOnly)
         {
             return;
-        } else
-        {
+        } else {
             playerNetServerHandler.sendPacket(new Packet103(-1, -1, inventory.getItemStack()));
             return;
         }
@@ -347,19 +361,4 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
         rotationPitch = f2;
         rotationYaw = f3;
     }
-
-    public NetServerHandler playerNetServerHandler;
-    public MinecraftServer mcServer;
-    public BlockFire itemInWorldManager;
-    public double field_9155_d;
-    public double field_9154_e;
-    public List loadedChunks;
-    public Set field_420_ah;
-    private int lastHealth;
-    private int ticksOfInvuln;
-    private ItemStack playerInventory[] = {
-        null, null, null, null, null
-    };
-    private int currentWindowId;
-    public boolean isChangingQuantityOnly;
 }

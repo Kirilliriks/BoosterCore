@@ -23,7 +23,7 @@ public class World
         return worldProvider.field_26673_b;
     }
 
-    public World(WorldGenTaiga2 worldgentaiga2, String s, long l, WorldProvider worldgenpumpkin)
+    public World(IDataManager worldgentaiga2, String s, long l, WorldProvider worldgenpumpkin)
     {
         scheduledUpdatesAreImmediate = false;
         field_821_y = new ArrayList();
@@ -2022,7 +2022,7 @@ public class World
         }
     }
 
-    public WorldGenTaiga2 func_26661_o()
+    public IDataManager func_26661_o()
     {
         return worldFile;
     }
@@ -2111,7 +2111,7 @@ public class World
     public final WorldProvider worldProvider;
     protected List worldAccesses;
     protected IChunkProvider chunkProvider;
-    protected final WorldGenTaiga2 worldFile;
+    protected final IDataManager worldFile;
     protected WorldInfo worldInfo;
     public boolean field_9209_x;
     private boolean allPlayersSleeping;

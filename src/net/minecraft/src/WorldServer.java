@@ -16,7 +16,7 @@ import net.minecraft.src.packet.Packet60;
 public class WorldServer extends World
 {
 
-    public WorldServer(MinecraftServer minecraftserver, WorldGenTaiga2 worldgentaiga2, String s, int i, long l)
+    public WorldServer(MinecraftServer minecraftserver, IDataManager worldgentaiga2, String s, int i, long l)
     {
         super(worldgentaiga2, s, l, WorldProvider.func_26670_a(i));
         field_819_z = false;

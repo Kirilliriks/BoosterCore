@@ -35,12 +35,12 @@ public class FurnaceRecipes
 
     public void addSmelting(int i, ItemStack itemstack)
     {
-        smeltingList.put(Integer.valueOf(i), itemstack);
+        smeltingList.put(i, itemstack);
     }
 
     public ItemStack getSmeltingResult(int i)
     {
-        return (ItemStack)smeltingList.get(Integer.valueOf(i));
+        return (ItemStack)smeltingList.get(i);
     }
 
     public Map func_25127_b()

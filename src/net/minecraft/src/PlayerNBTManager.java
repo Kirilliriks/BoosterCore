@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class PlayerNBTManager
-    implements IPlayerFileData, WorldGenTaiga2
+    implements IPlayerFileData, IDataManager
 {
 
     public PlayerNBTManager(File file, String s, boolean flag)

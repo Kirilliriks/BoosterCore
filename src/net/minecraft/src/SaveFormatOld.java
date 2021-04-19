@@ -59,7 +59,7 @@ public class SaveFormatOld
 
     }
 
-    public WorldGenTaiga2 func_26730_a(String s, boolean flag)
+    public IDataManager func_26730_a(String s, boolean flag)
     {
         return new PlayerNBTManager(field_22106_a, s, flag);
     }
