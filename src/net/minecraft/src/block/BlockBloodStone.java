@@ -5,7 +5,6 @@ package net.minecraft.src.block;
 
 
 import net.minecraft.src.material.Material;
-import net.minecraft.src.block.Block;
 
 public class BlockBloodStone extends Block
 {

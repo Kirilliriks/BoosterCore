@@ -8,7 +8,6 @@ import net.minecraft.src.WorldGenerator;
 
 import java.util.Random;
 
-//WorldGenTrees
 public class WorldGenTrees extends WorldGenerator
 {
 

@@ -5,7 +5,6 @@ package net.minecraft.src;
 
 import java.text.DecimalFormat;
 
-//??
 public class TimeStatistic extends Statistic
 {
 
