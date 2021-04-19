@@ -5,7 +5,7 @@ package net.minecraft.src.network;
 
 
 import net.minecraft.src.*;
-import net.minecraft.src.entity.EntityChicken;
+import net.minecraft.src.entity.Packet52MultiBlockChange;
 import net.minecraft.src.entity.EntityEgg;
 import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.packet.*;
@@ -44,7 +44,7 @@ public class NetHandler
         registerPacket(packet10flying);
     }
 
-    public void func_26504_a(EntityChicken entitychicken)
+    public void func_26504_a(Packet52MultiBlockChange entitychicken)
     {
         registerPacket(entitychicken);
     }

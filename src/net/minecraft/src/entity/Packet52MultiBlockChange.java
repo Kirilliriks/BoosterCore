@@ -10,15 +10,16 @@ import net.minecraft.src.network.NetHandler;
 
 import java.io.*;
 
-public class EntityChicken extends Packet
+
+public class Packet52MultiBlockChange extends Packet
 {
 
-    public EntityChicken()
+    public Packet52MultiBlockChange()
     {
         isChunkDataPacket = true;
     }
 
-    public EntityChicken(int i, int j, short aword0[], int k, World world)
+    public Packet52MultiBlockChange(int i, int j, short aword0[], int k, World world)
     {
         isChunkDataPacket = true;
         field_392_a = i;

@@ -4,7 +4,7 @@ package net.minecraft.src.packet;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.StatBasic;
-import net.minecraft.src.entity.EntityChicken;
+import net.minecraft.src.entity.Packet52MultiBlockChange;
 import net.minecraft.src.entity.EntityEgg;
 import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.network.NetHandler;
@@ -173,7 +173,7 @@ public abstract class Packet
         addIdClassMapping(40, Packet40.class);
         addIdClassMapping(50, Packet50PreChunk.class);
         addIdClassMapping(51, Packet51MapChunk.class);
-        addIdClassMapping(52, EntityChicken.class);
+        addIdClassMapping(52, Packet52MultiBlockChange.class);
         addIdClassMapping(53, Packet53BlockChange.class);
         addIdClassMapping(54, EntityEgg.class);
         addIdClassMapping(60, Packet60.class);

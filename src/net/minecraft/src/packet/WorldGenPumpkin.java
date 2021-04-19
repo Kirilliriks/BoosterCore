@@ -9,10 +9,11 @@ import net.minecraft.src.block.Block;
 
 import java.util.Random;
 
-public class Packet52MultiBlockChange extends WorldGenerator
+
+public class WorldGenPumpkin extends WorldGenerator
 {
 
-    public Packet52MultiBlockChange()
+    public WorldGenPumpkin()
     {
     }
 

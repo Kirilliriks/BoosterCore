@@ -10,9 +10,7 @@ import java.util.Random;
 public class WorldGenTaiga2 extends WorldGenerator
 {
 
-    public WorldGenTaiga2()
-    {
-    }
+    public WorldGenTaiga2() { }
 
     public boolean generate(World world, Random random, int i, int j, int k)
     {

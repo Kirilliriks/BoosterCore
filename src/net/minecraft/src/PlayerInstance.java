@@ -6,7 +6,7 @@ package net.minecraft.src;
 import java.util.*;
 
 import net.minecraft.src.block.Block;
-import net.minecraft.src.entity.EntityChicken;
+import net.minecraft.src.entity.Packet52MultiBlockChange;
 import net.minecraft.src.entity.EntityPlayerMP;
 import net.minecraft.src.packet.Packet;
 import net.minecraft.src.packet.Packet50PreChunk;
@@ -177,7 +177,7 @@ class PlayerInstance {
 
         } else
         {
-            sendPacketToPlayersInInstance(new EntityChicken(chunkX, chunkY, blocksToUpdate, numBlocksToUpdate, ISaveHandler.func_26686_a(playerManager).worldManager));
+            sendPacketToPlayersInInstance(new Packet52MultiBlockChange(chunkX, chunkY, blocksToUpdate, numBlocksToUpdate, ISaveHandler.func_26686_a(playerManager).worldManager));
             for(int k = 0; k < numBlocksToUpdate; k++)
             {
                 int j1 = chunkX * 16 + (numBlocksToUpdate >> 12 & 0xf);

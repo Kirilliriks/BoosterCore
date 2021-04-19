@@ -11,7 +11,7 @@ import net.minecraft.src.entity.EntityPigZombie;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.biome.MobSpawnerBase;
 import net.minecraft.src.network.NetworkWriterThread;
-import net.minecraft.src.packet.Packet52MultiBlockChange;
+import net.minecraft.src.packet.WorldGenPumpkin;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -561,7 +561,7 @@ public class IProgressUpdate implements IChunkProvider {
             int k12 = k + field_26648_j.nextInt(16) + 8;
             int i17 = field_26648_j.nextInt(128);
             int l19 = l + field_26648_j.nextInt(16) + 8;
-            (new Packet52MultiBlockChange()).generate(field_26642_p, field_26648_j, k12, i17, l19);
+            (new WorldGenPumpkin()).generate(field_26642_p, field_26648_j, k12, i17, l19);
         }
         int l12 = 0;
         if(mobspawnerbase == MobSpawnerBase.desert)
