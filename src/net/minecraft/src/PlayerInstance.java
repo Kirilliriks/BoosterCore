@@ -17,7 +17,7 @@ class PlayerInstance {
     private List players;
     private int chunkX;
     private int chunkY;
-    private SlotCrafting currentChunk;
+    private ChunkCoordinate currentChunk;
     private short blocksToUpdate[];
     private int numBlocksToUpdate;
     private int minX;
@@ -36,7 +36,7 @@ class PlayerInstance {
         numBlocksToUpdate = 0;
         chunkX = i;
         chunkY = j;
-        currentChunk = new SlotCrafting(i, j);
+        currentChunk = new ChunkCoordinate(i, j);
         ISaveHandler.func_26686_a(isavehandler).worldManager.chunkProvider.loadChunk(i, j);
     }
 

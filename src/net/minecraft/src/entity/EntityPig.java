@@ -4,51 +4,82 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-public class EntityPig
+import net.minecraft.src.*;
+import net.minecraft.src.item.Item;
+import net.minecraft.src.nbt.NBTTagCompound;
+
+public class EntityPig extends EntityAnimals
 {
 
-    public EntityPig(int i)
+    public EntityPig(World world)
     {
-        field_26706_a = new byte[i >> 1];
+        super(world);
+        texture = "/mob/pig.png";
+        setSize(0.9F, 0.9F);
     }
 
-    public EntityPig(byte abyte0[])
+    protected void entityInit()
     {
-        field_26706_a = abyte0;
+        dataWatcher.addObject(16, (byte) 0);
     }
 
-    public int func_26705_a(int i, int j, int k)
+    public void writeEntityToNBT(NBTTagCompound nbttagcompound)
     {
-        int l = i << 11 | k << 7 | j;
-        int i1 = l >> 1;
-        int j1 = l & 1;
-        if(j1 == 0)
+        super.writeEntityToNBT(nbttagcompound);
+        nbttagcompound.setBoolean("Saddle", func_26603_v());
+    }
+
+    public void readEntityFromNBT(NBTTagCompound nbttagcompound)
+    {
+        super.readEntityFromNBT(nbttagcompound);
+        func_26602_a(nbttagcompound.getBoolean("Saddle"));
+    }
+
+    protected String getLivingSound()
+    {
+        return "mob.pig";
+    }
+
+    protected String getHurtSound()
+    {
+        return "mob.pig";
+    }
+
+    protected String getDeathSound()
+    {
+        return "mob.pigdeath";
+    }
+
+    public boolean interact(EntityPlayer entityplayer)
+    {
+        if(func_26603_v() && !worldObj.singleplayerWorld && (riddenByEntity == null || riddenByEntity == entityplayer))
         {
-            return field_26706_a[i1] & 0xf;
+            entityplayer.mountEntity(this);
+            return true;
         } else
         {
-            return field_26706_a[i1] >> 4 & 0xf;
+            return false;
         }
     }
 
-    public void func_26704_a(int i, int j, int k, int l)
+    protected int getDropItemId()
     {
-        int i1 = i << 11 | k << 7 | j;
-        int j1 = i1 >> 1;
-        int k1 = i1 & 1;
-        if(k1 == 0)
+        return Item.porkRaw.shiftedIndex;
+    }
+
+    public boolean func_26603_v()
+    {
+        return (dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+    }
+
+    public void func_26602_a(boolean flag)
+    {
+        if(flag)
         {
-            field_26706_a[j1] = (byte)(field_26706_a[j1] & 0xf0 | l & 0xf);
+            dataWatcher.updateObject(16, (byte) 1);
         } else
         {
-            field_26706_a[j1] = (byte)(field_26706_a[j1] & 0xf | (l & 0xf) << 4);
+            dataWatcher.updateObject(16, (byte) 0);
         }
     }
-
-    public boolean func_26703_a()
-    {
-        return field_26706_a != null;
-    }
-
-    public final byte field_26706_a[];
 }

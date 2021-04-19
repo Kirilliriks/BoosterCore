@@ -4,7 +4,6 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
-import net.minecraft.src.chunk.ChunkPosition;
 import net.minecraft.src.nbt.NBTTagCompound;
 
 import java.util.HashMap;
@@ -107,7 +106,7 @@ public class EntityList
         addMapping(EntitySlime.class, "Slime", 55);
         addMapping(EntityGhast.class, "Ghast", 56);
         addMapping(WorldChunkManager.class, "PigZombie", 57);
-        addMapping(ChunkPosition.class, "Pig", 90);
+        addMapping(EntityPig.class, "Pig", 90);
         addMapping(EntitySheep.class, "Sheep", 91);
         addMapping(EntityCow.class, "Cow", 92);
         addMapping(PlayerManager.class, "Chicken", 93);

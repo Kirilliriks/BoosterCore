@@ -4,7 +4,6 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.chunk.IChunkLoader;
-import net.minecraft.src.item.ItemSpade;
 
 import java.io.File;
 import java.util.List;
@@ -17,10 +16,10 @@ public class SaveOldDir extends PlayerNBTManager
         super(file, s, flag);
     }
 
-    public IChunkLoader func_26697_a(WorldGenPumpkin worldgenpumpkin)
+    public IChunkLoader func_26697_a(WorldProvider worldgenpumpkin)
     {
         File file = func_22097_a();
-        if(worldgenpumpkin instanceof ItemSpade)
+        if(worldgenpumpkin instanceof WorldProviderHell)
         {
             File file1 = new File(file, "DIM-1");
             file1.mkdirs();

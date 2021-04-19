@@ -68,7 +68,7 @@ label0:
                         }
                         if(f1 > 0.0F)
                         {
-                            destroyedBlockPositions.add(new WorldProviderHell(j4, k4, l4));
+                            destroyedBlockPositions.add(new ChunkPosition(j4, k4, l4));
                         }
                         d5 += d * (double)f2;
                         d7 += d1 * (double)f2;
@@ -120,7 +120,7 @@ label0:
         {
             for(int l2 = arraylist.size() - 1; l2 >= 0; l2--)
             {
-                WorldProviderHell worldproviderhell = (WorldProviderHell)arraylist.get(l2);
+                ChunkPosition worldproviderhell = (ChunkPosition)arraylist.get(l2);
                 int i3 = worldproviderhell.field_26708_a;
                 int j3 = worldproviderhell.field_26707_b;
                 int k3 = worldproviderhell.field_26709_c;
@@ -142,7 +142,7 @@ label0:
         arraylist.addAll(destroyedBlockPositions);
         for(int i = arraylist.size() - 1; i >= 0; i--)
         {
-            WorldProviderHell worldproviderhell = (WorldProviderHell)arraylist.get(i);
+            ChunkPosition worldproviderhell = (ChunkPosition)arraylist.get(i);
             int j = worldproviderhell.field_26708_a;
             int k = worldproviderhell.field_26707_b;
             int l = worldproviderhell.field_26709_c;

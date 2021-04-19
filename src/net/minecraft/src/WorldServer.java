@@ -18,7 +18,7 @@ public class WorldServer extends World
 
     public WorldServer(MinecraftServer minecraftserver, WorldGenTaiga2 worldgentaiga2, String s, int i, long l)
     {
-        super(worldgentaiga2, s, l, WorldGenPumpkin.func_26670_a(i));
+        super(worldgentaiga2, s, l, WorldProvider.func_26670_a(i));
         field_819_z = false;
         field_20912_E = new MCHashTable();
         mcServer = minecraftserver;

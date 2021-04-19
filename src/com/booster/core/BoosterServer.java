@@ -21,7 +21,7 @@ public class BoosterServer implements Server {
     public BoosterServer(MinecraftServer server){
         this.server = server;
         logger = MinecraftServer.logger;
-        logger.info( "This server running on Booster version " + boosterVersion);
+        logger.info("This server running on Booster version " + boosterVersion);
 
         this.commandHandler = new CommandHandler();
         this.commandHandler.registerCommand(new BoosterCommand(this));

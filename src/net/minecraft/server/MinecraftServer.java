@@ -5,6 +5,7 @@
 package net.minecraft.server;
 
 import com.booster.core.BoosterServer;
+import com.booster.core.console.ConsoleCommandSender;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.ConsoleCommandHandler;
@@ -61,14 +62,15 @@ public class MinecraftServer implements Runnable, ICommandListener {
 
     //Booster
     private BoosterServer boosterServer;
+    private ConsoleCommandSender consoleSender;
     //
 
     public MinecraftServer() {
         serverRunning = true;
         serverStopped = false;
         deathTime = 0;
-        field_9010_p = new ArrayList();
-        commands = Collections.synchronizedList(new ArrayList());
+        field_9010_p = new ArrayList<>();
+        commands = Collections.synchronizedList(new ArrayList<>());
         new ThreadSleepForever(this);
     }
 
@@ -96,7 +98,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
             inetaddress = InetAddress.getByName(s);
         }
         int i = propertyManagerObj.getIntProperty("server-port", 25565);
-        logger.info((new StringBuilder()).append("Starting Minecraft server on ").append(s.length() != 0 ? s : "*").append(":").append(i).toString());
+        logger.info("Starting Minecraft server on " + (s.length() != 0 ? s : "*") + ":" + i);
         try
         {
             networkServer = new NetworkListenThread(this, inetaddress, i);
@@ -104,7 +106,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
         catch(IOException ioexception)
         {
             logger.warning("**** FAILED TO BIND TO PORT!");
-            logger.log(Level.WARNING, (new StringBuilder()).append("The exception was: ").append(ioexception.toString()).toString());
+            logger.log(Level.WARNING, "The exception was: " + ioexception.toString());
             logger.warning("Perhaps a server is already running on that port?");
             return false;
         }
@@ -119,6 +121,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
         entityTracker = new EntityTracker(this);
         // Booster
         boosterServer = new BoosterServer(this);
+        consoleSender = new ConsoleCommandSender(boosterServer);
         //
         long l = System.nanoTime();
         String s1 = propertyManagerObj.getStringProperty("level-name", "world");
@@ -135,9 +138,9 @@ public class MinecraftServer implements Runnable, ICommandListener {
                 l1 = s2.hashCode();
             }
         }
-        logger.info((new StringBuilder()).append("Preparing level \"").append(s1).append("\"").toString());
+        logger.info("Preparing level \"" + s1 + "\"");
         initWorld(new SaveConverterMcRegion(new File(".")), s1, l1);
-        logger.info((new StringBuilder()).append("Done (").append(System.nanoTime() - l).append("ns)! For help, type \"help\" or \"?\"").toString());
+        logger.info("Done (" + (System.nanoTime() - l) + "ns)! For help, type \"help\" or \"?\"");
         return true;
     }
 
@@ -186,7 +189,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
     {
         currentTask = s;
         percentDone = i;
-        logger.info((new StringBuilder()).append(s).append(": ").append(i).append("%").toString());
+        logger.info(s + ": " + i + "%");
     }
 
     private void clearCurrentTask()
@@ -393,10 +396,14 @@ public class MinecraftServer implements Runnable, ICommandListener {
     }
 
     public void commandLineParser() {
-        ServerCommand servercommand;
-        for(; commands.size() > 0; commandHandler.handleCommand(servercommand))
-        {
-            servercommand = commands.remove(0);
+        ServerCommand serverCommand;
+        for(; commands.size() > 0; commandHandler.handleCommand(serverCommand)) {
+            serverCommand = commands.remove(0);
+            // Booster
+            if (boosterServer.dispatchCommand(serverCommand.command, consoleSender)){
+                if (commands.size() > 0) serverCommand = commands.remove(0);
+            }
+            //
         }
 
     }

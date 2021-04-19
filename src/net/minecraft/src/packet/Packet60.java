@@ -3,7 +3,7 @@ package net.minecraft.src.packet;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.WorldProviderHell;
+import net.minecraft.src.ChunkPosition;
 import net.minecraft.src.network.NetHandler;
 
 import java.io.*;
@@ -42,7 +42,7 @@ public class Packet60 extends Packet
             int j1 = datainputstream.readByte() + j;
             int k1 = datainputstream.readByte() + k;
             int l1 = datainputstream.readByte() + l;
-            destroyedBlockPositions.add(new WorldProviderHell(j1, k1, l1));
+            destroyedBlockPositions.add(new ChunkPosition(j1, k1, l1));
         }
 
     }
@@ -60,7 +60,7 @@ public class Packet60 extends Packet
         int j1;
         for(Iterator iterator = destroyedBlockPositions.iterator(); iterator.hasNext(); dataoutputstream.writeByte(j1))
         {
-            WorldProviderHell worldproviderhell = (WorldProviderHell)iterator.next();
+            ChunkPosition worldproviderhell = (ChunkPosition)iterator.next();
             int l = worldproviderhell.field_26708_a - i;
             int i1 = worldproviderhell.field_26707_b - j;
             j1 = worldproviderhell.field_26709_c - k;

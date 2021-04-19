@@ -25,7 +25,7 @@ public class ChunkProviderServer
 
     public boolean chunkExists(int i, int j)
     {
-        return id2ChunkMap.containsKey(Integer.valueOf(SlotCrafting.func_26505_a(i, j)));
+        return id2ChunkMap.containsKey(Integer.valueOf(ChunkCoordinate.func_26505_a(i, j)));
     }
 
     public void func_374_c(int i, int j)
@@ -36,13 +36,13 @@ public class ChunkProviderServer
         char c = '\200';
         if(k < -c || k > c || l < -c || l > c)
         {
-            field_725_a.add(Integer.valueOf(SlotCrafting.func_26505_a(i, j)));
+            field_725_a.add(Integer.valueOf(ChunkCoordinate.func_26505_a(i, j)));
         }
     }
 
     public Chunk loadChunk(int i, int j)
     {
-        int k = SlotCrafting.func_26505_a(i, j);
+        int k = ChunkCoordinate.func_26505_a(i, j);
         field_725_a.remove(Integer.valueOf(k));
         Chunk chunk = (Chunk)id2ChunkMap.get(Integer.valueOf(k));
         if(chunk == null)
@@ -87,7 +87,7 @@ public class ChunkProviderServer
 
     public Chunk provideChunk(int i, int j)
     {
-        Chunk chunk = (Chunk)id2ChunkMap.get(Integer.valueOf(SlotCrafting.func_26505_a(i, j)));
+        Chunk chunk = (Chunk)id2ChunkMap.get(Integer.valueOf(ChunkCoordinate.func_26505_a(i, j)));
         if(chunk == null)
         {
             if(world.field_9209_x)

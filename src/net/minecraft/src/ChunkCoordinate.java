@@ -4,10 +4,10 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-public class SlotCrafting
+public class ChunkCoordinate
 {
 
-    public SlotCrafting(int i, int j)
+    public ChunkCoordinate(int i, int j)
     {
         field_26507_a = i;
         field_26506_b = j;
@@ -25,8 +25,8 @@ public class SlotCrafting
 
     public boolean equals(Object obj)
     {
-        SlotCrafting slotcrafting = (SlotCrafting)obj;
-        return slotcrafting.field_26507_a == field_26507_a && slotcrafting.field_26506_b == field_26506_b;
+        ChunkCoordinate chunkCoordinate = (ChunkCoordinate)obj;
+        return chunkCoordinate.field_26507_a == field_26507_a && chunkCoordinate.field_26506_b == field_26506_b;
     }
 
     public final int field_26507_a;

@@ -14,7 +14,7 @@ public interface WorldGenTaiga2
 
     public abstract void func_22091_b();
 
-    public abstract IChunkLoader func_26697_a(WorldGenPumpkin worldgenpumpkin);
+    public abstract IChunkLoader func_26697_a(WorldProvider worldgenpumpkin);
 
     public abstract void func_22095_a(WorldInfo worldinfo, List list);
 

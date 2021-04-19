@@ -3,7 +3,7 @@ package net.minecraft.src.nbt;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.WorldProvider;
+import net.minecraft.src.NBTTagString;
 
 import java.io.*;
 import java.util.*;
@@ -76,7 +76,7 @@ public class NBTTagCompound extends NBTBase
 
     public void setString(String s, String s1)
     {
-        tagMap.put(s, (new WorldProvider(s1)).setKey(s));
+        tagMap.put(s, (new NBTTagString(s1)).setKey(s));
     }
 
     public void setByteArray(String s, byte abyte0[])
@@ -172,7 +172,7 @@ public class NBTTagCompound extends NBTBase
             return "";
         } else
         {
-            return ((WorldProvider)tagMap.get(s)).worldObj;
+            return ((NBTTagString)tagMap.get(s)).worldObj;
         }
     }
 

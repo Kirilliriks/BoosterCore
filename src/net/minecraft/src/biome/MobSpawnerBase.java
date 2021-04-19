@@ -1,4 +1,4 @@
-package net.minecraft.src.mobspawner;
+package net.minecraft.src.biome;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
@@ -6,29 +6,53 @@ package net.minecraft.src.mobspawner;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockBloodStone;
-import net.minecraft.src.chunk.ChunkPosition;
+import net.minecraft.src.entity.EntityPig;
 import net.minecraft.src.entity.*;
 
 import java.util.*;
 
-public class MobSpawnerBase
-{
+public class MobSpawnerBase {
+    public static MobSpawnerBase rainforest = (new StatTime()).setColor(0x8fa36).setBiomeName("Rainforest").func_4080_a(0x1ff458);
+    public static MobSpawnerBase swampland = (new MobSpawnerSwamp()).setColor(0x7f9b2).setBiomeName("Swampland").func_4080_a(0x8baf48);
+    public static MobSpawnerBase seasonalForest = (new MobSpawnerBase()).setColor(0x9be023).setBiomeName("Seasonal Forest");
+    public static MobSpawnerBase forest = (new MobSpawnerForest()).setColor(0x56621).setBiomeName("Forest").func_4080_a(0x4eba31);
+    public static MobSpawnerBase savanna = (new MobSpawnerDesert()).setColor(0xd9e023).setBiomeName("Savanna");
+    public static MobSpawnerBase shrubland = (new MobSpawnerBase()).setColor(0xa1ad20).setBiomeName("Shrubland");
+    public static MobSpawnerBase taiga = (new MobSpawnerTaiga()).setColor(0x2eb153).setBiomeName("Taiga").doesNothingForMobSpawnerBase().func_4080_a(0x7bb731);
+    public static MobSpawnerBase desert = (new MobSpawnerDesert()).setColor(0xfa9418).setBiomeName("Desert");
+    public static MobSpawnerBase plains = (new MobSpawnerDesert()).setColor(0xffd910).setBiomeName("Plains");
+    public static MobSpawnerBase iceDesert = (new MobSpawnerDesert()).setColor(0xffed93).setBiomeName("Ice Desert").doesNothingForMobSpawnerBase().func_4080_a(0xc4d339);
+    public static MobSpawnerBase tundra = (new MobSpawnerBase()).setColor(0x57ebf9).setBiomeName("Tundra").doesNothingForMobSpawnerBase().func_4080_a(0xc4d339);
+    public static MobSpawnerBase hell = (new MobSpawnerHell()).setColor(0xff0000).setBiomeName("Hell");
+    public String biomeName;
+    public int color;
+    public byte topBlock;
+    public byte fillerBlock;
+    public int field_6161_q;
+    protected List<SpawnListEntry> field_25058_r;
+    protected List<SpawnListEntry> field_25057_s;
+    protected List<SpawnListEntry> field_25056_t;
+    private static MobSpawnerBase biomeLookupTable[] = new MobSpawnerBase[4096];
+
+    static {
+        generateBiomeLookup();
+    }
 
     protected MobSpawnerBase()
     {
         topBlock = (byte) Block.grass.blockID;
         fillerBlock = (byte)Block.dirt.blockID;
         field_6161_q = 0x4ee031;
-        field_25058_r = new ArrayList();
-        field_25057_s = new ArrayList();
-        field_25056_t = new ArrayList();
+        field_25058_r = new ArrayList<>();
+        field_25057_s = new ArrayList<>();
+        field_25056_t = new ArrayList<>();
         field_25058_r.add(new SpawnListEntry(EntitySpider.class, 10));
         field_25058_r.add(new SpawnListEntry(EntityZombie.class, 10));
         field_25058_r.add(new SpawnListEntry(EntitySkeleton.class, 10));
         field_25058_r.add(new SpawnListEntry(EntityCreeper.class, 10));
         field_25058_r.add(new SpawnListEntry(EntitySlime.class, 10));
         field_25057_s.add(new SpawnListEntry(EntitySheep.class, 12));
-        field_25057_s.add(new SpawnListEntry(ChunkPosition.class, 10));
+        field_25057_s.add(new SpawnListEntry(EntityPig.class, 10));
         field_25057_s.add(new SpawnListEntry(PlayerManager.class, 10));
         field_25057_s.add(new SpawnListEntry(EntityCow.class, 8));
         field_25056_t.add(new SpawnListEntry(WorldGenFire.class, 10));
@@ -142,7 +166,7 @@ public class MobSpawnerBase
         }
     }
 
-    public List func_25055_a(EnumCreatureType enumcreaturetype)
+    public List<SpawnListEntry> func_25055_a(EnumCreatureType enumcreaturetype)
     {
         if(enumcreaturetype == EnumCreatureType.monster)
         {
@@ -159,44 +183,5 @@ public class MobSpawnerBase
         {
             return null;
         }
-    }
-
-    public static MobSpawnerBase rainforest = (new StatTime()).setColor(0x8fa36).setBiomeName("Rainforest").func_4080_a(0x1ff458);
-    public static MobSpawnerBase swampland = (new MobSpawnerSwamp()).setColor(0x7f9b2).setBiomeName("Swampland").func_4080_a(0x8baf48);
-    public static MobSpawnerBase seasonalForest = (new MobSpawnerBase()).setColor(0x9be023).setBiomeName("Seasonal Forest");
-    public static MobSpawnerBase forest = (new MobSpawnerForest()).setColor(0x56621).setBiomeName("Forest").func_4080_a(0x4eba31);
-    public static MobSpawnerBase savanna = (new MobSpawnerDesert()).setColor(0xd9e023).setBiomeName("Savanna");
-    public static MobSpawnerBase shrubland = (new MobSpawnerBase()).setColor(0xa1ad20).setBiomeName("Shrubland");
-    public static MobSpawnerBase taiga = (new MobSpawnerTaiga()).setColor(0x2eb153).setBiomeName("Taiga").doesNothingForMobSpawnerBase().func_4080_a(0x7bb731);
-    public static MobSpawnerBase desert = (new MobSpawnerDesert()).setColor(0xfa9418).setBiomeName("Desert");
-    public static MobSpawnerBase plains = (new MobSpawnerDesert()).setColor(0xffd910).setBiomeName("Plains");
-    public static MobSpawnerBase iceDesert = (new MobSpawnerDesert()).setColor(0xffed93).setBiomeName("Ice Desert").doesNothingForMobSpawnerBase().func_4080_a(0xc4d339);
-    public static MobSpawnerBase tundra = (new MobSpawnerBase()).setColor(0x57ebf9).setBiomeName("Tundra").doesNothingForMobSpawnerBase().func_4080_a(0xc4d339);
-    public static MobSpawnerBase hell = (new MobSpawnerHell()).setColor(0xff0000).setBiomeName("Hell");
-    public String biomeName;
-    public int color;
-    public byte topBlock;
-    public byte fillerBlock;
-    public int field_6161_q;
-    protected List field_25058_r;
-    protected List field_25057_s;
-    protected List field_25056_t;
-    private static MobSpawnerBase biomeLookupTable[] = new MobSpawnerBase[4096];
-
-    static 
-    {
-        rainforest = (new StatTime()).setColor(0x8fa36).setBiomeName("Rainforest").func_4080_a(0x1ff458);
-        swampland = (new MobSpawnerSwamp()).setColor(0x7f9b2).setBiomeName("Swampland").func_4080_a(0x8baf48);
-        seasonalForest = (new MobSpawnerBase()).setColor(0x9be023).setBiomeName("Seasonal Forest");
-        forest = (new MobSpawnerForest()).setColor(0x56621).setBiomeName("Forest").func_4080_a(0x4eba31);
-        savanna = (new MobSpawnerDesert()).setColor(0xd9e023).setBiomeName("Savanna");
-        shrubland = (new MobSpawnerBase()).setColor(0xa1ad20).setBiomeName("Shrubland");
-        taiga = (new MobSpawnerTaiga()).setColor(0x2eb153).setBiomeName("Taiga").doesNothingForMobSpawnerBase().func_4080_a(0x7bb731);
-        desert = (new MobSpawnerDesert()).setColor(0xfa9418).setBiomeName("Desert");
-        plains = (new MobSpawnerDesert()).setColor(0xffd910).setBiomeName("Plains");
-        iceDesert = (new MobSpawnerDesert()).setColor(0xffed93).setBiomeName("Ice Desert").doesNothingForMobSpawnerBase().func_4080_a(0xc4d339);
-        tundra = (new MobSpawnerBase()).setColor(0x57ebf9).setBiomeName("Tundra").doesNothingForMobSpawnerBase().func_4080_a(0xc4d339);
-        hell = (new MobSpawnerHell()).setColor(0xff0000).setBiomeName("Hell");
-        generateBiomeLookup();
     }
 }

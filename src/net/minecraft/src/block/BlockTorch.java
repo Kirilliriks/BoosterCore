@@ -4,7 +4,7 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.World;
-import net.minecraft.src.WorldProviderHell;
+import net.minecraft.src.ChunkPosition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,53 +30,53 @@ class BlockTorch
         field_26724_g.clear();
         if(field_26725_f == 0)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d, field_26726_e - 1));
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d, field_26726_e + 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d, field_26726_e - 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d, field_26726_e + 1));
         } else
         if(field_26725_f == 1)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c - 1, field_26727_d, field_26726_e));
-            field_26724_g.add(new WorldProviderHell(field_26728_c + 1, field_26727_d, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c - 1, field_26727_d, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c + 1, field_26727_d, field_26726_e));
         } else
         if(field_26725_f == 2)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c - 1, field_26727_d, field_26726_e));
-            field_26724_g.add(new WorldProviderHell(field_26728_c + 1, field_26727_d + 1, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c - 1, field_26727_d, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c + 1, field_26727_d + 1, field_26726_e));
         } else
         if(field_26725_f == 3)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c - 1, field_26727_d + 1, field_26726_e));
-            field_26724_g.add(new WorldProviderHell(field_26728_c + 1, field_26727_d, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c - 1, field_26727_d + 1, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c + 1, field_26727_d, field_26726_e));
         } else
         if(field_26725_f == 4)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d + 1, field_26726_e - 1));
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d, field_26726_e + 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d + 1, field_26726_e - 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d, field_26726_e + 1));
         } else
         if(field_26725_f == 5)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d, field_26726_e - 1));
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d + 1, field_26726_e + 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d, field_26726_e - 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d + 1, field_26726_e + 1));
         } else
         if(field_26725_f == 6)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c + 1, field_26727_d, field_26726_e));
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d, field_26726_e + 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c + 1, field_26727_d, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d, field_26726_e + 1));
         } else
         if(field_26725_f == 7)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c - 1, field_26727_d, field_26726_e));
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d, field_26726_e + 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c - 1, field_26727_d, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d, field_26726_e + 1));
         } else
         if(field_26725_f == 8)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c - 1, field_26727_d, field_26726_e));
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d, field_26726_e - 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c - 1, field_26727_d, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d, field_26726_e - 1));
         } else
         if(field_26725_f == 9)
         {
-            field_26724_g.add(new WorldProviderHell(field_26728_c + 1, field_26727_d, field_26726_e));
-            field_26724_g.add(new WorldProviderHell(field_26728_c, field_26727_d, field_26726_e - 1));
+            field_26724_g.add(new ChunkPosition(field_26728_c + 1, field_26727_d, field_26726_e));
+            field_26724_g.add(new ChunkPosition(field_26728_c, field_26727_d, field_26726_e - 1));
         }
     }
 
@@ -84,13 +84,13 @@ class BlockTorch
     {
         for(int i = 0; i < field_26724_g.size(); i++)
         {
-            BlockTorch blocktorch = func_26714_a((WorldProviderHell)field_26724_g.get(i));
+            BlockTorch blocktorch = func_26714_a((ChunkPosition)field_26724_g.get(i));
             if(blocktorch == null || !blocktorch.func_26715_b(this))
             {
                 field_26724_g.remove(i--);
             } else
             {
-                field_26724_g.set(i, new WorldProviderHell(blocktorch.field_26728_c, blocktorch.field_26727_d, blocktorch.field_26726_e));
+                field_26724_g.set(i, new ChunkPosition(blocktorch.field_26728_c, blocktorch.field_26727_d, blocktorch.field_26726_e));
             }
         }
 
@@ -109,7 +109,7 @@ class BlockTorch
         return field_26722_b.getBlockId(i, j - 1, k) == field_26723_a.blockID;
     }
 
-    private BlockTorch func_26714_a(WorldProviderHell worldproviderhell)
+    private BlockTorch func_26714_a(ChunkPosition worldproviderhell)
     {
         if(field_26722_b.getBlockId(worldproviderhell.field_26708_a, worldproviderhell.field_26707_b, worldproviderhell.field_26709_c) == field_26723_a.blockID)
         {
@@ -132,7 +132,7 @@ class BlockTorch
     {
         for(int i = 0; i < field_26724_g.size(); i++)
         {
-            WorldProviderHell worldproviderhell = (WorldProviderHell)field_26724_g.get(i);
+            ChunkPosition worldproviderhell = (ChunkPosition)field_26724_g.get(i);
             if(worldproviderhell.field_26708_a == blocktorch.field_26728_c && worldproviderhell.field_26709_c == blocktorch.field_26726_e)
             {
                 return true;
@@ -146,7 +146,7 @@ class BlockTorch
     {
         for(int l = 0; l < field_26724_g.size(); l++)
         {
-            WorldProviderHell worldproviderhell = (WorldProviderHell)field_26724_g.get(l);
+            ChunkPosition worldproviderhell = (ChunkPosition)field_26724_g.get(l);
             if(worldproviderhell.field_26708_a == i && worldproviderhell.field_26709_c == k)
             {
                 return true;
@@ -192,13 +192,13 @@ class BlockTorch
         {
             return true;
         }
-        WorldProviderHell worldproviderhell = (WorldProviderHell)field_26724_g.get(0);
+        ChunkPosition worldproviderhell = (ChunkPosition)field_26724_g.get(0);
         return blocktorch.field_26727_d != field_26727_d || worldproviderhell.field_26707_b != field_26727_d ? true : true;
     }
 
     private void func_26721_d(BlockTorch blocktorch)
     {
-        field_26724_g.add(new WorldProviderHell(blocktorch.field_26728_c, blocktorch.field_26727_d, blocktorch.field_26726_e));
+        field_26724_g.add(new ChunkPosition(blocktorch.field_26728_c, blocktorch.field_26727_d, blocktorch.field_26726_e));
         boolean flag = func_26719_b(field_26728_c, field_26727_d, field_26726_e - 1);
         boolean flag1 = func_26719_b(field_26728_c, field_26727_d, field_26726_e + 1);
         boolean flag2 = func_26719_b(field_26728_c - 1, field_26727_d, field_26726_e);
@@ -259,7 +259,7 @@ class BlockTorch
 
     private boolean func_26713_c(int i, int j, int k)
     {
-        BlockTorch blocktorch = func_26714_a(new WorldProviderHell(i, j, k));
+        BlockTorch blocktorch = func_26714_a(new ChunkPosition(i, j, k));
         if(blocktorch == null)
         {
             return false;
@@ -380,7 +380,7 @@ class BlockTorch
         field_26722_b.setBlockMetadataWithNotify(field_26728_c, field_26727_d, field_26726_e, i);
         for(int j = 0; j < field_26724_g.size(); j++)
         {
-            BlockTorch blocktorch = func_26714_a((WorldProviderHell)field_26724_g.get(j));
+            BlockTorch blocktorch = func_26714_a((ChunkPosition)field_26724_g.get(j));
             if(blocktorch == null)
             {
                 continue;

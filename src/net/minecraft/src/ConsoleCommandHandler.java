@@ -5,6 +5,7 @@ package net.minecraft.src;
 
 import java.util.*;
 import java.util.logging.Logger;
+
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.entity.EntityPlayerMP;
 import net.minecraft.src.item.Item;
@@ -13,78 +14,76 @@ import net.minecraft.src.packet.Packet3Chat;
 import net.minecraft.src.server.ServerCommand;
 import net.minecraft.src.server.ServerConfigurationManager;
 
-public class ConsoleCommandHandler
-{
+public class ConsoleCommandHandler {
 
-    public ConsoleCommandHandler(MinecraftServer minecraftserver)
-    {
+    public ConsoleCommandHandler(MinecraftServer minecraftserver) {
         minecraftServer = minecraftserver;
     }
 
     public void handleCommand(ServerCommand servercommand) {
-        String s = servercommand.command;
+        String command = servercommand.command;
         ICommandListener icommandlistener = servercommand.commandListener;
         String s1 = icommandlistener.getUsername();
         WorldServer worldserver = minecraftServer.worldManager;
         ServerConfigurationManager serverConfigurationManager = minecraftServer.configManager;
-        if(s.toLowerCase().startsWith("help") || s.toLowerCase().startsWith("?"))
+        if(command.toLowerCase().startsWith("help") || command.toLowerCase().startsWith("?"))
         {
             printHelp(icommandlistener);
         } else
-        if(s.toLowerCase().startsWith("list"))
+        if(command.toLowerCase().startsWith("list"))
         {
             icommandlistener.log("Connected players: " + serverConfigurationManager.getPlayerList());
         } else
-        if(s.toLowerCase().startsWith("stop"))
+        if(command.toLowerCase().startsWith("stop"))
         {
             broadcast(s1, "Stopping the server..");
             minecraftServer.initiateShutdown();
         } else
-        if(s.toLowerCase().startsWith("save-all"))
+        if(command.toLowerCase().startsWith("save-all"))
         {
             broadcast(s1, "Forcing save..");
             worldserver.func_26660_a(true, null);
             broadcast(s1, "Save complete.");
         } else
-        if(s.toLowerCase().startsWith("save-off"))
+        if(command.toLowerCase().startsWith("save-off"))
         {
             broadcast(s1, "Disabling level saving..");
             worldserver.levelSaving = true;
         } else
-        if(s.toLowerCase().startsWith("save-on"))
+        if(command.toLowerCase().startsWith("save-on"))
         {
             broadcast(s1, "Enabling level saving..");
             worldserver.levelSaving = false;
         } else
-        if(s.toLowerCase().startsWith("op "))
+        if(command.toLowerCase().startsWith("op "))
         {
-            String s2 = s.substring(s.indexOf(" ")).trim();
+            String s2 = command.substring(command.indexOf(" ")).trim();
             serverConfigurationManager.opPlayer(s2);
             broadcast(s1, "Opping " + s2);
             serverConfigurationManager.sendChatMessageToPlayer(s2, "\247eYou are now op!");
         } else
-        if(s.toLowerCase().startsWith("deop "))
+        if(command.toLowerCase().startsWith("deop "))
         {
-            String s3 = s.substring(s.indexOf(" ")).trim();
+            String s3 = command.substring(command.indexOf(" ")).trim();
             serverConfigurationManager.deopPlayer(s3);
             serverConfigurationManager.sendChatMessageToPlayer(s3, "\247eYou are no longer op!");
             broadcast(s1, (new StringBuilder()).append("De-opping ").append(s3).toString());
         } else
-        if(s.toLowerCase().startsWith("ban-ip "))
+        if(command.toLowerCase().startsWith("ban-ip "))
         {
-            String s4 = s.substring(s.indexOf(" ")).trim();
+            String s4 = command.substring(command.indexOf(" ")).trim();
             serverConfigurationManager.banIP(s4);
             broadcast(s1, (new StringBuilder()).append("Banning ip ").append(s4).toString());
         } else
-        if(s.toLowerCase().startsWith("pardon-ip "))
+        if(command.toLowerCase().startsWith("pardon-ip "))
         {
-            String s5 = s.substring(s.indexOf(" ")).trim();
+            String s5 = command.substring(command.indexOf(" ")).trim();
             serverConfigurationManager.pardonIP(s5);
             broadcast(s1, (new StringBuilder()).append("Pardoning ip ").append(s5).toString());
         } else
-        if(s.toLowerCase().startsWith("ban "))
+        if(command.toLowerCase().startsWith("ban "))
         {
-            String s6 = s.substring(s.indexOf(" ")).trim();
+            String s6 = command.substring(command.indexOf(" ")).trim();
             serverConfigurationManager.banPlayer(s6);
             broadcast(s1, (new StringBuilder()).append("Banning ").append(s6).toString());
             EntityPlayerMP entityplayermp = serverConfigurationManager.getPlayerEntity(s6);
@@ -93,15 +92,15 @@ public class ConsoleCommandHandler
                 entityplayermp.playerNetServerHandler.kickPlayer("Banned by admin");
             }
         } else
-        if(s.toLowerCase().startsWith("pardon "))
+        if(command.toLowerCase().startsWith("pardon "))
         {
-            String s7 = s.substring(s.indexOf(" ")).trim();
+            String s7 = command.substring(command.indexOf(" ")).trim();
             serverConfigurationManager.pardonPlayer(s7);
             broadcast(s1, (new StringBuilder()).append("Pardoning ").append(s7).toString());
         } else
-        if(s.toLowerCase().startsWith("kick "))
+        if(command.toLowerCase().startsWith("kick "))
         {
-            String s8 = s.substring(s.indexOf(" ")).trim();
+            String s8 = command.substring(command.indexOf(" ")).trim();
             EntityPlayerMP entityplayermp1 = null;
             for(int i = 0; i < serverConfigurationManager.playerEntities.size(); i++)
             {
@@ -121,9 +120,9 @@ public class ConsoleCommandHandler
                 icommandlistener.log((new StringBuilder()).append("Can't find user ").append(s8).append(". No kick.").toString());
             }
         } else
-        if(s.toLowerCase().startsWith("tp "))
+        if(command.toLowerCase().startsWith("tp "))
         {
-            String as[] = s.split(" ");
+            String as[] = command.split(" ");
             if(as.length == 3)
             {
                 EntityPlayerMP entityplayermp2 = serverConfigurationManager.getPlayerEntity(as[1]);
@@ -145,9 +144,9 @@ public class ConsoleCommandHandler
                 icommandlistener.log("Syntax error, please provice a source and a target.");
             }
         } else
-        if(s.toLowerCase().startsWith("give "))
+        if(command.toLowerCase().startsWith("give "))
         {
-            String as1[] = s.split(" ");
+            String as1[] = command.split(" ");
             if(as1.length != 3 && as1.length != 4)
             {
                 return;
@@ -190,9 +189,9 @@ public class ConsoleCommandHandler
                 icommandlistener.log((new StringBuilder()).append("Can't find user ").append(s9).toString());
             }
         } else
-        if(s.toLowerCase().startsWith("time "))
+        if(command.toLowerCase().startsWith("time "))
         {
-            String as2[] = s.split(" ");
+            String as2[] = command.split(" ");
             if(as2.length != 3)
             {
                 return;
@@ -220,31 +219,31 @@ public class ConsoleCommandHandler
                 icommandlistener.log((new StringBuilder()).append("Unable to convert time value, ").append(as2[2]).toString());
             }
         } else
-        if(s.toLowerCase().startsWith("say "))
+        if(command.toLowerCase().startsWith("say "))
         {
-            s = s.substring(s.indexOf(" ")).trim();
-            minecraftLogger.info((new StringBuilder()).append("[").append(s1).append("] ").append(s).toString());
-            serverConfigurationManager.sendPacketToAllPlayers(new Packet3Chat((new StringBuilder()).append("\247d[Server] ").append(s).toString()));
+            command = command.substring(command.indexOf(" ")).trim();
+            minecraftLogger.info((new StringBuilder()).append("[").append(s1).append("] ").append(command).toString());
+            serverConfigurationManager.sendPacketToAllPlayers(new Packet3Chat((new StringBuilder()).append("\247d[Server] ").append(command).toString()));
         } else
-        if(s.toLowerCase().startsWith("tell "))
+        if(command.toLowerCase().startsWith("tell "))
         {
-            String as3[] = s.split(" ");
+            String as3[] = command.split(" ");
             if(as3.length >= 3)
             {
-                s = s.substring(s.indexOf(" ")).trim();
-                s = s.substring(s.indexOf(" ")).trim();
-                minecraftLogger.info((new StringBuilder()).append("[").append(s1).append("->").append(as3[1]).append("] ").append(s).toString());
-                s = (new StringBuilder()).append("\2477").append(s1).append(" whispers ").append(s).toString();
-                minecraftLogger.info(s);
-                if(!serverConfigurationManager.sendPacketToPlayer(as3[1], new Packet3Chat(s)))
+                command = command.substring(command.indexOf(" ")).trim();
+                command = command.substring(command.indexOf(" ")).trim();
+                minecraftLogger.info((new StringBuilder()).append("[").append(s1).append("->").append(as3[1]).append("] ").append(command).toString());
+                command = (new StringBuilder()).append("\2477").append(s1).append(" whispers ").append(command).toString();
+                minecraftLogger.info(command);
+                if(!serverConfigurationManager.sendPacketToPlayer(as3[1], new Packet3Chat(command)))
                 {
                     icommandlistener.log("There's no player by that name online.");
                 }
             }
         } else
-        if(s.toLowerCase().startsWith("whitelist "))
+        if(command.toLowerCase().startsWith("whitelist "))
         {
-            func_22113_a(s1, s, icommandlistener);
+            func_22113_a(s1, command, icommandlistener);
         } else
         {
             minecraftLogger.info("Unknown console command. Type \"help\" for help.");

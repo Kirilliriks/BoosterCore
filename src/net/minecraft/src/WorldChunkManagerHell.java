@@ -3,7 +3,7 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.mobspawner.MobSpawnerBase;
+import net.minecraft.src.biome.MobSpawnerBase;
 
 import java.util.Arrays;
 
@@ -17,7 +17,7 @@ public class WorldChunkManagerHell extends RedstoneUpdateInfo
         field_4260_g = d1;
     }
 
-    public MobSpawnerBase func_26658_a(SlotCrafting slotcrafting)
+    public MobSpawnerBase func_26658_a(ChunkCoordinate slotcrafting)
     {
         return field_4262_e;
     }

@@ -9,16 +9,38 @@ import net.minecraft.src.chunk.Chunk;
 import net.minecraft.src.chunk.IChunkProvider;
 import net.minecraft.src.entity.EntityPigZombie;
 import net.minecraft.src.material.Material;
-import net.minecraft.src.mobspawner.MobSpawnerBase;
+import net.minecraft.src.biome.MobSpawnerBase;
 import net.minecraft.src.network.NetworkWriterThread;
 import net.minecraft.src.packet.Packet52MultiBlockChange;
 
 import java.util.Calendar;
 import java.util.Random;
 
-public class IProgressUpdate
-    implements IChunkProvider
-{
+public class IProgressUpdate implements IChunkProvider {
+
+    private Random field_26648_j;
+    private NoiseGeneratorOctaves field_26647_k;
+    private NoiseGeneratorOctaves field_26646_l;
+    private NoiseGeneratorOctaves field_26645_m;
+    private NoiseGeneratorOctaves field_26644_n;
+    private NoiseGeneratorOctaves field_26643_o;
+    public NoiseGeneratorOctaves field_26657_a;
+    public NoiseGeneratorOctaves field_26656_b;
+    public NoiseGeneratorOctaves field_26655_c;
+    private World field_26642_p;
+    private double field_26641_q[];
+    private double[] field_26640_r;
+    private double field_26639_s[];
+    private double field_26638_t[];
+    private MapGenBase field_26637_u;
+    private MobSpawnerBase field_26636_v[];
+    double field_26654_d[];
+    double field_26653_e[];
+    double field_26652_f[];
+    double field_26651_g[];
+    double field_26650_h[];
+    int field_26649_i[][];
+    private double field_26635_w[];
 
     public IProgressUpdate(World world, long l)
     {
@@ -617,28 +639,4 @@ public class IProgressUpdate
     {
         return true;
     }
-
-    private Random field_26648_j;
-    private NoiseGeneratorOctaves field_26647_k;
-    private NoiseGeneratorOctaves field_26646_l;
-    private NoiseGeneratorOctaves field_26645_m;
-    private NoiseGeneratorOctaves field_26644_n;
-    private NoiseGeneratorOctaves field_26643_o;
-    public NoiseGeneratorOctaves field_26657_a;
-    public NoiseGeneratorOctaves field_26656_b;
-    public NoiseGeneratorOctaves field_26655_c;
-    private World field_26642_p;
-    private double field_26641_q[];
-    private double field_26640_r[];
-    private double field_26639_s[];
-    private double field_26638_t[];
-    private MapGenBase field_26637_u;
-    private MobSpawnerBase field_26636_v[];
-    double field_26654_d[];
-    double field_26653_e[];
-    double field_26652_f[];
-    double field_26651_g[];
-    double field_26650_h[];
-    int field_26649_i[][];
-    private double field_26635_w[];
 }

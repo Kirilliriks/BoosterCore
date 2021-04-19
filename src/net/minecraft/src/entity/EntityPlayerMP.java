@@ -130,7 +130,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
         super.onUpdate();
         if(flag && !loadedChunks.isEmpty())
         {
-            SlotCrafting slotcrafting = (SlotCrafting)loadedChunks.get(0);
+            ChunkCoordinate slotcrafting = (ChunkCoordinate)loadedChunks.get(0);
             if(slotcrafting != null)
             {
                 boolean flag1 = false;

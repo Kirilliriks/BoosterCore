@@ -10,7 +10,6 @@ import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityPigZombie;
 import net.minecraft.src.entity.EntityPlayer;
-import net.minecraft.src.item.ItemSpade;
 import net.minecraft.src.material.Material;
 
 import java.util.*;
@@ -24,7 +23,7 @@ public class World
         return worldProvider.field_26673_b;
     }
 
-    public World(WorldGenTaiga2 worldgentaiga2, String s, long l, WorldGenPumpkin worldgenpumpkin)
+    public World(WorldGenTaiga2 worldgentaiga2, String s, long l, WorldProvider worldgenpumpkin)
     {
         scheduledUpdatesAreImmediate = false;
         field_821_y = new ArrayList();
@@ -61,10 +60,10 @@ public class World
         } else
         if(worldInfo != null && worldInfo.getDimension() == -1)
         {
-            worldProvider = new ItemSpade();
+            worldProvider = new WorldProviderHell();
         } else
         {
-            worldProvider = new WorldGenPumpkin();
+            worldProvider = new WorldProvider();
         }
         boolean flag = false;
         if(worldInfo == null)
@@ -1580,7 +1579,7 @@ public class World
             {
                 for(int i2 = -byte0; i2 <= byte0; i2++)
                 {
-                    activeChunkSet.add(new SlotCrafting(j1 + j, i2 + l));
+                    activeChunkSet.add(new ChunkCoordinate(j1 + j, i2 + l));
                 }
 
             }
@@ -1593,7 +1592,7 @@ public class World
         }
         for(Iterator iterator = activeChunkSet.iterator(); iterator.hasNext();)
         {
-            SlotCrafting slotcrafting = (SlotCrafting)iterator.next();
+            ChunkCoordinate slotcrafting = (ChunkCoordinate)iterator.next();
             int k = slotcrafting.field_26507_a * 16;
             int i1 = slotcrafting.field_26506_b * 16;
             Chunk chunk = getChunkFromChunkCoords(slotcrafting.field_26507_a, slotcrafting.field_26506_b);
@@ -2109,7 +2108,7 @@ public class World
     public int difficultySetting;
     public Random rand;
     public boolean isNewWorld;
-    public final WorldGenPumpkin worldProvider;
+    public final WorldProvider worldProvider;
     protected List worldAccesses;
     protected IChunkProvider chunkProvider;
     protected final WorldGenTaiga2 worldFile;

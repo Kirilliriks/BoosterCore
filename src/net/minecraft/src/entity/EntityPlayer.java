@@ -15,7 +15,7 @@ import net.minecraft.src.inventory.InventoryPlayer;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.material.Material;
-import net.minecraft.src.mobspawner.MobSpawnerRainforest;
+import net.minecraft.src.biome.MobSpawnerRainforest;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagList;
 

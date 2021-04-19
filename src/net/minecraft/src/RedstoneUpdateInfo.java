@@ -3,7 +3,7 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.mobspawner.MobSpawnerBase;
+import net.minecraft.src.biome.MobSpawnerBase;
 
 import java.util.Random;
 
@@ -21,7 +21,7 @@ public class RedstoneUpdateInfo
         field_4260_g = new NoiseGeneratorOctaves2(new Random(world.func_22079_j() * 0x84a59L), 2);
     }
 
-    public MobSpawnerBase func_26658_a(SlotCrafting slotcrafting)
+    public MobSpawnerBase func_26658_a(ChunkCoordinate slotcrafting)
     {
         return func_4067_a(slotcrafting.field_26507_a << 4, slotcrafting.field_26506_b << 4);
     }

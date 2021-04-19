@@ -8,7 +8,6 @@ import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockContainer;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
-import net.minecraft.src.entity.EntityPig;
 
 import java.util.*;
 
@@ -18,14 +17,14 @@ public class Chunk {
     public byte[] blocks;
     public boolean isChunkLoaded;
     public World worldObj;
-    public EntityPig data;
-    public EntityPig skylightMap;
-    public EntityPig blocklightMap;
+    public NibbleArray data;
+    public NibbleArray skylightMap;
+    public NibbleArray blocklightMap;
     public byte[] heightMap;
     public int field_686_i;
     public final int xPosition;
     public final int zPosition;
-    public Map<WorldProviderHell, TileEntity> chunkTileEntityMap;
+    public Map<ChunkPosition, TileEntity> chunkTileEntityMap;
     public List<Entity>[] entities;
     public boolean isTerrainPopulated;
     public boolean isModified;
@@ -53,9 +52,9 @@ public class Chunk {
     public Chunk(World world, byte abyte0[], int i, int j) {
         this(world, i, j);
         blocks = abyte0;
-        data = new EntityPig(abyte0.length);
-        skylightMap = new EntityPig(abyte0.length);
-        blocklightMap = new EntityPig(abyte0.length);
+        data = new NibbleArray(abyte0.length);
+        skylightMap = new NibbleArray(abyte0.length);
+        blocklightMap = new NibbleArray(abyte0.length);
     }
 
     public boolean isAtLocation(int i, int j) {
@@ -368,7 +367,7 @@ public class Chunk {
 
     public TileEntity getChunkBlockTileEntity(int i, int j, int k)
     {
-        WorldProviderHell worldproviderhell = new WorldProviderHell(i, j, k);
+        ChunkPosition worldproviderhell = new ChunkPosition(i, j, k);
         TileEntity tileentity = (TileEntity)chunkTileEntityMap.get(worldproviderhell);
         if(tileentity == null)
         {
@@ -393,7 +392,7 @@ public class Chunk {
     }
 
     public void setChunkBlockTileEntity(int i, int j, int k, TileEntity tileentity) {
-        WorldProviderHell worldproviderhell = new WorldProviderHell(i, j, k);
+        ChunkPosition worldproviderhell = new ChunkPosition(i, j, k);
         tileentity.worldObj = worldObj;
         tileentity.xCoord = xPosition * 16 + i;
         tileentity.yCoord = j;
@@ -413,7 +412,7 @@ public class Chunk {
 
     public void removeChunkBlockTileEntity(int i, int j, int k)
     {
-        WorldProviderHell worldproviderhell = new WorldProviderHell(i, j, k);
+        ChunkPosition worldproviderhell = new ChunkPosition(i, j, k);
         if(isChunkLoaded)
         {
             worldObj.loadedTileEntityList.remove(chunkTileEntityMap.remove(worldproviderhell));

@@ -6,7 +6,6 @@ package net.minecraft.src;
 import net.minecraft.src.chunk.ChunkLoader;
 import net.minecraft.src.chunk.IChunkLoader;
 import net.minecraft.src.entity.EntityPlayer;
-import net.minecraft.src.item.ItemSpade;
 import net.minecraft.src.nbt.NBTTagCompound;
 
 import java.io.*;
@@ -80,9 +79,9 @@ public class PlayerNBTManager
         }
     }
 
-    public IChunkLoader func_26697_a(WorldGenPumpkin worldgenpumpkin)
+    public IChunkLoader func_26697_a(WorldProvider worldgenpumpkin)
     {
-        if(worldgenpumpkin instanceof ItemSpade)
+        if(worldgenpumpkin instanceof WorldProviderHell)
         {
             File file = new File(field_22099_b, "DIM-1");
             file.mkdirs();

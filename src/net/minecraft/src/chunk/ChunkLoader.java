@@ -6,7 +6,6 @@ package net.minecraft.src.chunk;
 import net.minecraft.src.*;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityList;
-import net.minecraft.src.entity.EntityPig;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagList;
 
@@ -184,24 +183,24 @@ label0:
         int j = nbttagcompound.getInteger("zPos");
         Chunk chunk = new Chunk(world, i, j);
         chunk.blocks = nbttagcompound.getByteArray("Blocks");
-        chunk.data = new EntityPig(nbttagcompound.getByteArray("Data"));
-        chunk.skylightMap = new EntityPig(nbttagcompound.getByteArray("SkyLight"));
-        chunk.blocklightMap = new EntityPig(nbttagcompound.getByteArray("BlockLight"));
+        chunk.data = new NibbleArray(nbttagcompound.getByteArray("Data"));
+        chunk.skylightMap = new NibbleArray(nbttagcompound.getByteArray("SkyLight"));
+        chunk.blocklightMap = new NibbleArray(nbttagcompound.getByteArray("BlockLight"));
         chunk.heightMap = nbttagcompound.getByteArray("HeightMap");
         chunk.isTerrainPopulated = nbttagcompound.getBoolean("TerrainPopulated");
         if(!chunk.data.func_26703_a())
         {
-            chunk.data = new EntityPig(chunk.blocks.length);
+            chunk.data = new NibbleArray(chunk.blocks.length);
         }
         if(chunk.heightMap == null || !chunk.skylightMap.func_26703_a())
         {
             chunk.heightMap = new byte[256];
-            chunk.skylightMap = new EntityPig(chunk.blocks.length);
+            chunk.skylightMap = new NibbleArray(chunk.blocks.length);
             chunk.func_353_b();
         }
         if(!chunk.blocklightMap.func_26703_a())
         {
-            chunk.blocklightMap = new EntityPig(chunk.blocks.length);
+            chunk.blocklightMap = new NibbleArray(chunk.blocks.length);
             chunk.func_348_a();
         }
         NBTTagList nbttaglist = nbttagcompound.getTagList("Entities");

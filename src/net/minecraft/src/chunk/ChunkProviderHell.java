@@ -11,9 +11,27 @@ import net.minecraft.src.entity.EntityPigZombie;
 
 import java.util.Random;
 
-public class ChunkProviderHell
-    implements IChunkProvider
-{
+public class ChunkProviderHell implements IChunkProvider {
+
+    private Random hellRNG;
+    private NoiseGeneratorOctaves field_4240_i;
+    private NoiseGeneratorOctaves field_4239_j;
+    private NoiseGeneratorOctaves field_4238_k;
+    private NoiseGeneratorOctaves field_4237_l;
+    private NoiseGeneratorOctaves field_4236_m;
+    public NoiseGeneratorOctaves field_4248_a;
+    public NoiseGeneratorOctaves field_4247_b;
+    private World field_4235_n;
+    private double field_4234_o[];
+    private double field_4233_p[];
+    private double field_4232_q[];
+    private double field_4231_r[];
+    private MapGenBase field_4230_s;
+    double field_4246_c[];
+    double field_4245_d[];
+    double field_4244_e[];
+    double field_4243_f[];
+    double field_4242_g[];
 
     public ChunkProviderHell(World world, long l)
     {
@@ -405,24 +423,4 @@ public class ChunkProviderHell
     {
         return true;
     }
-
-    private Random hellRNG;
-    private NoiseGeneratorOctaves field_4240_i;
-    private NoiseGeneratorOctaves field_4239_j;
-    private NoiseGeneratorOctaves field_4238_k;
-    private NoiseGeneratorOctaves field_4237_l;
-    private NoiseGeneratorOctaves field_4236_m;
-    public NoiseGeneratorOctaves field_4248_a;
-    public NoiseGeneratorOctaves field_4247_b;
-    private World field_4235_n;
-    private double field_4234_o[];
-    private double field_4233_p[];
-    private double field_4232_q[];
-    private double field_4231_r[];
-    private MapGenBase field_4230_s;
-    double field_4246_c[];
-    double field_4245_d[];
-    double field_4244_e[];
-    double field_4243_f[];
-    double field_4242_g[];
 }

@@ -3,7 +3,7 @@ package net.minecraft.src.nbt;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.WorldProvider;
+import net.minecraft.src.NBTTagString;
 
 import java.io.*;
 
@@ -96,7 +96,7 @@ public abstract class NBTBase
             return new NBTTagByteArray();
 
         case 8: // '\b'
-            return new WorldProvider();
+            return new NBTTagString();
 
         case 9: // '\t'
             return new NBTTagList();

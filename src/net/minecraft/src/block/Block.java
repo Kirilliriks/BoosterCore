@@ -8,7 +8,7 @@ import net.minecraft.src.chunk.ChunkBlockMap;
 import net.minecraft.src.entity.*;
 import net.minecraft.src.item.*;
 import net.minecraft.src.material.Material;
-import net.minecraft.src.mobspawner.MobSpawnerRainforest;
+import net.minecraft.src.biome.MobSpawnerRainforest;
 import net.minecraft.src.packet.Packet255KickDisconnect;
 import net.minecraft.src.server.ServerWindowAdapter;
 

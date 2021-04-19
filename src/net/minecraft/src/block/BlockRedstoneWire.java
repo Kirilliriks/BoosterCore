@@ -48,7 +48,7 @@ public class BlockRedstoneWire extends Block
         field_21032_b.clear();
         for(int l = 0; l < arraylist.size(); l++)
         {
-            WorldProviderHell worldproviderhell = (WorldProviderHell)arraylist.get(l);
+            ChunkPosition worldproviderhell = (ChunkPosition)arraylist.get(l);
             world.notifyBlocksOfNeighborChange(worldproviderhell.field_26708_a, worldproviderhell.field_26707_b, worldproviderhell.field_26709_c, blockID);
         }
 
@@ -168,13 +168,13 @@ public class BlockRedstoneWire extends Block
 
             if(k1 == 0 || l1 == 0)
             {
-                field_21032_b.add(new WorldProviderHell(i, j, k));
-                field_21032_b.add(new WorldProviderHell(i - 1, j, k));
-                field_21032_b.add(new WorldProviderHell(i + 1, j, k));
-                field_21032_b.add(new WorldProviderHell(i, j - 1, k));
-                field_21032_b.add(new WorldProviderHell(i, j + 1, k));
-                field_21032_b.add(new WorldProviderHell(i, j, k - 1));
-                field_21032_b.add(new WorldProviderHell(i, j, k + 1));
+                field_21032_b.add(new ChunkPosition(i, j, k));
+                field_21032_b.add(new ChunkPosition(i - 1, j, k));
+                field_21032_b.add(new ChunkPosition(i + 1, j, k));
+                field_21032_b.add(new ChunkPosition(i, j - 1, k));
+                field_21032_b.add(new ChunkPosition(i, j + 1, k));
+                field_21032_b.add(new ChunkPosition(i, j, k - 1));
+                field_21032_b.add(new ChunkPosition(i, j, k + 1));
             }
         }
     }

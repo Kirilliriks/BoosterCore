@@ -7,7 +7,6 @@ import java.util.*;
 import java.util.logging.Logger;
 
 import com.booster.core.BoosterServer;
-import com.booster.core.entity.BoosterEntity;
 import com.booster.core.entity.BoosterPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
@@ -17,7 +16,7 @@ import net.minecraft.src.entity.EntityPlayerMP;
 import net.minecraft.src.inventory.InventoryPlayer;
 import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.item.ItemStack;
-import net.minecraft.src.mobspawner.MobSpawnerRainforest;
+import net.minecraft.src.biome.MobSpawnerRainforest;
 import net.minecraft.src.packet.*;
 
 public class NetServerHandler extends NetHandler implements ICommandListener {

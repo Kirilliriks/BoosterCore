@@ -4,7 +4,7 @@ package net.minecraft.src.item;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.chunk.ChunkPosition;
+import net.minecraft.src.entity.EntityPig;
 import net.minecraft.src.entity.EntityLiving;
 
 public class ItemSaddle extends Item
@@ -18,9 +18,9 @@ public class ItemSaddle extends Item
 
     public void saddleEntity(ItemStack itemstack, EntityLiving entityliving)
     {
-        if(entityliving instanceof ChunkPosition)
+        if(entityliving instanceof EntityPig)
         {
-            ChunkPosition chunkposition = (ChunkPosition)entityliving;
+            EntityPig chunkposition = (EntityPig)entityliving;
             if(!chunkposition.func_26603_v())
             {
                 chunkposition.func_26602_a(true);
