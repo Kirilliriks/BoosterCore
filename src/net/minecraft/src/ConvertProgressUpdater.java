@@ -4,10 +4,10 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.entity.IProgressUpdate;
 
 public class ConvertProgressUpdater
-    implements EntityPigZombie
+    implements IProgressUpdate
 {
 
     public ConvertProgressUpdater(MinecraftServer minecraftserver)
@@ -26,7 +26,7 @@ public class ConvertProgressUpdater
         if(System.currentTimeMillis() - lastTimeMillis >= 1000L)
         {
             lastTimeMillis = System.currentTimeMillis();
-            MinecraftServer.logger.info((new StringBuilder()).append("Converting... ").append(i).append("%").toString());
+            MinecraftServer.logger.info("Converting... " + i + "%");
         }
     }
 

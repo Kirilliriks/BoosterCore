@@ -4,7 +4,7 @@ package net.minecraft.src.chunk;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
-import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.entity.IProgressUpdate;
 
 public class ChunkProviderLoadOrGenerate
     implements IChunkProvider
@@ -180,7 +180,7 @@ public class ChunkProviderLoadOrGenerate
         }
     }
 
-    public boolean func_26631_a(boolean flag, EntityPigZombie entitypigzombie)
+    public boolean func_26631_a(boolean flag, IProgressUpdate entitypigzombie)
     {
         int i = 0;
         int j = 0;

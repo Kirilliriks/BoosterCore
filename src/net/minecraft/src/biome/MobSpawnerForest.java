@@ -7,7 +7,7 @@ import net.minecraft.src.SpawnListEntry;
 import net.minecraft.src.WorldGenBigTree;
 import net.minecraft.src.WorldGenForest;
 import net.minecraft.src.WorldGenerator;
-import net.minecraft.src.block.BlockBloodStone;
+import net.minecraft.src.block.WorldGenTrees;
 import net.minecraft.src.entity.EntityWolf;
 
 import java.util.Random;
@@ -31,7 +31,7 @@ public class MobSpawnerForest extends MobSpawnerBase
             return new WorldGenBigTree();
         } else
         {
-            return new BlockBloodStone();
+            return new WorldGenTrees();
         }
     }
 }

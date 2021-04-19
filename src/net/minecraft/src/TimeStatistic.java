@@ -5,10 +5,11 @@ package net.minecraft.src;
 
 import java.text.DecimalFormat;
 
-public class WorldGenTrees extends SlotFurnace
+//??
+public class TimeStatistic extends Statistic
 {
 
-    public WorldGenTrees(int i, String s)
+    public TimeStatistic(int i, String s)
     {
         super(i, s);
     }

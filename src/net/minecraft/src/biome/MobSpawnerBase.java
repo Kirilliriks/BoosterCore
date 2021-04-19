@@ -5,7 +5,7 @@ package net.minecraft.src.biome;
 
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
-import net.minecraft.src.block.BlockBloodStone;
+import net.minecraft.src.block.WorldGenTrees;
 import net.minecraft.src.entity.EntityPig;
 import net.minecraft.src.entity.*;
 
@@ -55,7 +55,7 @@ public class MobSpawnerBase {
         field_25057_s.add(new SpawnListEntry(EntityPig.class, 10));
         field_25057_s.add(new SpawnListEntry(EntityChicken.class, 10));
         field_25057_s.add(new SpawnListEntry(EntityCow.class, 8));
-        field_25056_t.add(new SpawnListEntry(WorldGenFire.class, 10));
+        field_25056_t.add(new SpawnListEntry(EntitySquid.class, 10));
     }
 
     public static void generateBiomeLookup()
@@ -80,7 +80,7 @@ public class MobSpawnerBase {
             return new WorldGenBigTree();
         } else
         {
-            return new BlockBloodStone();
+            return new WorldGenTrees();
         }
     }
 

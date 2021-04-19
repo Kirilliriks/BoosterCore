@@ -4,7 +4,6 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
-import net.minecraft.src.block.EntityFlying;
 import net.minecraft.src.item.Item;
 
 public class EntityGhast extends EntityFlying

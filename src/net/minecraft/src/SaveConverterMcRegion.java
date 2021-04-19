@@ -5,7 +5,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.chunk.ChunkFilePattern;
 import net.minecraft.src.chunk.ChunkFolderPattern;
-import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.entity.IProgressUpdate;
 
 import java.io.*;
 import java.util.*;
@@ -30,7 +30,7 @@ public class SaveConverterMcRegion extends SaveFormatOld
         return worldinfo != null && worldinfo.getVersion() == 0;
     }
 
-    public boolean func_26729_a(String s, EntityPigZombie entitypigzombie)
+    public boolean func_26729_a(String s, IProgressUpdate entitypigzombie)
     {
         entitypigzombie.setLoadingProgress(0);
         ArrayList arraylist = new ArrayList();
@@ -93,7 +93,7 @@ public class SaveConverterMcRegion extends SaveFormatOld
 
     }
 
-    private void func_26731_a(File file, ArrayList arraylist, int i, int j, EntityPigZombie entitypigzombie)
+    private void func_26731_a(File file, ArrayList arraylist, int i, int j, IProgressUpdate entitypigzombie)
     {
         Collections.sort(arraylist);
         byte abyte0[] = new byte[4096];
@@ -130,7 +130,7 @@ public class SaveConverterMcRegion extends SaveFormatOld
         RegionFileCache.func_22122_a();
     }
 
-    private void func_26732_a(ArrayList arraylist, int i, int j, EntityPigZombie entitypigzombie)
+    private void func_26732_a(ArrayList arraylist, int i, int j, IProgressUpdate entitypigzombie)
     {
         int k;
         for(Iterator iterator = arraylist.iterator(); iterator.hasNext(); entitypigzombie.setLoadingProgress(k))

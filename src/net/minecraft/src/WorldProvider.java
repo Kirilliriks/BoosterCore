@@ -5,12 +5,13 @@ package net.minecraft.src;
 
 
 import net.minecraft.src.block.Block;
+import net.minecraft.src.chunk.ChunkProviderGenerate;
 import net.minecraft.src.chunk.IChunkProvider;
 
 public class WorldProvider {
 
     public World field_26674_a;
-    public RedstoneUpdateInfo field_26673_b;
+    public WorldChunkManager field_26673_b;
     public boolean field_26680_c;
     public boolean field_26679_d;
     public boolean field_26678_e;
@@ -47,12 +48,12 @@ public class WorldProvider {
 
     protected void func_26669_a()
     {
-        field_26673_b = new RedstoneUpdateInfo(field_26674_a);
+        field_26673_b = new WorldChunkManager(field_26674_a);
     }
 
     public IChunkProvider func_26667_c()
     {
-        return new IProgressUpdate(field_26674_a, field_26674_a.func_22079_j());
+        return new ChunkProviderGenerate(field_26674_a, field_26674_a.func_22079_j());
     }
 
     public boolean func_26672_a(int i, int j)

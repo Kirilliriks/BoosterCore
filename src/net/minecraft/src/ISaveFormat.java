@@ -4,12 +4,12 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.entity.IProgressUpdate;
 
 public interface ISaveFormat
 {
 
     public abstract boolean func_22102_a(String s);
 
-    public abstract boolean func_26729_a(String s, EntityPigZombie entitypigzombie);
+    public abstract boolean func_26729_a(String s, IProgressUpdate entitypigzombie);
 }

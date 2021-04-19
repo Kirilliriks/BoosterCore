@@ -105,12 +105,12 @@ public class EntityList
         addMapping(EntityZombie.class, "Zombie", 54);
         addMapping(EntitySlime.class, "Slime", 55);
         addMapping(EntityGhast.class, "Ghast", 56);
-        addMapping(WorldChunkManager.class, "PigZombie", 57);
+        addMapping(EntityPigZombie.class, "PigZombie", 57);
         addMapping(EntityPig.class, "Pig", 90);
         addMapping(EntitySheep.class, "Sheep", 91);
         addMapping(EntityCow.class, "Cow", 92);
         addMapping(EntityChicken.class, "Chicken", 93);
-        addMapping(WorldGenFire.class, "Squid", 94);
+        addMapping(EntitySquid.class, "Squid", 94);
         addMapping(EntityWolf.class, "Wolf", 95);
         addMapping(EntityTNTPrimed.class, "PrimedTnt", 20);
         addMapping(EntityFallingSand.class, "FallingSand", 21);

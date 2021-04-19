@@ -7,7 +7,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockLever;
 import net.minecraft.src.block.BlockSand;
-import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.entity.IProgressUpdate;
 
 import java.util.Random;
 
@@ -409,7 +409,7 @@ public class ChunkProviderHell implements IChunkProvider {
         BlockSand.fallInstantly = false;
     }
 
-    public boolean func_26631_a(boolean flag, EntityPigZombie entitypigzombie)
+    public boolean func_26631_a(boolean flag, IProgressUpdate entitypigzombie)
     {
         return true;
     }

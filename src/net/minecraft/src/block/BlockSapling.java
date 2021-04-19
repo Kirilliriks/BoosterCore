@@ -39,7 +39,7 @@ public class BlockSapling extends ItemArmor
     public void func_21027_b(World world, int i, int j, int k, Random random)
     {
         world.setBlock(i, j, k, 0);
-        Object obj = new BlockBloodStone();
+        Object obj = new WorldGenTrees();
         if(random.nextInt(10) == 0)
         {
             obj = new WorldGenBigTree();

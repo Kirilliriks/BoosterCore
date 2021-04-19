@@ -3,7 +3,7 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.block.BlockBloodStone;
+import net.minecraft.src.block.WorldGenTrees;
 import net.minecraft.src.biome.MobSpawnerBase;
 
 import java.util.Random;
@@ -22,7 +22,7 @@ public class StatTime extends MobSpawnerBase
             return new WorldGenBigTree();
         } else
         {
-            return new BlockBloodStone();
+            return new WorldGenTrees();
         }
     }
 }

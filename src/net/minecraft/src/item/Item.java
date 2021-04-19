@@ -7,7 +7,6 @@ import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFlower;
 import net.minecraft.src.block.BlockStep;
-import net.minecraft.src.chunk.ChunkProviderGenerate;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityLiving;
 import net.minecraft.src.entity.EntityMinecart;
@@ -178,7 +177,7 @@ public class Item
     public static Item shovelSteel;
     public static Item pickaxeSteel;
     public static Item axeSteel;
-    public static Item flintAndSteel = (new ChunkProviderGenerate(3)).setIconCoord(5, 0).setItemName("flintAndSteel");
+    public static Item flintAndSteel = (new ItemFlintAndSteel(3)).setIconCoord(5, 0).setItemName("flintAndSteel");
     public static Item appleRed = (new BlockStep(4, 4, false)).setIconCoord(10, 0).setItemName("apple");
     public static Item bow = (new ItemBow(5)).setIconCoord(5, 1).setItemName("bow");
     public static Item arrow = (new Item(6)).setIconCoord(5, 2).setItemName("arrow");

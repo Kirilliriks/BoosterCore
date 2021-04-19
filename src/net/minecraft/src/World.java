@@ -8,7 +8,7 @@ import net.minecraft.src.block.BlockFluids;
 import net.minecraft.src.chunk.*;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
-import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.entity.IProgressUpdate;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.material.Material;
 
@@ -18,7 +18,7 @@ public class World
     implements WorldGenLiquids
 {
 
-    public RedstoneUpdateInfo func_26662_a()
+    public WorldChunkManager func_26662_a()
     {
         return worldProvider.field_26673_b;
     }
@@ -111,7 +111,7 @@ public class World
         return getBlockId(i, k, j);
     }
 
-    public void func_26660_a(boolean flag, EntityPigZombie entitypigzombie)
+    public void func_26660_a(boolean flag, IProgressUpdate entitypigzombie)
     {
         if(!chunkProvider.func_364_b())
         {

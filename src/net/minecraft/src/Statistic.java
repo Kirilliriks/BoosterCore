@@ -4,16 +4,16 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-public class SlotFurnace
+public class Statistic
 {
 
-    public SlotFurnace(int i, String s)
+    public Statistic(int i, String s)
     {
         field_26629_d = i;
         field_26628_e = s;
     }
 
-    public SlotFurnace func_26626_c()
+    public Statistic func_26626_c()
     {
         StatList.func_26736_a(this);
         return this;

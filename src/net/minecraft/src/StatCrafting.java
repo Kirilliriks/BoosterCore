@@ -4,7 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-public class StatCrafting extends SlotFurnace
+public class StatCrafting extends Statistic
 {
 
     public StatCrafting(int i, String s, int j)

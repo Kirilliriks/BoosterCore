@@ -4,7 +4,7 @@ package net.minecraft.src.chunk;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.entity.IProgressUpdate;
 
 public interface IChunkProvider
 {
@@ -17,7 +17,7 @@ public interface IChunkProvider
 
     public abstract void populate(IChunkProvider ichunkprovider, int i, int j);
 
-    public abstract boolean func_26631_a(boolean flag, EntityPigZombie entitypigzombie);
+    public abstract boolean func_26631_a(boolean flag, IProgressUpdate entitypigzombie);
 
     public abstract boolean func_361_a();
 

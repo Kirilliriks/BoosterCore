@@ -4,9 +4,9 @@ package net.minecraft.src.achievement;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.SlotFurnace;
+import net.minecraft.src.Statistic;
 
-public class Achievement extends SlotFurnace
+public class Achievement extends Statistic
 {
 
     public Achievement(int i, String s, int j, int k, Achievement achievement)

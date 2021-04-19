@@ -175,14 +175,14 @@ public abstract class Entity {
         rotationPitch = f1;
     }
 
-    public void setPosition(double d, double d1, double d2)
+    public void setPosition(double x, double y, double z)
     {
-        posX = d;
-        posY = d1;
-        posZ = d2;
+        posX = x;
+        posY = y;
+        posZ = z;
         float f = width / 2.0F;
         float f1 = height;
-        boundingBox.setBounds(d - (double)f, (d1 - (double)yOffset) + (double)ySize, d2 - (double)f, d + (double)f, (d1 - (double)yOffset) + (double)ySize + (double)f1, d2 + (double)f);
+        boundingBox.setBounds(x - (double)f, (y - (double)yOffset) + (double)ySize, z - (double)f, x + (double)f, (y - (double)yOffset) + (double)ySize + (double)f1, z + (double)f);
     }
 
     public void onUpdate()
@@ -299,11 +299,10 @@ public abstract class Entity {
         return !worldObj.getIsAnyLiquid(axisalignedbb);
     }
 
-    public void moveEntity(double d, double d1, double d2)
-    {
+    public void moveEntity(double x, double y, double z) {
         if(noClip)
         {
-            boundingBox.offset(d, d1, d2);
+            boundingBox.offset(x, y, z);
             posX = (boundingBox.minX + boundingBox.maxX) / 2D;
             posY = (boundingBox.minY + (double)yOffset) - (double)ySize;
             posZ = (boundingBox.minZ + boundingBox.maxZ) / 2D;
@@ -311,125 +310,125 @@ public abstract class Entity {
         }
         double d3 = posX;
         double d4 = posZ;
-        double d5 = d;
-        double d6 = d1;
-        double d7 = d2;
+        double d5 = x;
+        double d6 = y;
+        double d7 = z;
         AxisAlignedBB axisalignedbb = boundingBox.copy();
         boolean flag = onGround && func_26575_Z();
         if(flag)
         {
             double d8 = 0.050000000000000003D;
-            for(; d != 0.0D && worldObj.getCollidingBoundingBoxes(this, boundingBox.getOffsetBoundingBox(d, -1D, 0.0D)).size() == 0; d5 = d)
+            for(; x != 0.0D && worldObj.getCollidingBoundingBoxes(this, boundingBox.getOffsetBoundingBox(x, -1D, 0.0D)).size() == 0; d5 = x)
             {
-                if(d < d8 && d >= -d8)
+                if(x < d8 && x >= -d8)
                 {
-                    d = 0.0D;
+                    x = 0.0D;
                     continue;
                 }
-                if(d > 0.0D)
+                if(x > 0.0D)
                 {
-                    d -= d8;
+                    x -= d8;
                 } else
                 {
-                    d += d8;
+                    x += d8;
                 }
             }
 
-            for(; d2 != 0.0D && worldObj.getCollidingBoundingBoxes(this, boundingBox.getOffsetBoundingBox(0.0D, -1D, d2)).size() == 0; d7 = d2)
+            for(; z != 0.0D && worldObj.getCollidingBoundingBoxes(this, boundingBox.getOffsetBoundingBox(0.0D, -1D, z)).size() == 0; d7 = z)
             {
-                if(d2 < d8 && d2 >= -d8)
+                if(z < d8 && z >= -d8)
                 {
-                    d2 = 0.0D;
+                    z = 0.0D;
                     continue;
                 }
-                if(d2 > 0.0D)
+                if(z > 0.0D)
                 {
-                    d2 -= d8;
+                    z -= d8;
                 } else
                 {
-                    d2 += d8;
+                    z += d8;
                 }
             }
 
         }
-        List list = worldObj.getCollidingBoundingBoxes(this, boundingBox.addCoord(d, d1, d2));
+        List list = worldObj.getCollidingBoundingBoxes(this, boundingBox.addCoord(x, y, z));
         for(int i = 0; i < list.size(); i++)
         {
-            d1 = ((AxisAlignedBB)list.get(i)).calculateYOffset(boundingBox, d1);
+            y = ((AxisAlignedBB)list.get(i)).calculateYOffset(boundingBox, y);
         }
 
-        boundingBox.offset(0.0D, d1, 0.0D);
-        if(!field_9077_F && d6 != d1)
+        boundingBox.offset(0.0D, y, 0.0D);
+        if(!field_9077_F && d6 != y)
         {
-            d = d1 = d2 = 0.0D;
+            x = y = z = 0.0D;
         }
-        boolean flag1 = onGround || d6 != d1 && d6 < 0.0D;
+        boolean flag1 = onGround || d6 != y && d6 < 0.0D;
         for(int j = 0; j < list.size(); j++)
         {
-            d = ((AxisAlignedBB)list.get(j)).calculateXOffset(boundingBox, d);
+            x = ((AxisAlignedBB)list.get(j)).calculateXOffset(boundingBox, x);
         }
 
-        boundingBox.offset(d, 0.0D, 0.0D);
-        if(!field_9077_F && d5 != d)
+        boundingBox.offset(x, 0.0D, 0.0D);
+        if(!field_9077_F && d5 != x)
         {
-            d = d1 = d2 = 0.0D;
+            x = y = z = 0.0D;
         }
         for(int k = 0; k < list.size(); k++)
         {
-            d2 = ((AxisAlignedBB)list.get(k)).calculateZOffset(boundingBox, d2);
+            z = ((AxisAlignedBB)list.get(k)).calculateZOffset(boundingBox, z);
         }
 
-        boundingBox.offset(0.0D, 0.0D, d2);
-        if(!field_9077_F && d7 != d2)
+        boundingBox.offset(0.0D, 0.0D, z);
+        if(!field_9077_F && d7 != z)
         {
-            d = d1 = d2 = 0.0D;
+            x = y = z = 0.0D;
         }
-        if(stepHeight > 0.0F && flag1 && ySize < 0.05F && (d5 != d || d7 != d2))
+        if(stepHeight > 0.0F && flag1 && ySize < 0.05F && (d5 != x || d7 != z))
         {
-            double d9 = d;
-            double d11 = d1;
-            double d13 = d2;
-            d = d5;
-            d1 = stepHeight;
-            d2 = d7;
+            double d9 = x;
+            double d11 = y;
+            double d13 = z;
+            x = d5;
+            y = stepHeight;
+            z = d7;
             AxisAlignedBB axisalignedbb1 = boundingBox.copy();
             boundingBox.setBB(axisalignedbb);
-            List list1 = worldObj.getCollidingBoundingBoxes(this, boundingBox.addCoord(d, d1, d2));
+            List list1 = worldObj.getCollidingBoundingBoxes(this, boundingBox.addCoord(x, y, z));
             for(int j2 = 0; j2 < list1.size(); j2++)
             {
-                d1 = ((AxisAlignedBB)list1.get(j2)).calculateYOffset(boundingBox, d1);
+                y = ((AxisAlignedBB)list1.get(j2)).calculateYOffset(boundingBox, y);
             }
 
-            boundingBox.offset(0.0D, d1, 0.0D);
-            if(!field_9077_F && d6 != d1)
+            boundingBox.offset(0.0D, y, 0.0D);
+            if(!field_9077_F && d6 != y)
             {
-                d = d1 = d2 = 0.0D;
+                x = y = z = 0.0D;
             }
             for(int k2 = 0; k2 < list1.size(); k2++)
             {
-                d = ((AxisAlignedBB)list1.get(k2)).calculateXOffset(boundingBox, d);
+                x = ((AxisAlignedBB)list1.get(k2)).calculateXOffset(boundingBox, x);
             }
 
-            boundingBox.offset(d, 0.0D, 0.0D);
-            if(!field_9077_F && d5 != d)
+            boundingBox.offset(x, 0.0D, 0.0D);
+            if(!field_9077_F && d5 != x)
             {
-                d = d1 = d2 = 0.0D;
+                x = y = z = 0.0D;
             }
             for(int l2 = 0; l2 < list1.size(); l2++)
             {
-                d2 = ((AxisAlignedBB)list1.get(l2)).calculateZOffset(boundingBox, d2);
+                z = ((AxisAlignedBB)list1.get(l2)).calculateZOffset(boundingBox, z);
             }
 
-            boundingBox.offset(0.0D, 0.0D, d2);
-            if(!field_9077_F && d7 != d2)
+            boundingBox.offset(0.0D, 0.0D, z);
+            if(!field_9077_F && d7 != z)
             {
-                d = d1 = d2 = 0.0D;
+                x = y = z = 0.0D;
             }
-            if(d9 * d9 + d13 * d13 >= d * d + d2 * d2)
+            if(d9 * d9 + d13 * d13 >= x * x + z * z)
             {
-                d = d9;
-                d1 = d11;
-                d2 = d13;
+                x = d9;
+                y = d11;
+                z = d13;
                 boundingBox.setBB(axisalignedbb1);
             } else
             {
@@ -439,20 +438,20 @@ public abstract class Entity {
         posX = (boundingBox.minX + boundingBox.maxX) / 2D;
         posY = (boundingBox.minY + (double)yOffset) - (double)ySize;
         posZ = (boundingBox.minZ + boundingBox.maxZ) / 2D;
-        isCollidedHorizontally = d5 != d || d7 != d2;
-        isCollidedVertically = d6 != d1;
-        onGround = d6 != d1 && d6 < 0.0D;
+        isCollidedHorizontally = d5 != x || d7 != z;
+        isCollidedVertically = d6 != y;
+        onGround = d6 != y && d6 < 0.0D;
         isCollided = isCollidedHorizontally || isCollidedVertically;
-        updateFallState(d1, onGround);
-        if(d5 != d)
+        updateFallState(y, onGround);
+        if(d5 != x)
         {
             motionX = 0.0D;
         }
-        if(d6 != d1)
+        if(d6 != y)
         {
             motionY = 0.0D;
         }
-        if(d7 != d2)
+        if(d7 != z)
         {
             motionZ = 0.0D;
         }
@@ -546,9 +545,7 @@ public abstract class Entity {
                 fall(fallDistance);
                 fallDistance = 0.0F;
             }
-        } else
-        if(d < 0.0D)
-        {
+        } else if(d < 0.0D) {
             fallDistance -= d;
         }
     }

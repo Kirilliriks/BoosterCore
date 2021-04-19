@@ -714,7 +714,7 @@ public abstract class EntityPlayer extends EntityLiving
         }
     }
 
-    public void func_26604_a(SlotFurnace slotfurnace, int i)
+    public void func_26604_a(Statistic slotfurnace, int i)
     {
     }
 

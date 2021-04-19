@@ -68,7 +68,7 @@ public class EntityTracker
         {
             trackEntity(entity, 160, 5, true);
         } else
-        if(entity instanceof WorldGenFire)
+        if(entity instanceof EntitySquid)
         {
             trackEntity(entity, 160, 3, true);
         } else

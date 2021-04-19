@@ -5,7 +5,7 @@ package net.minecraft.src;
 
 import java.text.DecimalFormat;
 
-public class StatDistance extends SlotFurnace
+public class StatDistance extends Statistic
 {
 
     public StatDistance(int i, String s)

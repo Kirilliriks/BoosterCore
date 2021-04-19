@@ -3,7 +3,7 @@ package net.minecraft.src;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.entity.EntityPigZombie;
+import net.minecraft.src.entity.IProgressUpdate;
 import net.minecraft.src.nbt.NBTTagCompound;
 
 import java.io.File;
@@ -69,7 +69,7 @@ public class SaveFormatOld
         return false;
     }
 
-    public boolean func_26729_a(String s, EntityPigZombie entitypigzombie)
+    public boolean func_26729_a(String s, IProgressUpdate entitypigzombie)
     {
         return false;
     }

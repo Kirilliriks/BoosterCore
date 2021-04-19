@@ -7,7 +7,7 @@ import net.minecraft.src.biome.MobSpawnerBase;
 
 import java.util.Arrays;
 
-public class WorldChunkManagerHell extends RedstoneUpdateInfo
+public class WorldChunkManagerHell extends WorldChunkManager
 {
 
     public WorldChunkManagerHell(MobSpawnerBase mobspawnerbase, double d, double d1)
@@ -17,7 +17,7 @@ public class WorldChunkManagerHell extends RedstoneUpdateInfo
         field_4260_g = d1;
     }
 
-    public MobSpawnerBase func_26658_a(ChunkCoordinate slotcrafting)
+    public MobSpawnerBase func_26658_a(ChunkCoordinate chunkCoordinate)
     {
         return field_4262_e;
     }

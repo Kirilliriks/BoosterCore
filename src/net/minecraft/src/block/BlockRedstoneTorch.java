@@ -3,7 +3,7 @@ package net.minecraft.src.block;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.entity.EntitySquid;
+import net.minecraft.src.RedstoneUpdateInfo;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenLiquids;
 
@@ -27,12 +27,12 @@ public class BlockRedstoneTorch extends BlockSoil
     {
         if(flag)
         {
-            torchUpdates.add(new EntitySquid(i, j, k, world.getWorldTime()));
+            torchUpdates.add(new RedstoneUpdateInfo(i, j, k, world.getWorldTime()));
         }
         int l = 0;
         for(int i1 = 0; i1 < torchUpdates.size(); i1++)
         {
-            EntitySquid entitysquid = (EntitySquid)torchUpdates.get(i1);
+            RedstoneUpdateInfo entitysquid = (RedstoneUpdateInfo)torchUpdates.get(i1);
             if(entitysquid.field_21063_a == i && entitysquid.field_21062_b == j && entitysquid.field_21061_c == k && ++l >= 8)
             {
                 return true;
@@ -136,7 +136,7 @@ public class BlockRedstoneTorch extends BlockSoil
     public void updateTick(World world, int i, int j, int k, Random random)
     {
         boolean flag = func_22016_g(world, i, j, k);
-        for(; torchUpdates.size() > 0 && world.getWorldTime() - ((EntitySquid)torchUpdates.get(0)).field_26659_d > 100L; torchUpdates.remove(0)) { }
+        for(; torchUpdates.size() > 0 && world.getWorldTime() - ((RedstoneUpdateInfo)torchUpdates.get(0)).field_26659_d > 100L; torchUpdates.remove(0)) { }
         if(torchActive)
         {
             if(flag)

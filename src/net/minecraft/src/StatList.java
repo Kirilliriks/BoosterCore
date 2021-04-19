@@ -21,11 +21,11 @@ public class StatList
         System.out.println((new StringBuilder()).append("Stats: ").append(field_25123_a.size()).toString());
     }
 
-    public static void func_26736_a(SlotFurnace slotfurnace)
+    public static void func_26736_a(Statistic slotfurnace)
     {
         if(field_25104_C.containsKey(Integer.valueOf(slotfurnace.field_26629_d)))
         {
-            throw new RuntimeException((new StringBuilder()).append("Duplicate stat id: ").append(((SlotFurnace)field_25104_C.get(Integer.valueOf(slotfurnace.field_26629_d))).field_26628_e).append(" and ").append(slotfurnace.field_26628_e).append(" at id ").append(slotfurnace.field_26629_d).toString());
+            throw new RuntimeException((new StringBuilder()).append("Duplicate stat id: ").append(((Statistic)field_25104_C.get(Integer.valueOf(slotfurnace.field_26629_d))).field_26628_e).append(" and ").append(slotfurnace.field_26628_e).append(" at id ").append(slotfurnace.field_26629_d).toString());
         }
         slotfurnace.field_26627_f = AchievementMap.func_25132_a(slotfurnace.field_26629_d);
         field_25123_a.add(slotfurnace);
@@ -84,7 +84,7 @@ public class StatList
             itemstack = (ItemStack)iterator1.next();
         }
 
-        field_25093_z = new SlotFurnace[32000];
+        field_25093_z = new Statistic[32000];
         Iterator iterator2 = hashset.iterator();
         do
         {
@@ -104,9 +104,9 @@ public class StatList
         func_26741_a(field_25093_z);
     }
 
-    private static SlotFurnace[] func_26739_a(String s, int i)
+    private static Statistic[] func_26739_a(String s, int i)
     {
-        SlotFurnace aslotfurnace[] = new SlotFurnace[256];
+        Statistic aslotfurnace[] = new Statistic[256];
         for(int j = 0; j < 256; j++)
         {
             if(Block.blocksList[j] != null)
@@ -122,11 +122,11 @@ public class StatList
         return aslotfurnace;
     }
 
-    private static SlotFurnace[] func_26740_a(SlotFurnace aslotfurnace[], String s, int i, int j, int k)
+    private static Statistic[] func_26740_a(Statistic aslotfurnace[], String s, int i, int j, int k)
     {
         if(aslotfurnace == null)
         {
-            aslotfurnace = new SlotFurnace[32000];
+            aslotfurnace = new Statistic[32000];
         }
         for(int l = j; l < k; l++)
         {
@@ -143,11 +143,11 @@ public class StatList
         return aslotfurnace;
     }
 
-    private static SlotFurnace[] func_26738_b(SlotFurnace aslotfurnace[], String s, int i, int j, int k)
+    private static Statistic[] func_26738_b(Statistic aslotfurnace[], String s, int i, int j, int k)
     {
         if(aslotfurnace == null)
         {
-            aslotfurnace = new SlotFurnace[32000];
+            aslotfurnace = new Statistic[32000];
         }
         for(int l = j; l < k; l++)
         {
@@ -164,7 +164,7 @@ public class StatList
         return aslotfurnace;
     }
 
-    private static void func_26741_a(SlotFurnace aslotfurnace[])
+    private static void func_26741_a(Statistic aslotfurnace[])
     {
         func_26737_a(aslotfurnace, Block.waterStill.blockID, Block.waterMoving.blockID);
         func_26737_a(aslotfurnace, Block.lavaStill.blockID, Block.lavaStill.blockID);
@@ -177,7 +177,7 @@ public class StatList
         func_26737_a(aslotfurnace, Block.stairSingle.blockID, Block.stairDouble.blockID);
     }
 
-    private static void func_26737_a(SlotFurnace aslotfurnace[], int i, int j)
+    private static void func_26737_a(Statistic aslotfurnace[], int i, int j)
     {
         aslotfurnace[i] = aslotfurnace[j];
         field_25123_a.remove(aslotfurnace[i]);
@@ -189,30 +189,30 @@ public class StatList
     public static List field_25122_b = new ArrayList();
     public static List field_25121_c = new ArrayList();
     public static List field_25120_d = new ArrayList();
-    public static SlotFurnace field_25119_e = (new SlotFurnace(1000, StatCollector.func_25136_a("stat.startGame"))).func_26626_c();
-    public static SlotFurnace field_25118_f = (new SlotFurnace(1001, StatCollector.func_25136_a("stat.createWorld"))).func_26626_c();
-    public static SlotFurnace field_25117_g = (new SlotFurnace(1002, StatCollector.func_25136_a("stat.loadWorld"))).func_26626_c();
-    public static SlotFurnace field_25116_h = (new SlotFurnace(1003, StatCollector.func_25136_a("stat.joinMultiplayer"))).func_26626_c();
-    public static SlotFurnace field_25115_i = (new SlotFurnace(1004, StatCollector.func_25136_a("stat.leaveGame"))).func_26626_c();
-    public static SlotFurnace field_25114_j = (new WorldGenTrees(1100, StatCollector.func_25136_a("stat.playOneMinute"))).func_26626_c();
-    public static SlotFurnace field_25113_k = (new StatDistance(2000, StatCollector.func_25136_a("stat.walkOneCm"))).func_26626_c();
-    public static SlotFurnace field_25112_l = (new StatDistance(2001, StatCollector.func_25136_a("stat.swimOneCm"))).func_26626_c();
-    public static SlotFurnace field_25111_m = (new StatDistance(2002, StatCollector.func_25136_a("stat.fallOneCm"))).func_26626_c();
-    public static SlotFurnace field_25110_n = (new StatDistance(2003, StatCollector.func_25136_a("stat.climbOneCm"))).func_26626_c();
-    public static SlotFurnace field_25109_o = (new StatDistance(2004, StatCollector.func_25136_a("stat.flyOneCm"))).func_26626_c();
-    public static SlotFurnace field_25108_p = (new StatDistance(2005, StatCollector.func_25136_a("stat.diveOneCm"))).func_26626_c();
-    public static SlotFurnace field_25106_q = (new SlotFurnace(2010, StatCollector.func_25136_a("stat.jump"))).func_26626_c();
-    public static SlotFurnace field_25103_r = (new SlotFurnace(2011, StatCollector.func_25136_a("stat.drop"))).func_26626_c();
-    public static SlotFurnace field_25102_s = (new SlotFurnace(2020, StatCollector.func_25136_a("stat.damageDealt"))).func_26626_c();
-    public static SlotFurnace field_25100_t = (new SlotFurnace(2021, StatCollector.func_25136_a("stat.damageTaken"))).func_26626_c();
-    public static SlotFurnace field_25098_u = (new SlotFurnace(2022, StatCollector.func_25136_a("stat.deaths"))).func_26626_c();
-    public static SlotFurnace field_25097_v = (new SlotFurnace(2023, StatCollector.func_25136_a("stat.mobKills"))).func_26626_c();
-    public static SlotFurnace field_25096_w = (new SlotFurnace(2024, StatCollector.func_25136_a("stat.playerKills"))).func_26626_c();
-    public static SlotFurnace field_25095_x = (new SlotFurnace(2025, StatCollector.func_25136_a("stat.fishCaught"))).func_26626_c();
-    public static SlotFurnace field_25094_y[] = func_26739_a("stat.mineBlock", 0x1000000);
-    public static SlotFurnace field_25093_z[] = null;
-    public static SlotFurnace field_25107_A[] = null;
-    public static SlotFurnace field_25105_B[] = null;
+    public static Statistic field_25119_e = (new Statistic(1000, StatCollector.func_25136_a("stat.startGame"))).func_26626_c();
+    public static Statistic field_25118_f = (new Statistic(1001, StatCollector.func_25136_a("stat.createWorld"))).func_26626_c();
+    public static Statistic field_25117_g = (new Statistic(1002, StatCollector.func_25136_a("stat.loadWorld"))).func_26626_c();
+    public static Statistic field_25116_h = (new Statistic(1003, StatCollector.func_25136_a("stat.joinMultiplayer"))).func_26626_c();
+    public static Statistic field_25115_i = (new Statistic(1004, StatCollector.func_25136_a("stat.leaveGame"))).func_26626_c();
+    public static Statistic field_25114_j = (new TimeStatistic(1100, StatCollector.func_25136_a("stat.playOneMinute"))).func_26626_c();
+    public static Statistic field_25113_k = (new StatDistance(2000, StatCollector.func_25136_a("stat.walkOneCm"))).func_26626_c();
+    public static Statistic field_25112_l = (new StatDistance(2001, StatCollector.func_25136_a("stat.swimOneCm"))).func_26626_c();
+    public static Statistic field_25111_m = (new StatDistance(2002, StatCollector.func_25136_a("stat.fallOneCm"))).func_26626_c();
+    public static Statistic field_25110_n = (new StatDistance(2003, StatCollector.func_25136_a("stat.climbOneCm"))).func_26626_c();
+    public static Statistic field_25109_o = (new StatDistance(2004, StatCollector.func_25136_a("stat.flyOneCm"))).func_26626_c();
+    public static Statistic field_25108_p = (new StatDistance(2005, StatCollector.func_25136_a("stat.diveOneCm"))).func_26626_c();
+    public static Statistic field_25106_q = (new Statistic(2010, StatCollector.func_25136_a("stat.jump"))).func_26626_c();
+    public static Statistic field_25103_r = (new Statistic(2011, StatCollector.func_25136_a("stat.drop"))).func_26626_c();
+    public static Statistic field_25102_s = (new Statistic(2020, StatCollector.func_25136_a("stat.damageDealt"))).func_26626_c();
+    public static Statistic field_25100_t = (new Statistic(2021, StatCollector.func_25136_a("stat.damageTaken"))).func_26626_c();
+    public static Statistic field_25098_u = (new Statistic(2022, StatCollector.func_25136_a("stat.deaths"))).func_26626_c();
+    public static Statistic field_25097_v = (new Statistic(2023, StatCollector.func_25136_a("stat.mobKills"))).func_26626_c();
+    public static Statistic field_25096_w = (new Statistic(2024, StatCollector.func_25136_a("stat.playerKills"))).func_26626_c();
+    public static Statistic field_25095_x = (new Statistic(2025, StatCollector.func_25136_a("stat.fishCaught"))).func_26626_c();
+    public static Statistic field_25094_y[] = func_26739_a("stat.mineBlock", 0x1000000);
+    public static Statistic field_25093_z[] = null;
+    public static Statistic field_25107_A[] = null;
+    public static Statistic field_25105_B[] = null;
     private static boolean field_25101_D = false;
     private static boolean field_25099_E = false;
 
