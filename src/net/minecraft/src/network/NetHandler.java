@@ -5,7 +5,7 @@ package net.minecraft.src.network;
 
 
 import net.minecraft.src.*;
-import net.minecraft.src.entity.Packet52MultiBlockChange;
+import net.minecraft.src.packet.Packet52MultiBlockChange;
 import net.minecraft.src.entity.EntityEgg;
 import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.packet.*;

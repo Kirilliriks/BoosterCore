@@ -4,10 +4,7 @@ package net.minecraft.src.packet;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
-import net.minecraft.src.entity.AxisAlignedBB;
-import net.minecraft.src.entity.Entity;
-import net.minecraft.src.entity.EntityLiving;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.*;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.nbt.NBTTagCompound;
@@ -187,7 +184,7 @@ public class Packet25 extends Entity
                 }
                 for(int k = 0; k < byte0; k++)
                 {
-                    PlayerManager playermanager = new PlayerManager(worldObj);
+                    EntityChicken playermanager = new EntityChicken(worldObj);
                     playermanager.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0F);
                     worldObj.entityJoinedWorld(playermanager);
                 }

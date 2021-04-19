@@ -53,7 +53,7 @@ public class MobSpawnerBase {
         field_25058_r.add(new SpawnListEntry(EntitySlime.class, 10));
         field_25057_s.add(new SpawnListEntry(EntitySheep.class, 12));
         field_25057_s.add(new SpawnListEntry(EntityPig.class, 10));
-        field_25057_s.add(new SpawnListEntry(PlayerManager.class, 10));
+        field_25057_s.add(new SpawnListEntry(EntityChicken.class, 10));
         field_25057_s.add(new SpawnListEntry(EntityCow.class, 8));
         field_25056_t.add(new SpawnListEntry(WorldGenFire.class, 10));
     }

@@ -6,7 +6,7 @@ package net.minecraft.src;
 import java.util.*;
 
 import net.minecraft.src.block.Block;
-import net.minecraft.src.entity.Packet52MultiBlockChange;
+import net.minecraft.src.packet.Packet52MultiBlockChange;
 import net.minecraft.src.entity.EntityPlayerMP;
 import net.minecraft.src.packet.Packet;
 import net.minecraft.src.packet.Packet50PreChunk;

@@ -4,7 +4,6 @@ package net.minecraft.src.packet;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.StatBasic;
-import net.minecraft.src.entity.Packet52MultiBlockChange;
 import net.minecraft.src.entity.EntityEgg;
 import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.network.NetHandler;

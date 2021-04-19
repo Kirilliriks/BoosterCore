@@ -109,7 +109,7 @@ public class EntityList
         addMapping(EntityPig.class, "Pig", 90);
         addMapping(EntitySheep.class, "Sheep", 91);
         addMapping(EntityCow.class, "Cow", 92);
-        addMapping(PlayerManager.class, "Chicken", 93);
+        addMapping(EntityChicken.class, "Chicken", 93);
         addMapping(WorldGenFire.class, "Squid", 94);
         addMapping(EntityWolf.class, "Wolf", 95);
         addMapping(EntityTNTPrimed.class, "PrimedTnt", 20);
