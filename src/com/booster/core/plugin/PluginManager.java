@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.logging.Level;
 
 public class PluginManager {
 
@@ -60,7 +61,8 @@ public class PluginManager {
             // Get plugin.yml
             JarEntry entry = jar.getJarEntry("plugin.yml");
             if (entry == null){
-                throw new RuntimeException("plugin.yml not found");
+                BoosterServer.logger.info("Not found plugin.yml for " + pluginFile.getName());
+                return null;
             }
             Yaml yaml = new Yaml();
             Map<String, Object> obj = yaml.load(new InputStreamReader(jar.getInputStream(entry)));
@@ -76,6 +78,7 @@ public class PluginManager {
                 constructor = plugin.getConstructor();
             } catch (ClassNotFoundException | NoSuchMethodException e) {
                 e.printStackTrace();
+                return null;
             }
 
             JavaPlugin result = null;
