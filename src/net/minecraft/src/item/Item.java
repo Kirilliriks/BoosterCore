@@ -9,7 +9,7 @@ import net.minecraft.src.block.BlockFlower;
 import net.minecraft.src.block.BlockStep;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityLiving;
-import net.minecraft.src.entity.EntityMinecart;
+import net.minecraft.src.entity.EntityMinecart_ButItem;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.packet.Packet54;
@@ -239,7 +239,7 @@ public class Item
     public static Item flint = (new Item(62)).setIconCoord(6, 0).setItemName("flint");
     public static Item porkRaw = (new BlockStep(63, 3, true)).setIconCoord(7, 5).setItemName("porkchopRaw");
     public static Item porkCooked = (new BlockStep(64, 8, true)).setIconCoord(8, 5).setItemName("porkchopCooked");
-    public static Item painting = (new EntityMinecart(65)).setIconCoord(10, 1).setItemName("painting");
+    public static Item painting = (new EntityMinecart_ButItem(65)).setIconCoord(10, 1).setItemName("painting");
     public static Item appleGold = (new BlockStep(66, 42, false)).setIconCoord(11, 0).setItemName("appleGold");
     public static Item sign = (new ItemSign(67)).setIconCoord(10, 2).setItemName("sign");
     public static Item doorWood;

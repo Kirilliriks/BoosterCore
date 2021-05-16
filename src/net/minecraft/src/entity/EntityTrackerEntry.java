@@ -258,7 +258,7 @@ public class EntityTrackerEntry
         {
             return new Packet23VehicleSpawn(trackedEntity, 61);
         }
-        if(trackedEntity instanceof Packet25)
+        if(trackedEntity instanceof Packet25_ButEntity)
         {
             return new Packet23VehicleSpawn(trackedEntity, 62);
         }

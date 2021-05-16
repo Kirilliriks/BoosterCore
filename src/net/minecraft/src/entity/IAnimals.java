@@ -4,6 +4,4 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-public interface IAnimals
-{
-}
+public interface IAnimals { }

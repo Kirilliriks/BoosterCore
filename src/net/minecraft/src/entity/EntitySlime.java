@@ -8,9 +8,7 @@ import net.minecraft.src.chunk.Chunk;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.nbt.NBTTagCompound;
 
-public class EntitySlime extends EntityLiving
-    implements IMobs
-{
+public class EntitySlime extends EntityLiving implements IMobs {
 
     public EntitySlime(World world)
     {

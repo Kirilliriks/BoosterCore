@@ -9,9 +9,7 @@ import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.World;
 import net.minecraft.src.block.Block;
 
-public abstract class EntityAnimals extends EntityCreature
-    implements IAnimals
-{
+public abstract class EntityAnimals extends EntityCreature implements IAnimals {
 
     public EntityAnimals(World world)
     {

@@ -12,5 +12,5 @@ public abstract class Command {
         return name;
     }
 
-    public abstract void execute(String[] args, CommandSender sender);
+    public abstract void execute(CommandSender sender, String[] args);
 }

@@ -11,10 +11,10 @@ import net.minecraft.src.material.Material;
 
 import java.util.Random;
 
-public class ConsoleLogFormatter extends Block
+public class ConsoleLogFormatter_ButBlockCircuits extends Block
 {
 
-    public ConsoleLogFormatter(int i, boolean flag)
+    public ConsoleLogFormatter_ButBlockCircuits(int i, boolean flag)
     {
         super(i, 102, Material.circuits);
         field_26534_c = flag;

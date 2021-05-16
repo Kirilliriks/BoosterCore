@@ -177,7 +177,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
                     l1 = l2;
                 }
                 worldManager.chunkProvider.loadChunk(chunkcoordinates.posX + i >> 4, chunkcoordinates.posZ + j >> 4);
-                while(worldManager.func_6156_d() && serverRunning) ;
+                while(worldManager.func_6156_d() && serverRunning);
             }
 
         }
@@ -207,9 +207,11 @@ public class MinecraftServer implements Runnable, ICommandListener {
 
     private void stopServer() {
         logger.info("Stopping server");
+
         // Booster
-            boosterServer.stopServer();
+        boosterServer.stopServer();
         //
+
         if(configManager != null)
         {
             configManager.savePlayerStates();

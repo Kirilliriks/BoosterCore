@@ -4,7 +4,7 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
-import net.minecraft.src.chunk.ChunkBlockMap;
+import net.minecraft.src.chunk.ChunkBlockMap_ButBlock;
 import net.minecraft.src.entity.*;
 import net.minecraft.src.item.*;
 import net.minecraft.src.material.Material;
@@ -646,7 +646,7 @@ public class Block
         glass = (new BlockGlass(20, 49, Material.glass, false)).setHardness(0.3F).setStepSound(soundGlassFootstep).setBlockName("glass");
         oreLapis = (new BlockOre(21, 160)).setHardness(3F).setResistance(5F).setStepSound(soundStoneFootstep).setBlockName("oreLapis");
         blockLapis = (new Block(22, 144, Material.rock)).setHardness(3F).setResistance(5F).setStepSound(soundStoneFootstep).setBlockName("blockLapis");
-        dispenser = (new IBlockAccess(23)).setHardness(3.5F).setStepSound(soundStoneFootstep).setBlockName("dispenser");
+        dispenser = (new IBlockAccess_ButBlock(23)).setHardness(3.5F).setStepSound(soundStoneFootstep).setBlockName("dispenser");
         sandStone = (new BlockSandStone(24)).setStepSound(soundStoneFootstep).setHardness(0.8F).setBlockName("sandStone");
         musicBlock = (new BlockNote(25)).setHardness(0.8F).setBlockName("musicBlock");
         cloth = (new BlockCloth()).setHardness(0.8F).setStepSound(soundClothFootstep).setBlockName("cloth");
@@ -673,7 +673,7 @@ public class Block
         blockDiamond = (new BlockOreBlock(57, 24)).setHardness(5F).setResistance(10F).setStepSound(soundMetalFootstep).setBlockName("blockDiamond");
         workbench = (new BlockWorkbench(58)).setHardness(2.5F).setStepSound(soundWoodFootstep).setBlockName("workbench");
         crops = (new BlockCrops(59, 88)).setHardness(0.0F).setStepSound(soundGrassFootstep).setBlockName("crops");
-        tilledField = (new ChunkBlockMap(60)).setHardness(0.6F).setStepSound(soundGravelFootstep).setBlockName("farmland");
+        tilledField = (new ChunkBlockMap_ButBlock(60)).setHardness(0.6F).setStepSound(soundGravelFootstep).setBlockName("farmland");
         stoneOvenIdle = (new BlockFurnace(61, false)).setHardness(3.5F).setStepSound(soundStoneFootstep).setBlockName("furnace");
         stoneOvenActive = (new BlockFurnace(62, true)).setHardness(3.5F).setStepSound(soundStoneFootstep).setLightValue(0.875F).setBlockName("furnace");
         signPost = (new BlockSign(63, MobSpawnerRainforest.class, true)).setHardness(1.0F).setStepSound(soundWoodFootstep).setBlockName("sign");
@@ -706,8 +706,8 @@ public class Block
         portal = (BlockPortal)(new BlockPortal(90, 14)).setHardness(-1F).setStepSound(soundGlassFootstep).setLightValue(0.75F).setBlockName("portal");
         pumpkinLantern = (new BlockPumpkin(91, 102, true)).setHardness(1.0F).setStepSound(soundWoodFootstep).setLightValue(1.0F).setBlockName("litpumpkin");
         cake = (new BlockCake(92, 121)).setHardness(0.5F).setStepSound(soundClothFootstep).setBlockName("cake");
-        redstoneRepeaterIdle = (new ConsoleLogFormatter(93, false)).setHardness(0.0F).setStepSound(soundWoodFootstep).setBlockName("diode");
-        redstoneRepeaterActive = (new ConsoleLogFormatter(94, true)).setHardness(0.0F).setLightValue(0.625F).setStepSound(soundWoodFootstep).setBlockName("diode");
+        redstoneRepeaterIdle = (new ConsoleLogFormatter_ButBlockCircuits(93, false)).setHardness(0.0F).setStepSound(soundWoodFootstep).setBlockName("diode");
+        redstoneRepeaterActive = (new ConsoleLogFormatter_ButBlockCircuits(94, true)).setHardness(0.0F).setLightValue(0.625F).setStepSound(soundWoodFootstep).setBlockName("diode");
         lockedChest = (new BlockLockedChest(95)).setHardness(-1F).setLightValue(1.0F).setStepSound(soundWoodFootstep).setBlockName("lockedchest");
         Item.itemsList[cloth.blockID] = (new ItemCloth(cloth.blockID - 256)).setItemName("cloth");
         Item.itemsList[wood.blockID] = (new ItemLog(wood.blockID - 256)).setItemName("log");

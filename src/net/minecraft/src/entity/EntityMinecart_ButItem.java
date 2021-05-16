@@ -8,10 +8,10 @@ import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.World;
 
-public class EntityMinecart extends Item
+public class EntityMinecart_ButItem extends Item
 {
 
-    public EntityMinecart(int i)
+    public EntityMinecart_ButItem(int i)
     {
         super(i);
     }

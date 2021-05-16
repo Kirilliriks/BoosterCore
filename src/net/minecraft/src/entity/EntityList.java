@@ -20,8 +20,8 @@ public class EntityList
     {
         stringToClassMapping.put(s, class1);
         classToStringMapping.put(class1, s);
-        IDtoClassMapping.put(Integer.valueOf(i), class1);
-        classToIDMapping.put(class1, Integer.valueOf(i));
+        IDtoClassMapping.put(i, class1);
+        classToIDMapping.put(class1, i);
     }
 
     public static Entity createEntityInWorld(String s, World world)
@@ -70,14 +70,14 @@ public class EntityList
             entity.readFromNBT(nbttagcompound);
         } else
         {
-            System.out.println((new StringBuilder()).append("Skipping Entity with id ").append(nbttagcompound.getString("id")).toString());
+            System.out.println("Skipping Entity with id " + nbttagcompound.getString("id"));
         }
         return entity;
     }
 
     public static int getEntityID(Entity entity)
     {
-        return ((Integer)classToIDMapping.get(entity.getClass())).intValue();
+        return (Integer) classToIDMapping.get(entity.getClass());
     }
 
     public static String getEntityString(Entity entity)

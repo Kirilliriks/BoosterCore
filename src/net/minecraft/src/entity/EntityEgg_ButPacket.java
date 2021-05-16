@@ -8,14 +8,15 @@ import net.minecraft.src.network.NetHandler;
 
 import java.io.*;
 
-public class EntityEgg extends Packet
+// PACKET
+public class EntityEgg_ButPacket extends Packet
 {
 
-    public EntityEgg()
+    public EntityEgg_ButPacket()
     {
     }
 
-    public EntityEgg(int i, int j, int k, int l, int i1)
+    public EntityEgg_ButPacket(int i, int j, int k, int l, int i1)
     {
         shake = i;
         xTile = j;

@@ -7,7 +7,7 @@ import java.util.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.packet.Packet;
-import net.minecraft.src.packet.Packet25;
+import net.minecraft.src.packet.Packet25_ButEntity;
 
 public class EntityTracker
 {
@@ -52,7 +52,7 @@ public class EntityTracker
         {
             trackEntity(entity, 64, 5, true);
         } else
-        if(entity instanceof Packet25)
+        if(entity instanceof Packet25_ButEntity)
         {
             trackEntity(entity, 64, 5, true);
         } else

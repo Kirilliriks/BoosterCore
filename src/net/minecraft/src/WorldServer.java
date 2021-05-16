@@ -108,7 +108,7 @@ public class WorldServer extends World
     public void playNoteAt(int i, int j, int k, int l, int i1)
     {
         super.playNoteAt(i, j, k, l, i1);
-        mcServer.configManager.sendPacketToPlayersAroundPoint(i, j, k, 64D, new EntityEgg(i, j, k, l, i1));
+        mcServer.configManager.sendPacketToPlayersAroundPoint(i, j, k, 64D, new EntityEgg_ButPacket(i, j, k, l, i1));
     }
 
     public void func_22088_r()

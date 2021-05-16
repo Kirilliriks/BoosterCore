@@ -19,7 +19,7 @@ public class EntityCreeper extends EntityMobs
     protected void entityInit()
     {
         super.entityInit();
-        dataWatcher.addObject(16, Byte.valueOf((byte)-1));
+        dataWatcher.addObject(16, (byte) -1);
     }
 
     public void writeEntityToNBT(NBTTagCompound nbttagcompound)
@@ -114,7 +114,7 @@ public class EntityCreeper extends EntityMobs
 
     private void func_21049_a(int i)
     {
-        dataWatcher.updateObject(16, Byte.valueOf((byte)i));
+        dataWatcher.updateObject(16, (byte) i);
     }
 
     int timeSinceIgnited;

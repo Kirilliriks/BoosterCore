@@ -11,10 +11,10 @@ import net.minecraft.src.block.Block;
 
 import java.util.Random;
 
-public class ChunkBlockMap extends Block
+public class ChunkBlockMap_ButBlock extends Block
 {
 
-    public ChunkBlockMap(int i)
+    public ChunkBlockMap_ButBlock(int i)
     {
         super(i, Material.ground);
         blockIndexInTexture = 87;

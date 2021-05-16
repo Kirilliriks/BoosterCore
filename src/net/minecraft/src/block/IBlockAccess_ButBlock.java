@@ -8,14 +8,14 @@ import net.minecraft.src.entity.*;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.material.Material;
-import net.minecraft.src.packet.Packet25;
+import net.minecraft.src.packet.Packet25_ButEntity;
 
 import java.util.Random;
 
-public class IBlockAccess extends BlockContainer
+public class IBlockAccess_ButBlock extends BlockContainer
 {
 
-    public IBlockAccess(int i)
+    public IBlockAccess_ButBlock(int i)
     {
         super(i, Material.rock);
         blockIndexInTexture = 45;
@@ -134,9 +134,9 @@ public class IBlockAccess extends BlockContainer
             } else
             if(itemstack.itemID == Item.egg.shiftedIndex)
             {
-                Packet25 packet25 = new Packet25(world, d, d1, d2);
-                packet25.func_26576_a(f, 0.10000000149011612D, f1, 1.1F, 6F);
-                world.entityJoinedWorld(packet25);
+                Packet25_ButEntity entityUnknow = new Packet25_ButEntity(world, d, d1, d2);
+                entityUnknow.func_26576_a(f, 0.10000000149011612D, f1, 1.1F, 6F);
+                world.entityJoinedWorld(entityUnknow);
                 world.playSoundEffect(i, j, k, "random.bow", 1.0F, 1.2F);
             } else
             if(itemstack.itemID == Item.snowball.shiftedIndex)

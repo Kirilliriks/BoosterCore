@@ -6,9 +6,7 @@ package net.minecraft.src.entity;
 import net.minecraft.src.*;
 import net.minecraft.src.nbt.NBTTagCompound;
 
-public class EntityMobs extends EntityCreature
-    implements IMobs
-{
+public class EntityMobs extends EntityCreature implements IMobs {
 
     public EntityMobs(World world)
     {

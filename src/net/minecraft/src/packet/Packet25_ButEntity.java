@@ -11,10 +11,10 @@ import net.minecraft.src.nbt.NBTTagCompound;
 
 import java.util.List;
 
-public class Packet25 extends Entity
+public class Packet25_ButEntity extends Entity
 {
 
-    public Packet25(World world)
+    public Packet25_ButEntity(World world)
     {
         super(world);
         xPosition = -1;
@@ -31,7 +31,7 @@ public class Packet25 extends Entity
     {
     }
 
-    public Packet25(World world, EntityLiving entityliving)
+    public Packet25_ButEntity(World world, EntityLiving entityliving)
     {
         super(world);
         xPosition = -1;
@@ -56,7 +56,7 @@ public class Packet25 extends Entity
         func_26576_a(motionX, motionY, motionZ, 1.5F, 1.0F);
     }
 
-    public Packet25(World world, double d, double d1, double d2)
+    public Packet25_ButEntity(World world, double d, double d1, double d2)
     {
         super(world);
         xPosition = -1;

@@ -13,9 +13,8 @@ public class BoosterCommand extends Command {
     }
 
     @Override
-    public void execute(String[] args, CommandSender sender) {
+    public void execute(CommandSender sender, String[] args) {
         sender.sendMessage("Booster version: " + boosterServer.getBoosterVersion());
-        if (sender instanceof Entity)
-        sender.sendMessage(((Entity)sender).getPosition().toString());
+        if (sender instanceof Entity) sender.sendMessage(((Entity)sender).getPosition().toString());
     }
 }
