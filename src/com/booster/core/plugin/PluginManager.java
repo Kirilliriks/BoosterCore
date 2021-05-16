@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-import java.util.logging.Level;
 
 public class PluginManager {
 
@@ -71,7 +70,7 @@ public class PluginManager {
 
             URLClassLoader classLoader = new URLClassLoader(new URL[]{pluginFile.toURI().toURL()});
             Class<?> jarClass;
-            Constructor<JavaPlugin> constructor = null;
+            Constructor<JavaPlugin> constructor;
             try {
                 jarClass = classLoader.loadClass(mainName);
                 Class<JavaPlugin> plugin = (Class<JavaPlugin>) jarClass.asSubclass(JavaPlugin.class);
@@ -81,17 +80,17 @@ public class PluginManager {
                 return null;
             }
 
-            JavaPlugin result = null;
+            JavaPlugin result;
             try {
-                if (constructor == null) throw new RuntimeException("Plugin constructor error");
                 result = constructor.newInstance();
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
+                return null;
             }
             return result;
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }
