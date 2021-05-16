@@ -56,7 +56,8 @@ public class PluginManager {
         JarFile jar;
         try {
             jar = new JarFile(pluginFile);
-            URL jarURL = pluginFile.toURI().toURL();
+
+            // Get plugin.yml
             JarEntry entry = jar.getJarEntry("plugin.yml");
             if (entry == null){
                 throw new RuntimeException("plugin.yml not found");
@@ -64,20 +65,19 @@ public class PluginManager {
             Yaml yaml = new Yaml();
             Map<String, Object> obj = yaml.load(new InputStreamReader(jar.getInputStream(entry)));
             String mainName = (String) obj.get("main");
-            URLClassLoader classLoader = new URLClassLoader(new URL[]{jarURL});
-            Class<?> jarClass = null;
-            try {
-                jarClass = classLoader.loadClass(mainName);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            Class<JavaPlugin> plugin = (Class<JavaPlugin>) jarClass.asSubclass(JavaPlugin.class);
+            //
+
+            URLClassLoader classLoader = new URLClassLoader(new URL[]{pluginFile.toURI().toURL()});
+            Class<?> jarClass;
             Constructor<JavaPlugin> constructor = null;
             try {
+                jarClass = classLoader.loadClass(mainName);
+                Class<JavaPlugin> plugin = (Class<JavaPlugin>) jarClass.asSubclass(JavaPlugin.class);
                 constructor = plugin.getConstructor();
-            } catch (NoSuchMethodException e) {
+            } catch (ClassNotFoundException | NoSuchMethodException e) {
                 e.printStackTrace();
             }
+
             JavaPlugin result = null;
             try {
                 if (constructor == null) throw new RuntimeException("Plugin constructor error");
