@@ -45,13 +45,6 @@ public class PluginManager {
         }
     }
 
-    public void disablePlugins(){
-        for (Plugin plugin : plugins){
-            plugin.onDisable();
-        }
-        plugins.clear();
-    }
-
     public JavaPlugin loadPlugin(File pluginFile){
         JarFile jar;
         try {
@@ -92,5 +85,12 @@ public class PluginManager {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public void disablePlugins(){
+        for (Plugin plugin : plugins){
+            plugin.onDisable();
+        }
+        plugins.clear();
     }
 }
