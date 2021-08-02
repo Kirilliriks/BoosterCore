@@ -5,7 +5,7 @@ package net.minecraft.src.block;
 
 
 import net.minecraft.src.material.Material;
-import net.minecraft.src.WorldGenLiquids;
+import net.minecraft.src.IBlockAccess;
 
 public class BlockLeavesBase extends Block
 {
@@ -21,7 +21,7 @@ public class BlockLeavesBase extends Block
         return false;
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         int i1 = worldgenliquids.getBlockId(i, j, k);
         if(!graphicsLevel && i1 == blockID)

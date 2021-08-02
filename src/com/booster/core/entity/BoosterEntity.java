@@ -8,7 +8,7 @@ public class BoosterEntity <T extends net.minecraft.src.entity.Entity> implement
 
     private final T entity;
 
-    public BoosterEntity(T entity){
+    public BoosterEntity(T entity) {
         this.entity = entity;
     }
 

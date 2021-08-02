@@ -5,7 +5,7 @@ package net.minecraft.src.packet;
 
 import net.minecraft.src.material.Material;
 import net.minecraft.src.World;
-import net.minecraft.src.WorldGenLiquids;
+import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.block.Block;
 
 import java.util.Random;
@@ -90,7 +90,7 @@ public class Packet255KickDisconnect extends Block
         return i;
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         if(this != Block.stairSingle)
         {

@@ -122,7 +122,7 @@ public class BlockDispenser extends Block
         }
     }
 
-    public void func_26521_a(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public void func_26521_a(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         int l = worldgenliquids.getBlockMetadata(i, j, k) & 7;
         float f = 0.1875F;
@@ -218,7 +218,7 @@ public class BlockDispenser extends Block
         super.onBlockRemoval(world, i, j, k);
     }
 
-    public boolean func_26520_b(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26520_b(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         return (worldgenliquids.getBlockMetadata(i, j, k) & 8) > 0;
     }

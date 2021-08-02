@@ -95,7 +95,7 @@ public class Block
         maxZ = f5;
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         if(l == 0 && minY > 0.0D)
         {
@@ -414,11 +414,11 @@ public class Block
     {
     }
 
-    public void func_26521_a(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public void func_26521_a(IBlockAccess worldgenliquids, int i, int j, int k)
     {
     }
 
-    public boolean func_26520_b(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26520_b(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         return false;
     }

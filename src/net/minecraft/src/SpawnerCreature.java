@@ -11,9 +11,9 @@ import net.minecraft.src.biome.MobSpawnerBase;
 
 import java.util.*;
 
-public final class SpawnerAnimals {
+public final class SpawnerCreature {
 
-    public SpawnerAnimals() { }
+    public SpawnerCreature() { }
 
     private static Set<ChunkCoordinate> eligibleChunksForSpawning = new HashSet<>();
     protected static final Class[] field_22213_a;

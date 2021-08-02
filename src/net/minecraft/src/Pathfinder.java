@@ -10,7 +10,7 @@ import net.minecraft.src.material.Material;
 public class Pathfinder
 {
 
-    public Pathfinder(WorldGenLiquids worldgenliquids)
+    public Pathfinder(IBlockAccess worldgenliquids)
     {
         path = new Path();
         pointMap = new MCHashTable();
@@ -214,7 +214,7 @@ public class Pathfinder
         return new PathEntity(apathpoint);
     }
 
-    private WorldGenLiquids worldMap;
+    private IBlockAccess worldMap;
     private Path path;
     private MCHashTable pointMap;
     private PathPoint pathOptions[];

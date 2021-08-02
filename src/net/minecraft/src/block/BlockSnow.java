@@ -96,7 +96,7 @@ public class BlockSnow extends Block
         }
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         Material material = worldgenliquids.getBlockMaterial(i, j, k);
         if(l == 1)

@@ -34,7 +34,7 @@ public class BlockMinecartTrack extends Block
         return super.collisionRayTrace(world, i, j, k, vec3d, vec3d1);
     }
 
-    public void func_26521_a(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public void func_26521_a(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         int l = worldgenliquids.getBlockMetadata(i, j, k);
         if(l >= 2 && l <= 5)

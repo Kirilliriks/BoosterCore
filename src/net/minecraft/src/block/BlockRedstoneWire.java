@@ -336,7 +336,7 @@ public class BlockRedstoneWire extends Block
         }
     }
 
-    public boolean func_26520_b(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26520_b(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         if(!wiresProvidePower)
         {
@@ -397,7 +397,7 @@ public class BlockRedstoneWire extends Block
         return wiresProvidePower;
     }
 
-    public static boolean func_26538_b(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public static boolean func_26538_b(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         int l = worldgenliquids.getBlockId(i, j, k);
         if(l == Block.redstoneWire.blockID)

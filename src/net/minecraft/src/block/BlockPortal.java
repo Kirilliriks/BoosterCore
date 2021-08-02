@@ -23,7 +23,7 @@ public class BlockPortal extends BlockBreakable
         return null;
     }
 
-    public void func_26521_a(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public void func_26521_a(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         if(worldgenliquids.getBlockId(i - 1, j, k) == blockID || worldgenliquids.getBlockId(i + 1, j, k) == blockID)
         {
@@ -145,7 +145,7 @@ public class BlockPortal extends BlockBreakable
         }
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         return true;
     }

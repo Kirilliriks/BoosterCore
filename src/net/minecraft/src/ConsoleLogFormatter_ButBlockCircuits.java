@@ -77,7 +77,7 @@ public class ConsoleLogFormatter_ButBlockCircuits extends Block
         }
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         return l != 0 && l != 1;
     }
@@ -92,7 +92,7 @@ public class ConsoleLogFormatter_ButBlockCircuits extends Block
         return func_26520_b(world, i, j, k, l);
     }
 
-    public boolean func_26520_b(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26520_b(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         if(!field_26534_c)
         {

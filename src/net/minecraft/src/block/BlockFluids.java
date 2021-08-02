@@ -54,7 +54,7 @@ public abstract class BlockFluids extends Block
         }
     }
 
-    protected int func_26542_b(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    protected int func_26542_b(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         if(worldgenliquids.getBlockMaterial(i, j, k) != blockMaterial)
         {
@@ -78,7 +78,7 @@ public abstract class BlockFluids extends Block
         return flag && i == 0;
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         Material material = worldgenliquids.getBlockMaterial(i, j, k);
         if(material == blockMaterial)
@@ -113,7 +113,7 @@ public abstract class BlockFluids extends Block
         return 0;
     }
 
-    private Vec3D func_26541_c(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    private Vec3D func_26541_c(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         Vec3D vec3d = Vec3D.createVector(0.0D, 0.0D, 0.0D);
         int l = func_26542_b(worldgenliquids, i, j, k);

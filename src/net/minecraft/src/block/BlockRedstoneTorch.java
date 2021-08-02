@@ -5,7 +5,7 @@ package net.minecraft.src.block;
 
 import net.minecraft.src.RedstoneUpdateInfo;
 import net.minecraft.src.World;
-import net.minecraft.src.WorldGenLiquids;
+import net.minecraft.src.IBlockAccess;
 
 import java.util.*;
 
@@ -85,7 +85,7 @@ public class BlockRedstoneTorch extends BlockSoil
         }
     }
 
-    public boolean func_26520_b(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26520_b(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         if(!torchActive)
         {

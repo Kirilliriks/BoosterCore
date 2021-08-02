@@ -6,8 +6,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.material.Material;
 
-public interface WorldGenLiquids
-{
+public interface IBlockAccess {
 
     public abstract int getBlockId(int i, int j, int k);
 

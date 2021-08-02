@@ -6,7 +6,7 @@ package net.minecraft.src.block;
 import net.minecraft.src.EnumSkyBlock;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.World;
-import net.minecraft.src.WorldGenLiquids;
+import net.minecraft.src.IBlockAccess;
 
 import java.util.Random;
 
@@ -20,7 +20,7 @@ public class BlockIce extends BlockBreakable
         func_26519_a(true);
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         return super.func_26522_a(worldgenliquids, i, j, k, 1 - l);
     }

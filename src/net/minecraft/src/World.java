@@ -15,7 +15,7 @@ import net.minecraft.src.material.Material;
 import java.util.*;
 
 public class World
-    implements WorldGenLiquids
+    implements IBlockAccess
 {
 
     public WorldChunkManager func_26662_a()
@@ -1535,7 +1535,7 @@ public class World
             boolean flag = false;
             if(spawnHostileMobs && difficultySetting >= 1)
             {
-                flag = SpawnerAnimals.performSleepSpawning(this, playerEntities);
+                flag = SpawnerCreature.performSleepSpawning(this, playerEntities);
             }
             if(!flag)
             {
@@ -1544,7 +1544,7 @@ public class World
                 wakeUpAllPlayers();
             }
         }
-        SpawnerAnimals.performSpawning(this, spawnHostileMobs, spawnPeacefulMobs);
+        SpawnerCreature.performSpawning(this, spawnHostileMobs, spawnPeacefulMobs);
         chunkProvider.func_361_a();
         int i = calculateSkylightSubtracted(1.0F);
         if(i != skylightSubtracted)

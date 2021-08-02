@@ -92,7 +92,7 @@ public class BlockBed extends Block
         return false;
     }
 
-    public void func_26521_a(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public void func_26521_a(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         setBounds();
     }

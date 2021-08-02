@@ -6,7 +6,7 @@ package net.minecraft.src.item;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.World;
-import net.minecraft.src.WorldGenLiquids;
+import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.block.Block;
 
 import java.util.Random;
@@ -190,7 +190,7 @@ public class ItemPainting extends Block
         return false;
     }
 
-    public boolean func_26524_b(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public boolean func_26524_b(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         return field_26530_a[worldgenliquids.getBlockId(i, j, k)] > 0;
     }

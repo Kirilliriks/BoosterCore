@@ -19,7 +19,7 @@ public class BlockCake extends Block
         func_26519_a(true);
     }
 
-    public void func_26521_a(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public void func_26521_a(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         int l = worldgenliquids.getBlockMetadata(i, j, k);
         float f = 0.0625F;

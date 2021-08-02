@@ -402,9 +402,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
         for(; commands.size() > 0; commandHandler.handleCommand(serverCommand)) {
             serverCommand = commands.remove(0);
             // Booster
-            if (boosterServer.dispatchCommand(serverCommand.command, consoleSender)){
-                if (commands.size() > 0) serverCommand = commands.remove(0);
-            }
+            boosterServer.dispatchCommand(serverCommand.command, consoleSender);
             //
         }
 

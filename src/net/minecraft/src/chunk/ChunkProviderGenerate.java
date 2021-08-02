@@ -6,12 +6,10 @@ package net.minecraft.src.chunk;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockSand;
-import net.minecraft.src.chunk.Chunk;
-import net.minecraft.src.chunk.IChunkProvider;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.biome.MobSpawnerBase;
 import net.minecraft.src.network.NetworkWriterThread;
-import net.minecraft.src.packet.WorldGenPumpkin;
+import net.minecraft.src.WorldGenPumpkin;
 
 import java.util.Calendar;
 import java.util.Random;

@@ -6,11 +6,11 @@ package net.minecraft.src.chunk;
 
 import net.minecraft.src.material.Material;
 import net.minecraft.src.World;
-import net.minecraft.src.WorldGenLiquids;
+import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.block.Block;
 
 public class ChunkCache
-    implements WorldGenLiquids
+    implements IBlockAccess
 {
 
     public ChunkCache(World world, int i, int j, int k, int l, int i1, int j1)

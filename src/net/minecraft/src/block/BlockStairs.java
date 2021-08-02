@@ -24,7 +24,7 @@ public class BlockStairs extends Block
         setStepSound(block.stepSound);
     }
 
-    public void func_26521_a(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public void func_26521_a(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
@@ -39,7 +39,7 @@ public class BlockStairs extends Block
         return false;
     }
 
-    public boolean func_26522_a(WorldGenLiquids worldgenliquids, int i, int j, int k, int l)
+    public boolean func_26522_a(IBlockAccess worldgenliquids, int i, int j, int k, int l)
     {
         return super.func_26522_a(worldgenliquids, i, j, k, l);
     }

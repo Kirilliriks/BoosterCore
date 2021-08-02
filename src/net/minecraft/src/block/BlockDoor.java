@@ -59,7 +59,7 @@ public class BlockDoor extends Block
         return super.getCollisionBoundingBoxFromPool(world, i, j, k);
     }
 
-    public void func_26521_a(WorldGenLiquids worldgenliquids, int i, int j, int k)
+    public void func_26521_a(IBlockAccess worldgenliquids, int i, int j, int k)
     {
         func_273_b(func_271_d(worldgenliquids.getBlockMetadata(i, j, k)));
     }
