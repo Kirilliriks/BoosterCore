@@ -13,6 +13,7 @@ import net.minecraft.src.entity.EntityMinecart_ButItem;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.packet.Packet54;
+import net.minecraft.src.world.World;
 
 import java.util.Random;
 

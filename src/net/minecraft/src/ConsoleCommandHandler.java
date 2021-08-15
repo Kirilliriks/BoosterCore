@@ -13,6 +13,7 @@ import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.packet.Packet3Chat;
 import net.minecraft.src.server.ServerCommand;
 import net.minecraft.src.server.ServerConfigurationManager;
+import net.minecraft.src.world.WorldServer;
 
 public class ConsoleCommandHandler {
 

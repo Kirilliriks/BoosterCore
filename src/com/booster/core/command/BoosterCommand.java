@@ -1,5 +1,7 @@
 package com.booster.core.command;
 
+import com.booster.api.command.Command;
+import com.booster.api.command.CommandSender;
 import com.booster.api.entity.Entity;
 import com.booster.core.BoosterServer;
 

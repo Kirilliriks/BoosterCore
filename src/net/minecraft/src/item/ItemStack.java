@@ -6,7 +6,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.StatList;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityLiving;

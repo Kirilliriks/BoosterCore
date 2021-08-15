@@ -3,7 +3,7 @@ package net.minecraft.src.packet;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 import net.minecraft.src.chunk.Chunk;
 import net.minecraft.src.network.NetHandler;
 

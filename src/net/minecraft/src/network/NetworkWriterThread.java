@@ -3,8 +3,8 @@ package net.minecraft.src.network;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.World;
-import net.minecraft.src.WorldGenerator;
+import net.minecraft.src.world.World;
+import net.minecraft.src.world.WorldGenerator;
 import net.minecraft.src.block.Block;
 
 import java.util.Random;

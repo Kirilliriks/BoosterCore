@@ -4,8 +4,9 @@ package net.minecraft.src.biome;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.SpawnListEntry;
-import net.minecraft.src.WorldGenerator;
-import net.minecraft.src.WorldGenTaiga2;
+import net.minecraft.src.world.WorldGenTaiga1;
+import net.minecraft.src.world.WorldGenerator;
+import net.minecraft.src.world.WorldGenTaiga2;
 import net.minecraft.src.entity.EntityWolf;
 
 import java.util.Random;
@@ -22,7 +23,7 @@ public class MobSpawnerTaiga extends MobSpawnerBase
     {
         if(random.nextInt(3) == 0)
         {
-            return new net.minecraft.src.WorldGenTaiga1();
+            return new WorldGenTaiga1();
         } else
         {
             return new WorldGenTaiga2();

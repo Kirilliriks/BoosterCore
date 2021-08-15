@@ -5,6 +5,7 @@ package net.minecraft.src.entity;
 
 import net.minecraft.src.*;
 import net.minecraft.src.item.Item;
+import net.minecraft.src.world.World;
 
 public class EntityGhast extends EntityFlying implements IMobs {
 

@@ -4,9 +4,9 @@ package net.minecraft.src.biome;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.SpawnListEntry;
-import net.minecraft.src.WorldGenBigTree;
-import net.minecraft.src.WorldGenForest;
-import net.minecraft.src.WorldGenerator;
+import net.minecraft.src.world.WorldGenBigTree;
+import net.minecraft.src.world.WorldGenForest;
+import net.minecraft.src.world.WorldGenerator;
 import net.minecraft.src.block.WorldGenTrees;
 import net.minecraft.src.entity.EntityWolf;
 

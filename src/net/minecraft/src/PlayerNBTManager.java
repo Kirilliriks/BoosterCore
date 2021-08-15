@@ -7,6 +7,9 @@ import net.minecraft.src.chunk.ChunkLoader;
 import net.minecraft.src.chunk.IChunkLoader;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.nbt.NBTTagCompound;
+import net.minecraft.src.world.WorldInfo;
+import net.minecraft.src.world.WorldProvider;
+import net.minecraft.src.world.WorldProviderHell;
 
 import java.io.*;
 import java.util.List;

@@ -6,6 +6,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.material.Material;
 import net.minecraft.src.nbt.NBTTagCompound;
+import net.minecraft.src.world.World;
 
 public class TileEntityNote extends TileEntity
 {

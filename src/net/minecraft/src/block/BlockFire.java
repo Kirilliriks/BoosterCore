@@ -4,11 +4,11 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.*;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.entity.EntityPlayerMP;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.packet.Packet53BlockChange;
+import net.minecraft.src.world.World;
 
 public class BlockFire
 {

@@ -6,6 +6,7 @@ package net.minecraft.src;
 import net.minecraft.src.chunk.ChunkFilePattern;
 import net.minecraft.src.chunk.ChunkFolderPattern;
 import net.minecraft.src.entity.IProgressUpdate;
+import net.minecraft.src.world.WorldInfo;
 
 import java.io.*;
 import java.util.*;

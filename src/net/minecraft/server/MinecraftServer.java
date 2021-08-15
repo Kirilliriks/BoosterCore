@@ -27,8 +27,8 @@ import net.minecraft.src.ThreadCommandReader;
 import net.minecraft.src.ThreadServerApplication;
 import net.minecraft.src.ThreadSleepForever;
 import net.minecraft.src.Vec3D;
-import net.minecraft.src.WorldManager;
-import net.minecraft.src.WorldServer;
+import net.minecraft.src.world.WorldManager;
+import net.minecraft.src.world.WorldServer;
 
 import java.awt.GraphicsEnvironment;
 import java.io.File;

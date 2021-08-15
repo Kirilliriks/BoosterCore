@@ -8,6 +8,7 @@ import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockLever;
 import net.minecraft.src.block.BlockSand;
 import net.minecraft.src.entity.IProgressUpdate;
+import net.minecraft.src.world.*;
 
 import java.util.Random;
 

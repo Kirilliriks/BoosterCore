@@ -11,6 +11,7 @@ import net.minecraft.src.material.Material;
 import net.minecraft.src.biome.MobSpawnerRainforest;
 import net.minecraft.src.packet.Packet255KickDisconnect;
 import net.minecraft.src.server.ServerWindowAdapter;
+import net.minecraft.src.world.World;
 
 import java.util.ArrayList;
 import java.util.Random;

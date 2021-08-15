@@ -4,6 +4,10 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.chunk.IChunkLoader;
+import net.minecraft.src.chunk.McRegionChunkLoader;
+import net.minecraft.src.world.WorldInfo;
+import net.minecraft.src.world.WorldProvider;
+import net.minecraft.src.world.WorldProviderHell;
 
 import java.io.File;
 import java.util.List;

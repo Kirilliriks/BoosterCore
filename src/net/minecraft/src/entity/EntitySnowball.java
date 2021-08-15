@@ -7,6 +7,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.nbt.NBTTagCompound;
+import net.minecraft.src.world.World;
 
 import java.util.List;
 

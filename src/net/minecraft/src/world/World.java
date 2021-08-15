@@ -1,8 +1,9 @@
-package net.minecraft.src;
+package net.minecraft.src.world;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
+import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFluids;
 import net.minecraft.src.chunk.*;
@@ -18,12 +19,47 @@ public class World
     implements IBlockAccess
 {
 
+    public boolean scheduledUpdatesAreImmediate;
+    private List field_821_y;
+    public List loadedEntityList;
+    private List unloadedEntityList;
+    private TreeSet scheduledTickTreeSet;
+    private Set scheduledTickSet;
+    public List loadedTileEntityList;
+    public List playerEntities;
+    private long field_6159_E;
+    public int skylightSubtracted;
+    protected int distHashCounter;
+    protected int DIST_HASH_MAGIC;
+    public boolean editingBlocks;
+    private long lockTimestamp;
+    protected int autosavePeriod;
+    public int difficultySetting;
+    public Random rand;
+    public boolean isNewWorld;
+    public final WorldProvider worldProvider;
+    protected List worldAccesses;
+    protected IChunkProvider chunkProvider;
+    protected final IDataManager worldFile;
+    protected WorldInfo worldInfo;
+    public boolean field_9209_x;
+    private boolean allPlayersSleeping;
+    private ArrayList field_9207_I;
+    private int field_4265_J;
+    private boolean spawnHostileMobs;
+    private boolean spawnPeacefulMobs;
+    static int field_4268_y = 0;
+    private Set activeChunkSet;
+    private int ambientTickCountdown;
+    private List field_778_L;
+    public boolean singleplayerWorld;
+
     public WorldChunkManager func_26662_a()
     {
         return worldProvider.field_26673_b;
     }
 
-    public World(IDataManager worldgentaiga2, String s, long l, WorldProvider worldgenpumpkin)
+    public World(IDataManager idataManager, String s, long l, WorldProvider worldProvider)
     {
         scheduledUpdatesAreImmediate = false;
         field_821_y = new ArrayList();
@@ -51,19 +87,19 @@ public class World
         ambientTickCountdown = rand.nextInt(12000);
         field_778_L = new ArrayList();
         singleplayerWorld = false;
-        worldFile = worldgentaiga2;
-        worldInfo = worldgentaiga2.func_22096_c();
+        worldFile = idataManager;
+        worldInfo = idataManager.func_22096_c();
         isNewWorld = worldInfo == null;
-        if(worldgenpumpkin != null)
+        if(worldProvider != null)
         {
-            worldProvider = worldgenpumpkin;
+            this.worldProvider = worldProvider;
         } else
         if(worldInfo != null && worldInfo.getDimension() == -1)
         {
-            worldProvider = new WorldProviderHell();
+            this.worldProvider = new WorldProviderHell();
         } else
         {
-            worldProvider = new WorldProvider();
+            this.worldProvider = new WorldProvider();
         }
         boolean flag = false;
         if(worldInfo == null)
@@ -74,7 +110,7 @@ public class World
         {
             worldInfo.setLevelName(s);
         }
-        worldProvider.func_26671_a(this);
+        this.worldProvider.func_26671_a(this);
         chunkProvider = func_22086_b();
         if(flag)
         {
@@ -2089,40 +2125,4 @@ public class World
             return false;
         }
     }
-
-    public boolean scheduledUpdatesAreImmediate;
-    private List field_821_y;
-    public List loadedEntityList;
-    private List unloadedEntityList;
-    private TreeSet scheduledTickTreeSet;
-    private Set scheduledTickSet;
-    public List loadedTileEntityList;
-    public List playerEntities;
-    private long field_6159_E;
-    public int skylightSubtracted;
-    protected int distHashCounter;
-    protected int DIST_HASH_MAGIC;
-    public boolean editingBlocks;
-    private long lockTimestamp;
-    protected int autosavePeriod;
-    public int difficultySetting;
-    public Random rand;
-    public boolean isNewWorld;
-    public final WorldProvider worldProvider;
-    protected List worldAccesses;
-    protected IChunkProvider chunkProvider;
-    protected final IDataManager worldFile;
-    protected WorldInfo worldInfo;
-    public boolean field_9209_x;
-    private boolean allPlayersSleeping;
-    private ArrayList field_9207_I;
-    private int field_4265_J;
-    private boolean spawnHostileMobs;
-    private boolean spawnPeacefulMobs;
-    static int field_4268_y = 0;
-    private Set activeChunkSet;
-    private int ambientTickCountdown;
-    private List field_778_L;
-    public boolean singleplayerWorld;
-
 }

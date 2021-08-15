@@ -7,6 +7,7 @@ package net.minecraft.src.item;
 import net.minecraft.src.*;
 import net.minecraft.src.entity.EntityBoat;
 import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.world.World;
 
 public class ItemBoat extends Item
 {

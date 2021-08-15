@@ -1,5 +1,7 @@
 package com.booster.core.command;
 
+import com.booster.api.command.Command;
+import com.booster.api.command.CommandSender;
 import com.booster.core.BoosterServer;
 
 import java.util.Arrays;

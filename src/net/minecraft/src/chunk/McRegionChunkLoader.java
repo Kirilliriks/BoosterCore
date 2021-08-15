@@ -1,11 +1,12 @@
-package net.minecraft.src;
+package net.minecraft.src.chunk;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.chunk.Chunk;
-import net.minecraft.src.chunk.ChunkLoader;
-import net.minecraft.src.chunk.IChunkLoader;
+import net.minecraft.src.CompressedStreamTools;
+import net.minecraft.src.RegionFileCache;
+import net.minecraft.src.world.World;
+import net.minecraft.src.world.WorldInfo;
 import net.minecraft.src.nbt.NBTTagCompound;
 
 import java.io.*;

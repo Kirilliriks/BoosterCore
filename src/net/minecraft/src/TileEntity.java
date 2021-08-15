@@ -6,6 +6,7 @@ package net.minecraft.src;
 import net.minecraft.src.biome.MobSpawnerRainforest;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.packet.Packet;
+import net.minecraft.src.world.World;
 
 import java.util.HashMap;
 import java.util.Map;

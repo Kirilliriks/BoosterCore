@@ -6,7 +6,7 @@ package net.minecraft.src.entity;
 
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 
 public class EntityMinecart_ButItem extends Item
 {

@@ -4,7 +4,7 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 
 public class EntityZombieSimple extends EntityMobs
 {

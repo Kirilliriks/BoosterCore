@@ -4,7 +4,7 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.MathHelper;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.material.Material;

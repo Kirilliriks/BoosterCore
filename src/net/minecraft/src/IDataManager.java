@@ -4,6 +4,8 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.chunk.IChunkLoader;
+import net.minecraft.src.world.WorldInfo;
+import net.minecraft.src.world.WorldProvider;
 
 import java.util.List;
 
@@ -14,7 +16,7 @@ public interface IDataManager
 
     public abstract void func_22091_b();
 
-    public abstract IChunkLoader func_26697_a(WorldProvider worldgenpumpkin);
+    public abstract IChunkLoader func_26697_a(WorldProvider worldProvider);
 
     public abstract void func_22095_a(WorldInfo worldinfo, List list);
 

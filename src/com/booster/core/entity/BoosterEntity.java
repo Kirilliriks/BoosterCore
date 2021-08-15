@@ -4,15 +4,15 @@ import com.booster.api.entity.Entity;
 import com.booster.core.util.Vector;
 import net.minecraft.src.entity.EntityPlayerMP;
 
-public class BoosterEntity <T extends net.minecraft.src.entity.Entity> implements Entity {
+public class BoosterEntity implements Entity {
 
-    private final T entity;
+    protected final net.minecraft.src.entity.Entity entity;
 
-    public BoosterEntity(T entity) {
+    public BoosterEntity(net.minecraft.src.entity.Entity entity) {
         this.entity = entity;
     }
 
-    public T getEntity() {
+    public net.minecraft.src.entity.Entity getEntity() {
         return entity;
     }
 
@@ -26,7 +26,7 @@ public class BoosterEntity <T extends net.minecraft.src.entity.Entity> implement
         entity.setPosition(vector.getX(), vector.getY(), vector.getZ());
     }
 
-    public static BoosterEntity<? extends net.minecraft.src.entity.Entity> newBoosterEntity(net.minecraft.src.entity.Entity entity){
+    public static BoosterEntity newBoosterEntity(net.minecraft.src.entity.Entity entity){
         if (entity instanceof EntityPlayerMP) return new BoosterPlayer((EntityPlayerMP) entity);
         return null;
 

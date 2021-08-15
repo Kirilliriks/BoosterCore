@@ -4,7 +4,7 @@ package net.minecraft.src.packet;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.material.Material;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.block.Block;
 

@@ -9,7 +9,7 @@ import net.minecraft.src.block.BlockSand;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.biome.MobSpawnerBase;
 import net.minecraft.src.network.NetworkWriterThread;
-import net.minecraft.src.WorldGenPumpkin;
+import net.minecraft.src.world.*;
 
 import java.util.Calendar;
 import java.util.Random;

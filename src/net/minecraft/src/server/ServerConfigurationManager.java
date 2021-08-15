@@ -10,7 +10,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.IPlayerFileData;
 import net.minecraft.src.ISaveHandler;
 import net.minecraft.src.TileEntity;
-import net.minecraft.src.WorldServer;
+import net.minecraft.src.world.WorldServer;
 import net.minecraft.src.block.BlockFire;
 import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.entity.EntityPlayer;

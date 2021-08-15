@@ -3,8 +3,8 @@ package net.minecraft.src.chunk;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.*;
 import net.minecraft.src.entity.IProgressUpdate;
+import net.minecraft.src.world.WorldServer;
 
 import java.util.*;
 

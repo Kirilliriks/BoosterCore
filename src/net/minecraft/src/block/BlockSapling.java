@@ -4,9 +4,9 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.item.ItemArmor;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldGenBigTree;
-import net.minecraft.src.WorldGenerator;
+import net.minecraft.src.world.World;
+import net.minecraft.src.world.WorldGenBigTree;
+import net.minecraft.src.world.WorldGenerator;
 
 import java.util.Random;
 

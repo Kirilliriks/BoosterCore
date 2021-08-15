@@ -4,9 +4,11 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
+import net.minecraft.src.chunk.ChunkPosition;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.material.Material;
+import net.minecraft.src.world.World;
 
 import java.util.*;
 

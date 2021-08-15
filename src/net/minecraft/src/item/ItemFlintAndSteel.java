@@ -4,9 +4,7 @@ package net.minecraft.src.item;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.entity.EntityPlayer;
-import net.minecraft.src.item.Item;
-import net.minecraft.src.item.ItemStack;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
 
 public class ItemFlintAndSteel extends Item

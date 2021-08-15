@@ -4,7 +4,6 @@ package net.minecraft.src.entity;
 // Decompiler options: packimports(3) braces deadcode 
 
 import com.booster.core.entity.BoosterEntity;
-import com.booster.core.entity.BoosterPlayer;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFluids;
@@ -14,6 +13,7 @@ import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagDouble;
 import net.minecraft.src.nbt.NBTTagFloat;
 import net.minecraft.src.nbt.NBTTagList;
+import net.minecraft.src.world.World;
 
 import java.util.List;
 import java.util.Random;
@@ -129,7 +129,7 @@ public abstract class Entity {
     }
 
     // Booster
-    public BoosterEntity<? extends Entity> getBoosterEntity() {
+    public BoosterEntity getBoosterEntity() {
         if (boosterEntity == null) throw new RuntimeException("BoosterEntity not found");
         return boosterEntity;
     }
@@ -1035,10 +1035,10 @@ public abstract class Entity {
         byte byte0 = dataWatcher.getWatchableObjectByte(0);
         if(flag)
         {
-            dataWatcher.updateObject(0, Byte.valueOf((byte)(byte0 | 1 << i)));
+            dataWatcher.updateObject(0, (byte) (byte0 | 1 << i));
         } else
         {
-            dataWatcher.updateObject(0, Byte.valueOf((byte)(byte0 & ~(1 << i))));
+            dataWatcher.updateObject(0, (byte) (byte0 & ~(1 << i)));
         }
     }
 }

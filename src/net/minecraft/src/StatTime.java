@@ -5,6 +5,8 @@ package net.minecraft.src;
 
 import net.minecraft.src.block.WorldGenTrees;
 import net.minecraft.src.biome.MobSpawnerBase;
+import net.minecraft.src.world.WorldGenBigTree;
+import net.minecraft.src.world.WorldGenerator;
 
 import java.util.Random;
 

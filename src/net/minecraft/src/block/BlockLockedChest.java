@@ -6,7 +6,7 @@ package net.minecraft.src.block;
 
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.material.Material;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 
 public class BlockLockedChest extends Block
 {

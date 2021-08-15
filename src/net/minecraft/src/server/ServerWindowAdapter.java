@@ -5,7 +5,7 @@ package net.minecraft.src.server;
 
 import net.minecraft.src.EnumSkyBlock;
 import net.minecraft.src.material.Material;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.item.Item;
 

@@ -5,6 +5,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.entity.IProgressUpdate;
 import net.minecraft.src.nbt.NBTTagCompound;
+import net.minecraft.src.world.WorldInfo;
 
 import java.io.File;
 import java.io.FileInputStream;

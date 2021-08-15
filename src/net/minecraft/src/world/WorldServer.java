@@ -1,4 +1,4 @@
-package net.minecraft.src;
+package net.minecraft.src.world;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
@@ -6,6 +6,7 @@ package net.minecraft.src;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.*;
 import net.minecraft.src.chunk.ChunkProviderServer;
 import net.minecraft.src.chunk.IChunkLoader;
 import net.minecraft.src.chunk.IChunkProvider;
@@ -65,7 +66,7 @@ public class WorldServer extends World
 
     public boolean canMineBlock(EntityPlayer entityplayer, int i, int j, int k)
     {
-        int l = (int)MathHelper.abs(i - worldInfo.getSpawnX());
+        int l = (int) MathHelper.abs(i - worldInfo.getSpawnX());
         int i1 = (int)MathHelper.abs(k - worldInfo.getSpawnZ());
         if(l > i1)
         {
@@ -97,8 +98,8 @@ public class WorldServer extends World
         mcServer.entityTracker.sendPacketToTrackedPlayersAndTrackedEntity(entity, packet38);
     }
 
-    public Explosion newExplosion(Entity entity, double d, double d1, double d2, 
-            float f, boolean flag)
+    public Explosion newExplosion(Entity entity, double d, double d1, double d2,
+                                  float f, boolean flag)
     {
         Explosion explosion = super.newExplosion(entity, d, d1, d2, f, flag);
         mcServer.configManager.sendPacketToPlayersAroundPoint(d, d1, d2, 64D, new Packet60(d, d1, d2, f, explosion.destroyedBlockPositions));

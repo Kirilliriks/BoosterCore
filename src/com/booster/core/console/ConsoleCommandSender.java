@@ -1,7 +1,7 @@
 package com.booster.core.console;
 
 import com.booster.core.BoosterServer;
-import com.booster.core.command.CommandSender;
+import com.booster.api.command.CommandSender;
 
 public class ConsoleCommandSender implements CommandSender {
 

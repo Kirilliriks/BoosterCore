@@ -3,7 +3,7 @@ package com.booster.core;
 import com.booster.api.Server;
 import com.booster.core.command.BoosterCommand;
 import com.booster.core.command.CommandHandler;
-import com.booster.core.command.CommandSender;
+import com.booster.api.command.CommandSender;
 import com.booster.core.plugin.PluginManager;
 import net.minecraft.server.MinecraftServer;
 
@@ -18,7 +18,7 @@ public class BoosterServer implements Server {
     private final CommandHandler commandHandler;
     private final String boosterVersion = "0.1";
 
-    public BoosterServer(MinecraftServer server){
+    public BoosterServer(MinecraftServer server) {
         this.server = server;
         logger = MinecraftServer.logger;
         logger.info("This server running on Booster version " + boosterVersion);

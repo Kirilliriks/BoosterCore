@@ -7,6 +7,7 @@ import java.util.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.block.BlockFire;
+import net.minecraft.src.chunk.ChunkCoordinate;
 import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.crafting.*;
 import net.minecraft.src.inventory.IInventory;
@@ -14,6 +15,7 @@ import net.minecraft.src.item.ItemFood;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.network.NetServerHandler;
 import net.minecraft.src.packet.*;
+import net.minecraft.src.world.World;
 
 public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 

@@ -5,7 +5,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.material.Material;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
 
 import java.util.Random;

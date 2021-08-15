@@ -12,6 +12,7 @@ import net.minecraft.src.inventory.InventoryCrafting;
 import net.minecraft.src.inventory.InventoryPlayer;
 import net.minecraft.src.item.ItemFood;
 import net.minecraft.src.item.ItemStack;
+import net.minecraft.src.world.World;
 
 public class CraftingInventoryWorkbenchCB extends CraftingInventoryCB
 {

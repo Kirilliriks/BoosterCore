@@ -5,7 +5,7 @@ package net.minecraft.src.entity;
 
 
 import net.minecraft.src.nbt.NBTTagCompound;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 
 public class EntityWaterMob extends EntityCreature
     implements IAnimals

@@ -4,10 +4,13 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.block.BlockBed;
+import net.minecraft.src.chunk.ChunkCoordinate;
 import net.minecraft.src.chunk.ChunkCoordinates;
+import net.minecraft.src.chunk.ChunkPosition;
 import net.minecraft.src.entity.*;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.biome.MobSpawnerBase;
+import net.minecraft.src.world.World;
 
 import java.util.*;
 

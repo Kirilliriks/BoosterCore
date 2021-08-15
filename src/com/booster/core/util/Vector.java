@@ -13,19 +13,19 @@ public class Vector {
     public Vector(double x, double y, double z){
         this.x = x;
         this.y = y;
-        this.z = y;
+        this.z = z;
     }
 
     public void add(Vector vector){
         this.x += vector.getX();
         this.y += vector.getY();
-        this.z += vector.getX();
+        this.z += vector.getZ();
     }
 
     public void divide(Vector vector){
         this.x -= vector.getX();
         this.y -= vector.getY();
-        this.z -= vector.getX();
+        this.z -= vector.getZ();
     }
 
     public void setX(double x) {

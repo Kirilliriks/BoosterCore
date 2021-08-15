@@ -7,7 +7,7 @@ package net.minecraft.src.block;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 
 public class BlockStep extends Item
 {

@@ -6,7 +6,7 @@ package net.minecraft.src.entity;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.nbt.NBTTagCompound;
-import net.minecraft.src.World;
+import net.minecraft.src.world.World;
 
 public class EntitySpider extends EntityMobs
 {
