@@ -18,6 +18,7 @@ import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.biome.MobSpawnerRainforest;
 import net.minecraft.src.packet.*;
+import net.minecraft.src.tileentity.TileEntity;
 
 public class NetServerHandler extends NetHandler implements ICommandListener {
 

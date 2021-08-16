@@ -4,8 +4,7 @@ package net.minecraft.src.world;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.IWorldAccess;
-import net.minecraft.src.TileEntity;
+import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.entity.Entity;
 
 public class WorldManager

@@ -6,7 +6,7 @@ package net.minecraft.src.crafting;
 
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.Slot;
-import net.minecraft.src.TileEntityDispenser;
+import net.minecraft.src.tileentity.TileEntityDispenser;
 import net.minecraft.src.entity.EntityPlayer;
 
 public class CraftingInventoryDispenserCB extends CraftingInventoryCB

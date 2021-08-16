@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.IPlayerFileData;
 import net.minecraft.src.ISaveHandler;
-import net.minecraft.src.TileEntity;
+import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.world.WorldServer;
 import net.minecraft.src.block.BlockFire;
 import net.minecraft.src.chunk.ChunkCoordinates;

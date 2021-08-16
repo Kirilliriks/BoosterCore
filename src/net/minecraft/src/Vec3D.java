@@ -6,8 +6,13 @@ package net.minecraft.src;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vec3D
-{
+public class Vec3D {
+
+    private static List vectorList = new ArrayList();
+    private static int nextVector = 0;
+    public double xCoord;
+    public double yCoord;
+    public double zCoord;
 
     public static Vec3D createVectorHelper(double d, double d1, double d2)
     {
@@ -77,7 +82,7 @@ public class Vec3D
         double d = vec3d.xCoord - xCoord;
         double d1 = vec3d.yCoord - yCoord;
         double d2 = vec3d.zCoord - zCoord;
-        return (double)MathHelper.sqrt_double(d * d + d1 * d1 + d2 * d2);
+        return MathHelper.sqrt_double(d * d + d1 * d1 + d2 * d2);
     }
 
     public double squareDistanceTo(Vec3D vec3d)
@@ -98,7 +103,7 @@ public class Vec3D
 
     public double lengthVector()
     {
-        return (double)MathHelper.sqrt_double(xCoord * xCoord + yCoord * yCoord + zCoord * zCoord);
+        return MathHelper.sqrt_double(xCoord * xCoord + yCoord * yCoord + zCoord * zCoord);
     }
 
     public Vec3D getIntermediateWithXValue(Vec3D vec3d, double d)
@@ -160,13 +165,6 @@ public class Vec3D
 
     public String toString()
     {
-        return (new StringBuilder()).append("(").append(xCoord).append(", ").append(yCoord).append(", ").append(zCoord).append(")").toString();
+        return "(" + xCoord + ", " + yCoord + ", " + zCoord + ")";
     }
-
-    private static List vectorList = new ArrayList();
-    private static int nextVector = 0;
-    public double xCoord;
-    public double yCoord;
-    public double zCoord;
-
 }

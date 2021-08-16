@@ -6,6 +6,7 @@ package net.minecraft.src.chunk;
 import net.minecraft.src.*;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
+import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.world.World;
 
 import java.util.*;

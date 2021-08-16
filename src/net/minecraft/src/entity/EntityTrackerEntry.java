@@ -7,6 +7,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.packet.*;
+import net.minecraft.src.tileentity.TileEntitySign;
 
 import java.util.*;
 

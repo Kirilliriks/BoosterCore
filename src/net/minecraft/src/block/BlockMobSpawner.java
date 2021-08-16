@@ -4,8 +4,8 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.material.Material;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.TileEntityMobSpawner;
+import net.minecraft.src.tileentity.TileEntity;
+import net.minecraft.src.tileentity.TileEntityMobSpawner;
 
 import java.util.Random;
 

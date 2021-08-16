@@ -15,6 +15,9 @@ import net.minecraft.src.item.ItemFood;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.network.NetServerHandler;
 import net.minecraft.src.packet.*;
+import net.minecraft.src.tileentity.TileEntity;
+import net.minecraft.src.tileentity.TileEntityDispenser;
+import net.minecraft.src.tileentity.TileEntityFurnace;
 import net.minecraft.src.world.World;
 
 public class EntityPlayerMP extends EntityPlayer implements ICrafting {

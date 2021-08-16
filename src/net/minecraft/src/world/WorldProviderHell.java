@@ -16,7 +16,7 @@ public class WorldProviderHell extends WorldProvider
 
     public void func_26669_a()
     {
-        field_26673_b = new WorldChunkManagerHell(MobSpawnerBase.hell, 1.0D, 0.0D);
+        worldChunkManager = new WorldChunkManagerHell(MobSpawnerBase.hell, 1.0D, 0.0D);
         field_26680_c = true;
         field_26679_d = true;
         field_26678_e = true;
@@ -36,12 +36,12 @@ public class WorldProviderHell extends WorldProvider
 
     public IChunkProvider func_26667_c()
     {
-        return new ChunkProviderHell(field_26674_a, field_26674_a.func_22079_j());
+        return new ChunkProviderHell(world, world.func_22079_j());
     }
 
     public boolean func_26672_a(int i, int j)
     {
-        int k = field_26674_a.getFirstUncoveredBlock(i, j);
+        int k = world.getFirstUncoveredBlock(i, j);
         if(k == Block.bedrock.blockID)
         {
             return false;

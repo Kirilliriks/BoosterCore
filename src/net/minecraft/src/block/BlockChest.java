@@ -3,13 +3,14 @@ package net.minecraft.src.block;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.*;
 import net.minecraft.src.entity.EntityItem;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.inventory.InventoryLargeChest;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.material.Material;
+import net.minecraft.src.tileentity.TileEntity;
+import net.minecraft.src.tileentity.TileEntityChest;
 import net.minecraft.src.world.World;
 
 import java.util.Random;

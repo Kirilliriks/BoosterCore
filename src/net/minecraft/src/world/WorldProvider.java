@@ -10,8 +10,8 @@ import net.minecraft.src.chunk.IChunkProvider;
 
 public class WorldProvider {
 
-    public World field_26674_a;
-    public WorldChunkManager field_26673_b;
+    public World world;
+    public WorldChunkManager worldChunkManager;
     public boolean field_26680_c;
     public boolean field_26679_d;
     public boolean field_26678_e;
@@ -30,7 +30,7 @@ public class WorldProvider {
 
     public final void func_26671_a(World world)
     {
-        field_26674_a = world;
+        this.world = world;
         func_26669_a();
         func_26666_b();
     }
@@ -48,17 +48,17 @@ public class WorldProvider {
 
     protected void func_26669_a()
     {
-        field_26673_b = new WorldChunkManager(field_26674_a);
+        worldChunkManager = new WorldChunkManager(world);
     }
 
     public IChunkProvider func_26667_c()
     {
-        return new ChunkProviderGenerate(field_26674_a, field_26674_a.func_22079_j());
+        return new ChunkProviderGenerate(world, world.func_22079_j());
     }
 
     public boolean func_26672_a(int i, int j)
     {
-        int k = field_26674_a.getFirstUncoveredBlock(i, j);
+        int k = world.getFirstUncoveredBlock(i, j);
         return k == Block.sand.blockID;
     }
 

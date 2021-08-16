@@ -5,7 +5,7 @@ package net.minecraft.src.block;
 
 
 import net.minecraft.src.material.Material;
-import net.minecraft.src.TileEntity;
+import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.world.World;
 
 public abstract class BlockContainer extends Block

@@ -12,6 +12,7 @@ import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.IProgressUpdate;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.material.Material;
+import net.minecraft.src.tileentity.TileEntity;
 
 import java.util.*;
 
@@ -56,7 +57,7 @@ public class World
 
     public WorldChunkManager func_26662_a()
     {
-        return worldProvider.field_26673_b;
+        return worldProvider.worldChunkManager;
     }
 
     public World(IDataManager idataManager, String s, long l, WorldProvider worldProvider)

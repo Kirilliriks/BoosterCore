@@ -9,6 +9,8 @@ import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.packet.Packet25_ButEntity;
+import net.minecraft.src.tileentity.TileEntity;
+import net.minecraft.src.tileentity.TileEntityDispenser;
 import net.minecraft.src.world.World;
 
 import java.util.Random;

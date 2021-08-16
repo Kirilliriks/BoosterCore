@@ -18,6 +18,8 @@ import net.minecraft.src.material.Material;
 import net.minecraft.src.biome.MobSpawnerRainforest;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagList;
+import net.minecraft.src.tileentity.TileEntityDispenser;
+import net.minecraft.src.tileentity.TileEntityFurnace;
 import net.minecraft.src.world.World;
 
 import java.util.*;

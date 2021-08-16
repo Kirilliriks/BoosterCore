@@ -8,6 +8,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.packet.Packet;
 import net.minecraft.src.packet.Packet25_ButEntity;
+import net.minecraft.src.tileentity.TileEntitySign;
 
 public class EntityTracker
 {

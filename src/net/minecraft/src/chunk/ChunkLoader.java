@@ -8,6 +8,7 @@ import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityList;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagList;
+import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.world.World;
 import net.minecraft.src.world.WorldInfo;
 

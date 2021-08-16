@@ -4,7 +4,7 @@ package net.minecraft.src.biome;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.TileEntity;
+import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.packet.Packet;
 import net.minecraft.src.packet.Packet130;

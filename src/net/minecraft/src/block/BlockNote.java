@@ -4,9 +4,10 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.*;
 import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.material.Material;
+import net.minecraft.src.tileentity.TileEntity;
+import net.minecraft.src.tileentity.TileEntityNote;
 import net.minecraft.src.world.World;
 
 public class BlockNote extends BlockContainer

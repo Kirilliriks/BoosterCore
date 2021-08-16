@@ -7,6 +7,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.material.Material;
+import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.world.World;
 
 import java.util.Random;

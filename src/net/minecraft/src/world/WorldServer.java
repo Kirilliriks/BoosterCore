@@ -13,15 +13,19 @@ import net.minecraft.src.chunk.IChunkProvider;
 import net.minecraft.src.entity.*;
 import net.minecraft.src.packet.Packet38;
 import net.minecraft.src.packet.Packet60;
+import net.minecraft.src.tileentity.TileEntity;
 
-public class WorldServer extends World
-{
+public class WorldServer extends World {
+    public ChunkProviderServer chunkProvider;
+    public boolean field_819_z;
+    public boolean levelSaving;
+    private MinecraftServer mcServer;
+    private MCHashTable mcHashTable;
 
-    public WorldServer(MinecraftServer minecraftserver, IDataManager worldgentaiga2, String s, int i, long l)
-    {
-        super(worldgentaiga2, s, l, WorldProvider.func_26670_a(i));
+    public WorldServer(MinecraftServer minecraftserver, IDataManager iDataManager, String s, int i, long l)  {
+        super(iDataManager, s, l, WorldProvider.func_26670_a(i));
         field_819_z = false;
-        field_20912_E = new MCHashTable();
+        mcHashTable = new MCHashTable();
         mcServer = minecraftserver;
     }
 
@@ -66,7 +70,7 @@ public class WorldServer extends World
 
     public boolean canMineBlock(EntityPlayer entityplayer, int i, int j, int k)
     {
-        int l = (int) MathHelper.abs(i - worldInfo.getSpawnX());
+        int l = (int)MathHelper.abs(i - worldInfo.getSpawnX());
         int i1 = (int)MathHelper.abs(k - worldInfo.getSpawnZ());
         if(l > i1)
         {
@@ -78,18 +82,18 @@ public class WorldServer extends World
     protected void obtainEntitySkin(Entity entity)
     {
         super.obtainEntitySkin(entity);
-        field_20912_E.addKey(entity.entityId, entity);
+        mcHashTable.addKey(entity.entityId, entity);
     }
 
     protected void releaseEntitySkin(Entity entity)
     {
         super.releaseEntitySkin(entity);
-        field_20912_E.removeObject(entity.entityId);
+        mcHashTable.removeObject(entity.entityId);
     }
 
     public Entity func_6158_a(int i)
     {
-        return (Entity)field_20912_E.lookup(i);
+        return (Entity) mcHashTable.lookup(i);
     }
 
     public void func_9206_a(Entity entity, byte byte0)
@@ -116,10 +120,4 @@ public class WorldServer extends World
     {
         worldFile.func_22093_e();
     }
-
-    public ChunkProviderServer chunkProvider;
-    public boolean field_819_z;
-    public boolean levelSaving;
-    private MinecraftServer mcServer;
-    private MCHashTable field_20912_E;
 }

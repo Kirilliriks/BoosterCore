@@ -13,6 +13,7 @@ import net.minecraft.src.packet.Packet;
 import net.minecraft.src.packet.Packet50PreChunk;
 import net.minecraft.src.packet.Packet51MapChunk;
 import net.minecraft.src.packet.Packet53BlockChange;
+import net.minecraft.src.tileentity.TileEntity;
 
 class PlayerInstance {
     private List players;
