@@ -5,6 +5,8 @@ package net.minecraft.src.world;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.booster.core.world.BoosterWorld;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.chunk.ChunkProviderServer;
@@ -22,12 +24,24 @@ public class WorldServer extends World {
     private MinecraftServer mcServer;
     private MCHashTable mcHashTable;
 
+    //Booster
+    private final BoosterWorld world;
+    //
+
     public WorldServer(MinecraftServer minecraftserver, IDataManager iDataManager, String s, int i, long l)  {
         super(iDataManager, s, l, WorldProvider.func_26670_a(i));
         field_819_z = false;
         mcHashTable = new MCHashTable();
         mcServer = minecraftserver;
+
+        this.world = new BoosterWorld(this);
     }
+
+    //Booster
+    public BoosterWorld getWorld() {
+        return world;
+    }
+    //
 
     public void updateEntityWithOptionalForce(Entity entity, boolean flag)
     {

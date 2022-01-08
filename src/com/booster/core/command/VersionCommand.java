@@ -5,11 +5,11 @@ import com.booster.api.command.CommandSender;
 import com.booster.api.entity.Entity;
 import com.booster.core.BoosterServer;
 
-public class BoosterCommand extends Command {
+public final class VersionCommand extends Command {
 
     private final BoosterServer boosterServer;
 
-    public BoosterCommand(BoosterServer boosterServer) {
+    public VersionCommand(BoosterServer boosterServer) {
         super("booster");
         this.boosterServer = boosterServer;
     }

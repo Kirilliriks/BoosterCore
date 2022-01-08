@@ -119,10 +119,12 @@ public class MinecraftServer implements Runnable, ICommandListener {
         }
         configManager = new ServerConfigurationManager(this);
         entityTracker = new EntityTracker(this);
+
         // Booster
         boosterServer = new BoosterServer(this);
         consoleSender = new ConsoleCommandSender(boosterServer);
         //
+
         long l = System.nanoTime();
         String s1 = propertyManagerObj.getStringProperty("level-name", "world");
         String s2 = propertyManagerObj.getStringProperty("level-seed", "");

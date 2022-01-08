@@ -16,9 +16,7 @@ import net.minecraft.src.tileentity.TileEntity;
 
 import java.util.*;
 
-public class World
-    implements IBlockAccess
-{
+public class World implements IBlockAccess {
 
     public boolean scheduledUpdatesAreImmediate;
     private List field_821_y;

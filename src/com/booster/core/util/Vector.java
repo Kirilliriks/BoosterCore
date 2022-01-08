@@ -1,10 +1,10 @@
 package com.booster.core.util;
 
-public class Vector {
+public final class Vector {
 
-    protected double x;
-    protected double y;
-    protected double z;
+    private double x;
+    private double y;
+    private double z;
 
     public Vector(){
         this(0, 0, 0);

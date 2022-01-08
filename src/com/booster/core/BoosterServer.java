@@ -1,7 +1,7 @@
 package com.booster.core;
 
 import com.booster.api.Server;
-import com.booster.core.command.BoosterCommand;
+import com.booster.core.command.VersionCommand;
 import com.booster.core.command.CommandHandler;
 import com.booster.api.command.CommandSender;
 import com.booster.core.plugin.PluginManager;
@@ -23,9 +23,9 @@ public class BoosterServer implements Server {
         logger = MinecraftServer.logger;
         logger.info("This server running on Booster version " + boosterVersion);
 
-        this.commandHandler = new CommandHandler();
-        this.commandHandler.registerCommand(new BoosterCommand(this));
-        this.pluginManager = new PluginManager(this);
+        commandHandler = new CommandHandler();
+        commandHandler.registerCommand(new VersionCommand(this));
+        pluginManager = new PluginManager(this);
     }
 
     public void stopServer(){

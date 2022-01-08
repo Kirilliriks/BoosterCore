@@ -30,15 +30,17 @@ public class PluginManager {
     }
 
     public void loadPlugins(String path){
-        File mainDirectory = new File(path);
+        final File mainDirectory = new File(path);
         if (!mainDirectory.exists()) {
             if (!mainDirectory.mkdir()) throw new RuntimeException("Error with create directory");
         }
-        File[] files = mainDirectory.listFiles();
+        final File[] files = mainDirectory.listFiles();
         if (files == null) return;
-        for (File file : files){
-            JavaPlugin plugin = loadPlugin(file);
+
+        for (final File file : files){
+            final JavaPlugin plugin = loadPlugin(file);
             if (plugin == null) continue;
+
             plugins.add(plugin);
             plugin.initialize(boosterServer);
             plugin.onEnable();
@@ -51,21 +53,21 @@ public class PluginManager {
             jar = new JarFile(pluginFile);
 
             // Get plugin.yml
-            JarEntry entry = jar.getJarEntry("plugin.yml");
+            final JarEntry entry = jar.getJarEntry("plugin.yml");
             if (entry == null){
                 BoosterServer.logger.info("Not found plugin.yml for " + pluginFile.getName());
                 return null;
             }
-            Yaml yaml = new Yaml();
-            Map<String, Object> obj = yaml.load(new InputStreamReader(jar.getInputStream(entry)));
-            String mainName = (String) obj.get("main");
+            final Yaml yaml = new Yaml();
+            final Map<String, Object> obj = yaml.load(new InputStreamReader(jar.getInputStream(entry)));
+            final String mainClassName = (String) obj.get("main");
             //
 
-            URLClassLoader classLoader = new URLClassLoader(new URL[]{pluginFile.toURI().toURL()});
+            final URLClassLoader classLoader = new URLClassLoader(new URL[]{pluginFile.toURI().toURL()});
             Class<?> jarClass;
             Constructor<JavaPlugin> constructor;
             try {
-                jarClass = classLoader.loadClass(mainName);
+                jarClass = classLoader.loadClass(mainClassName);
                 Class<JavaPlugin> plugin = (Class<JavaPlugin>) jarClass.asSubclass(JavaPlugin.class);
                 constructor = plugin.getConstructor();
             } catch (ClassNotFoundException | NoSuchMethodException e) {
@@ -88,7 +90,7 @@ public class PluginManager {
     }
 
     public void disablePlugins(){
-        for (Plugin plugin : plugins){
+        for (final Plugin plugin : plugins){
             plugin.onDisable();
         }
         plugins.clear();
