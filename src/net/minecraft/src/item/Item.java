@@ -10,7 +10,7 @@ import net.minecraft.src.block.BlockStep;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityLiving;
 import net.minecraft.src.entity.EntityMinecart_ButItem;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.packet.Packet54;
 import net.minecraft.src.world.World;
@@ -53,7 +53,7 @@ public class Item
         return this;
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         return false;
     }
@@ -63,7 +63,7 @@ public class Item
         return 1.0F;
     }
 
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityHuman entityplayer)
     {
         return itemstack;
     }

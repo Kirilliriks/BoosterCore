@@ -4,12 +4,12 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public interface IPlayerFileData
 {
 
-    public abstract void writePlayerData(EntityPlayer entityplayer);
+    public abstract void writePlayerData(EntityHuman entityplayer);
 
-    public abstract void readPlayerData(EntityPlayer entityplayer);
+    public abstract void readPlayerData(EntityHuman entityplayer);
 }

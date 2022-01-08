@@ -6,7 +6,7 @@ package net.minecraft.src;
 import java.util.Vector;
 import javax.swing.JList;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.entity.EntityPlayer;
 
 public class PlayerListBox extends JList
     implements IUpdatePlayerListBox
@@ -26,7 +26,7 @@ public class PlayerListBox extends JList
             Vector vector = new Vector();
             for(int i = 0; i < mcServer.configManager.playerEntities.size(); i++)
             {
-                vector.add(((EntityPlayerMP)mcServer.configManager.playerEntities.get(i)).username);
+                vector.add(((EntityPlayer)mcServer.configManager.playerEntities.get(i)).username);
             }
 
             setListData(vector);

@@ -4,7 +4,7 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.entity.Entity;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.world.World;
@@ -29,7 +29,7 @@ public class BlockRedstoneOre extends Block
         return 30;
     }
 
-    public void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public void onBlockClicked(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         func_321_g(world, i, j, k);
         super.onBlockClicked(world, i, j, k, entityplayer);
@@ -41,7 +41,7 @@ public class BlockRedstoneOre extends Block
         super.onEntityWalking(world, i, j, k, entity);
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         func_321_g(world, i, j, k);
         return super.blockActivated(world, i, j, k, entityplayer);

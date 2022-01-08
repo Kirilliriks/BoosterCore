@@ -85,7 +85,7 @@ public class IBlockAccess_ButBlock extends BlockContainer
         }
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         if(world.singleplayerWorld)
         {

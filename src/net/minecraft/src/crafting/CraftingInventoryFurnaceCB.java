@@ -4,7 +4,7 @@ package net.minecraft.src.crafting;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.tileentity.TileEntityFurnace;
 
@@ -69,7 +69,7 @@ public class CraftingInventoryFurnaceCB extends CraftingInventoryCB
         lastItemBurnTime = furnace.currentItemBurnTime;
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         return furnace.canInteractWith(entityplayer);
     }

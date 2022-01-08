@@ -6,7 +6,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.world.World;
 import net.minecraft.src.block.BlockStep;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemSoup extends BlockStep
 {
@@ -16,7 +16,7 @@ public class ItemSoup extends BlockStep
         super(i, j, false);
     }
 
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityHuman entityplayer)
     {
         super.onItemRightClick(itemstack, world, entityplayer);
         return new ItemStack(Item.bowlEmpty);

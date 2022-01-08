@@ -5,7 +5,7 @@ package net.minecraft.src.block;
 
 import net.minecraft.src.*;
 import net.minecraft.src.entity.AxisAlignedBB;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.world.World;
 
@@ -77,18 +77,18 @@ public class BlockCake extends Block
         return false;
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         eatCakeSlice(world, i, j, k, entityplayer);
         return true;
     }
 
-    public void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public void onBlockClicked(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         eatCakeSlice(world, i, j, k, entityplayer);
     }
 
-    private void eatCakeSlice(World world, int i, int j, int k, EntityPlayer entityplayer)
+    private void eatCakeSlice(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         if(entityplayer.health < 20)
         {

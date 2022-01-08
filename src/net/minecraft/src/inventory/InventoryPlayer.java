@@ -7,7 +7,7 @@ package net.minecraft.src.inventory;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.entity.Entity;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.nbt.NBTTagList;
@@ -17,7 +17,7 @@ public class InventoryPlayer
     implements IInventory
 {
 
-    public InventoryPlayer(EntityPlayer entityplayer)
+    public InventoryPlayer(EntityHuman entityplayer)
     {
         mainInventory = new ItemStack[36];
         armorInventory = new ItemStack[4];
@@ -406,7 +406,7 @@ public class InventoryPlayer
         return itemStack;
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         if(player.isDead)
         {
@@ -418,7 +418,7 @@ public class InventoryPlayer
     public ItemStack mainInventory[];
     public ItemStack armorInventory[];
     public int currentItem;
-    public EntityPlayer player;
+    public EntityHuman player;
     private ItemStack itemStack;
     public boolean inventoryChanged;
 }

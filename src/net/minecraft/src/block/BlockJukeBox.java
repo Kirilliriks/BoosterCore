@@ -4,7 +4,7 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.entity.EntityItem;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.material.Material;
@@ -23,7 +23,7 @@ public class BlockJukeBox extends Block
         return blockIndexInTexture + (i != 1 ? 0 : 1);
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         int l = world.getBlockMetadata(i, j, k);
         if(l > 0)

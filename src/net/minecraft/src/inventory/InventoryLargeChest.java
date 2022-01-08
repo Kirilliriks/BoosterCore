@@ -4,7 +4,7 @@ package net.minecraft.src.inventory;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.ItemStack;
 
 public class InventoryLargeChest
@@ -72,7 +72,7 @@ public class InventoryLargeChest
         lowerChest.onInventoryChanged();
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         return upperChest.canInteractWith(entityplayer) && lowerChest.canInteractWith(entityplayer);
     }

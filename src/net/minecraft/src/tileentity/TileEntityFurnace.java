@@ -7,7 +7,7 @@ package net.minecraft.src.tileentity;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockFurnace;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
@@ -244,7 +244,7 @@ public class TileEntityFurnace extends TileEntity
         return i != Item.bucketLava.shiftedIndex ? 0 : 20000;
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         if(worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) != this)
         {

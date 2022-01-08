@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.chunk.ChunkCoordinates;
-import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.packet.*;
 
@@ -97,7 +97,7 @@ public class NetLoginHandler extends NetHandler
 
     public void doLogin(Packet1Login packet1login)
     {
-        EntityPlayerMP entityplayermp = mcServer.configManager.login(this, packet1login.username, packet1login.password);
+        EntityPlayer entityplayermp = mcServer.configManager.login(this, packet1login.username, packet1login.password);
         if(entityplayermp != null)
         {
             logger.info(getUserAndIPString() + " logged in with entity id " + entityplayermp.entityId);

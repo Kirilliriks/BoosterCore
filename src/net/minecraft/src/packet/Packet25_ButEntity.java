@@ -248,7 +248,7 @@ public class Packet25_ButEntity extends Entity
         title = nbttagcompound.getByte("inGround") == 1;
     }
 
-    public void onCollideWithPlayer(EntityPlayer entityplayer)
+    public void onCollideWithPlayer(EntityHuman entityplayer)
     {
         if(title && field_26579_g == entityplayer && entityId <= 0 && entityplayer.inventory.addItemStackToInventory(new ItemStack(Item.arrow, 1)))
         {

@@ -6,7 +6,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemReed extends Item
 {
@@ -17,7 +17,7 @@ public class ItemReed extends Item
         field_253_a = block.blockID;
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         if(world.getBlockId(i, j, k) == Block.snow.blockID)
         {

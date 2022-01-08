@@ -5,7 +5,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.world.World;
 import net.minecraft.src.entity.EntityFish;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemFishingRod extends Item
 {
@@ -16,7 +16,7 @@ public class ItemFishingRod extends Item
         setMaxDamage(64);
     }
 
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityHuman entityplayer)
     {
         if(entityplayer.fishEntity != null)
         {

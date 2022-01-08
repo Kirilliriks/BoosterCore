@@ -10,7 +10,7 @@ import net.minecraft.src.chunk.*;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.IProgressUpdate;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.tileentity.TileEntity;
 
@@ -835,15 +835,15 @@ public class World implements IBlockAccess {
         int i = MathHelper.floor_double(entity.posX / 16D);
         int j = MathHelper.floor_double(entity.posZ / 16D);
         boolean flag = false;
-        if(entity instanceof EntityPlayer)
+        if(entity instanceof EntityHuman)
         {
             flag = true;
         }
         if(flag || chunkExists(i, j))
         {
-            if(entity instanceof EntityPlayer)
+            if(entity instanceof EntityHuman)
             {
-                EntityPlayer entityplayer = (EntityPlayer)entity;
+                EntityHuman entityplayer = (EntityHuman)entity;
                 playerEntities.add(entityplayer);
                 updateAllPlayersSleepingFlag();
             }
@@ -886,9 +886,9 @@ public class World implements IBlockAccess {
             entity.mountEntity(null);
         }
         entity.setEntityDead();
-        if(entity instanceof EntityPlayer)
+        if(entity instanceof EntityHuman)
         {
-            playerEntities.remove((EntityPlayer)entity);
+            playerEntities.remove((EntityHuman)entity);
             updateAllPlayersSleepingFlag();
         }
     }
@@ -896,9 +896,9 @@ public class World implements IBlockAccess {
     public void removePlayer(Entity entity)
     {
         entity.setEntityDead();
-        if(entity instanceof EntityPlayer)
+        if(entity instanceof EntityHuman)
         {
-            playerEntities.remove((EntityPlayer)entity);
+            playerEntities.remove((EntityHuman)entity);
             updateAllPlayersSleepingFlag();
         }
         int i = entity.chunkCoordX;
@@ -1606,7 +1606,7 @@ public class World implements IBlockAccess {
         activeChunkSet.clear();
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayer entityplayer = (EntityPlayer)playerEntities.get(i);
+            EntityHuman entityplayer = (EntityHuman)playerEntities.get(i);
             int j = MathHelper.floor_double(entityplayer.posX / 16D);
             int l = MathHelper.floor_double(entityplayer.posZ / 16D);
             byte byte0 = 9;
@@ -1643,7 +1643,7 @@ public class World implements IBlockAccess {
                 l2 += i1;
                 if(l3 == 0 && getBlockLightValue(j2, j3, l2) <= rand.nextInt(8) && getSavedLightValue(EnumSkyBlock.Sky, j2, j3, l2) <= 0)
                 {
-                    EntityPlayer entityplayer1 = getClosestPlayer((double)j2 + 0.5D, (double)j3 + 0.5D, (double)l2 + 0.5D, 8D);
+                    EntityHuman entityplayer1 = getClosestPlayer((double)j2 + 0.5D, (double)j3 + 0.5D, (double)l2 + 0.5D, 8D);
                     if(entityplayer1 != null && entityplayer1.getDistanceSq((double)j2 + 0.5D, (double)j3 + 0.5D, (double)l2 + 0.5D) > 4D)
                     {
                         playSoundEffect((double)j2 + 0.5D, (double)j3 + 0.5D, (double)l2 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + rand.nextFloat() * 0.2F);
@@ -1923,18 +1923,18 @@ public class World implements IBlockAccess {
         return isBlockIndirectlyProvidingPowerTo(i + 1, j, k, 5);
     }
 
-    public EntityPlayer getClosestPlayerToEntity(Entity entity, double d)
+    public EntityHuman getClosestPlayerToEntity(Entity entity, double d)
     {
         return getClosestPlayer(entity.posX, entity.posY, entity.posZ, d);
     }
 
-    public EntityPlayer getClosestPlayer(double d, double d1, double d2, double d3)
+    public EntityHuman getClosestPlayer(double d, double d1, double d2, double d3)
     {
         double d4 = -1D;
-        EntityPlayer entityplayer = null;
+        EntityHuman entityplayer = null;
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayer entityplayer1 = (EntityPlayer)playerEntities.get(i);
+            EntityHuman entityplayer1 = (EntityHuman)playerEntities.get(i);
             double d5 = entityplayer1.getDistanceSq(d, d1, d2);
             if((d3 < 0.0D || d5 < d3 * d3) && (d4 == -1D || d5 < d4))
             {
@@ -1946,13 +1946,13 @@ public class World implements IBlockAccess {
         return entityplayer;
     }
 
-    public EntityPlayer getPlayerEntityByName(String s)
+    public EntityHuman getPlayerEntityByName(String s)
     {
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            if(s.equals(((EntityPlayer)playerEntities.get(i)).username))
+            if(s.equals(((EntityHuman)playerEntities.get(i)).username))
             {
-                return (EntityPlayer)playerEntities.get(i);
+                return (EntityHuman)playerEntities.get(i);
             }
         }
 
@@ -2034,7 +2034,7 @@ public class World implements IBlockAccess {
         return new ChunkCoordinates(worldInfo.getSpawnX(), worldInfo.getSpawnY(), worldInfo.getSpawnZ());
     }
 
-    public boolean canMineBlock(EntityPlayer entityplayer, int i, int j, int k)
+    public boolean canMineBlock(EntityHuman entityplayer, int i, int j, int k)
     {
         return true;
     }
@@ -2077,7 +2077,7 @@ public class World implements IBlockAccess {
             {
                 break;
             }
-            EntityPlayer entityplayer = (EntityPlayer)iterator.next();
+            EntityHuman entityplayer = (EntityHuman)iterator.next();
             if(entityplayer.isPlayerSleeping())
             {
                 continue;
@@ -2097,7 +2097,7 @@ public class World implements IBlockAccess {
             {
                 break;
             }
-            EntityPlayer entityplayer = (EntityPlayer)iterator.next();
+            EntityHuman entityplayer = (EntityHuman)iterator.next();
             if(entityplayer.isPlayerSleeping())
             {
                 entityplayer.wakeUpPlayer(false, false, false);
@@ -2111,7 +2111,7 @@ public class World implements IBlockAccess {
         {
             for(Iterator iterator = playerEntities.iterator(); iterator.hasNext();)
             {
-                EntityPlayer entityplayer = (EntityPlayer)iterator.next();
+                EntityHuman entityplayer = (EntityHuman)iterator.next();
                 if(!entityplayer.isPlayerFullyAsleep())
                 {
                     return false;

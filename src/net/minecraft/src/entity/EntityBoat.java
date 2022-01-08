@@ -296,9 +296,9 @@ public class EntityBoat extends Entity
     {
     }
 
-    public boolean interact(EntityPlayer entityplayer)
+    public boolean interact(EntityHuman entityplayer)
     {
-        if(riddenByEntity != null && (riddenByEntity instanceof EntityPlayer) && riddenByEntity != entityplayer)
+        if(riddenByEntity != null && (riddenByEntity instanceof EntityHuman) && riddenByEntity != entityplayer)
         {
             return true;
         }

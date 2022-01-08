@@ -17,6 +17,5 @@ public final class VersionCommand extends Command {
     @Override
     public void execute(CommandSender sender, String[] args) {
         sender.sendMessage("Booster version: " + boosterServer.getBoosterVersion());
-        if (sender instanceof Entity) sender.sendMessage(((Entity)sender).getPosition().toString());
     }
 }

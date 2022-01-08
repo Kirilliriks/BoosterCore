@@ -6,7 +6,7 @@ package net.minecraft.src.crafting;
 
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.Slot;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class CraftingInventoryChestCB extends CraftingInventoryCB
 {
@@ -41,7 +41,7 @@ public class CraftingInventoryChestCB extends CraftingInventoryCB
 
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         return field_20137_a.canInteractWith(entityplayer);
     }

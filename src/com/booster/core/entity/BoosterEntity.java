@@ -1,36 +1,40 @@
 package com.booster.core.entity;
 
-import com.booster.api.entity.Entity;
 import com.booster.core.util.Vector;
-import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.entity.Entity;
+import net.minecraft.src.entity.EntityPlayer;
 
-public class BoosterEntity implements Entity {
+public class BoosterEntity implements com.booster.api.entity.Entity {
 
-    protected final net.minecraft.src.entity.Entity entity;
+    protected final Entity entityHandler;
 
-    public BoosterEntity(net.minecraft.src.entity.Entity entity) {
-        this.entity = entity;
+    public BoosterEntity(net.minecraft.src.entity.Entity entityHandler) {
+        this.entityHandler = entityHandler;
     }
 
-    public net.minecraft.src.entity.Entity getEntity() {
-        return entity;
+    public net.minecraft.src.entity.Entity getEntityHandler() {
+        return entityHandler;
     }
 
     @Override
     public Vector getPosition() {
-        return new Vector(entity.posX, entity.posY, entity.posZ);
+        return new Vector(entityHandler.posX, entityHandler.posY, entityHandler.posZ);
     }
 
     @Override
     public void teleport(Vector vector){
-        entity.setPosition(vector.getX(), vector.getY(), vector.getZ());
+        entityHandler.setLocationAndAngles(vector.getX(), vector.getY(), vector.getZ(), 0, 0);
     }
 
     public static BoosterEntity newBoosterEntity(net.minecraft.src.entity.Entity entity){
-        if (entity instanceof EntityPlayerMP) return new BoosterPlayer((EntityPlayerMP) entity);
+        if (entity instanceof EntityPlayer) return new BoosterPlayer((EntityPlayer) entity);
         return null;
 
         // TODO Добавить когда все сущности будут работать на API
         // throw new RuntimeException("Find unknown entity " + entity.getClass().getName());
+    }
+
+    public Entity getHandle() {
+        return entityHandler;
     }
 }

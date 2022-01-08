@@ -163,20 +163,17 @@ public abstract class Entity {
         isDead = true;
     }
 
-    protected void setSize(float f, float f1)
-    {
+    protected void setSize(float f, float f1)  {
         width = f;
         height = f1;
     }
 
-    protected void setRotation(float f, float f1)
-    {
+    protected void setRotation(float f, float f1)  {
         rotationYaw = f;
         rotationPitch = f1;
     }
 
-    public void setPosition(double x, double y, double z)
-    {
+    public void setPosition(double x, double y, double z)  {
         posX = x;
         posY = y;
         posZ = z;
@@ -185,17 +182,15 @@ public abstract class Entity {
         boundingBox.setBounds(x - (double)f, (y - (double)yOffset) + (double)ySize, z - (double)f, x + (double)f, (y - (double)yOffset) + (double)ySize + (double)f1, z + (double)f);
     }
 
-    public void onUpdate()
-    {
+    public void onUpdate()  {
         spawnExplosionParticle();
     }
 
-    public void spawnExplosionParticle()
-    {
-        if(ridingEntity != null && ridingEntity.isDead)
-        {
+    public void spawnExplosionParticle()  {
+        if(ridingEntity != null && ridingEntity.isDead)  {
             ridingEntity = null;
         }
+
         ticksExisted++;
         prevDistanceWalkedModified = distanceWalkedModified;
         prevPosX = posX;
@@ -203,19 +198,16 @@ public abstract class Entity {
         prevPosZ = posZ;
         prevRotationPitch = rotationPitch;
         prevRotationYaw = rotationYaw;
-        if(handleWaterMovement())
-        {
-            if(!inWater && !firstUpdate)
-            {
+
+        if(handleWaterMovement())  {
+            if(!inWater && !firstUpdate)  {
                 float f = MathHelper.sqrt_double(motionX * motionX * 0.20000000298023224D + motionY * motionY + motionZ * motionZ * 0.20000000298023224D) * 0.2F;
-                if(f > 1.0F)
-                {
+                if(f > 1.0F)  {
                     f = 1.0F;
                 }
                 worldObj.playSoundAtEntity(this, "random.splash", f, 1.0F + (rand.nextFloat() - rand.nextFloat()) * 0.4F);
                 float f1 = MathHelper.floor_double(boundingBox.minY);
-                for(int i = 0; (float)i < 1.0F + width * 20F; i++)
-                {
+                for(int i = 0; (float)i < 1.0F + width * 20F; i++)  {
                     float f2 = (rand.nextFloat() * 2.0F - 1.0F) * width;
                     float f4 = (rand.nextFloat() * 2.0F - 1.0F) * width;
                     worldObj.spawnParticle("bubble", posX + (double)f2, f1 + 1.0F, posZ + (double)f4, motionX, motionY - (double)(rand.nextFloat() * 0.2F), motionZ);
@@ -620,46 +612,41 @@ public abstract class Entity {
         motionZ += f1 * f5 + f * f4;
     }
 
-    public float getEntityBrightness(float f)
-    {
+    public float getEntityBrightness(float f) {
         int i = MathHelper.floor_double(posX);
         double d = (boundingBox.maxY - boundingBox.minY) * 0.66000000000000003D;
         int j = MathHelper.floor_double((posY - (double)yOffset) + d);
         int k = MathHelper.floor_double(posZ);
-        if(worldObj.checkChunksExist(MathHelper.floor_double(boundingBox.minX), MathHelper.floor_double(boundingBox.minY), MathHelper.floor_double(boundingBox.minZ), MathHelper.floor_double(boundingBox.maxX), MathHelper.floor_double(boundingBox.maxY), MathHelper.floor_double(boundingBox.maxZ)))
-        {
+        if(worldObj.checkChunksExist(MathHelper.floor_double(boundingBox.minX), MathHelper.floor_double(boundingBox.minY), MathHelper.floor_double(boundingBox.minZ), MathHelper.floor_double(boundingBox.maxX), MathHelper.floor_double(boundingBox.maxY), MathHelper.floor_double(boundingBox.maxZ))) {
             return worldObj.getLightBrightness(i, j, k);
-        } else
-        {
+        } else {
             return 0.0F;
         }
     }
 
     public void setPositionAndRotation(double d, double d1, double d2, float f, 
-            float f1)
-    {
+            float f1) {
         prevPosX = posX = d;
         prevPosY = posY = d1;
         prevPosZ = posZ = d2;
         prevRotationYaw = rotationYaw = f;
         prevRotationPitch = rotationPitch = f1;
         ySize = 0.0F;
+
         double d3 = prevRotationYaw - f;
-        if(d3 < -180D)
-        {
+        if(d3 < -180D)  {
             prevRotationYaw += 360F;
         }
-        if(d3 >= 180D)
-        {
+        if(d3 >= 180D)  {
             prevRotationYaw -= 360F;
         }
+
         setPosition(posX, posY, posZ);
         setRotation(f, f1);
     }
 
     public void setLocationAndAngles(double d, double d1, double d2, float f, 
-            float f1)
-    {
+            float f1)  {
         lastTickPosX = prevPosX = posX = d;
         lastTickPosY = prevPosY = posY = d1 + (double)yOffset;
         lastTickPosZ = prevPosZ = posZ = d2;
@@ -700,7 +687,7 @@ public abstract class Entity {
         return d * d + d1 * d1 + d2 * d2;
     }
 
-    public void onCollideWithPlayer(EntityPlayer entityplayer)
+    public void onCollideWithPlayer(EntityHuman entityplayer)
     {
     }
 
@@ -900,7 +887,7 @@ public abstract class Entity {
         return worldObj.isBlockOpaqueCube(i, j, k);
     }
 
-    public boolean interact(EntityPlayer entityplayer)
+    public boolean interact(EntityHuman entityplayer)
     {
         return false;
     }

@@ -4,7 +4,7 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.entity.EntityItem;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.inventory.InventoryLargeChest;
 import net.minecraft.src.item.ItemStack;
@@ -141,7 +141,7 @@ label0:
         super.onBlockRemoval(world, i, j, k);
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         Object obj = (TileEntityChest)world.getBlockTileEntity(i, j, k);
         if(world.isBlockOpaqueCube(i, j + 1, k))

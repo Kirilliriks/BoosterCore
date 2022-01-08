@@ -3,7 +3,7 @@ package net.minecraft.src.block;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.world.World;
 import net.minecraft.src.achievement.AchievementList;
@@ -29,7 +29,7 @@ public class BlockLog extends Block
         return Block.wood.blockID;
     }
 
-    public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l)
+    public void harvestBlock(World world, EntityHuman entityplayer, int i, int j, int k, int l)
     {
         super.harvestBlock(world, entityplayer, i, j, k, l);
         entityplayer.func_26604_a(AchievementList.field_25131_c, 1);

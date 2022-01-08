@@ -133,10 +133,10 @@ public class EntityTrackerEntry
 
     public void sendPacketToTrackedPlayers(Packet packet)
     {
-        EntityPlayerMP entityplayermp;
+        EntityPlayer entityplayermp;
         for(Iterator iterator = trackedPlayers.iterator(); iterator.hasNext(); entityplayermp.playerNetServerHandler.sendPacket(packet))
         {
-            entityplayermp = (EntityPlayerMP)iterator.next();
+            entityplayermp = (EntityPlayer)iterator.next();
         }
 
     }
@@ -144,9 +144,9 @@ public class EntityTrackerEntry
     public void sendPacketToTrackedPlayersAndTrackedEntity(Packet packet)
     {
         sendPacketToTrackedPlayers(packet);
-        if(trackedEntity instanceof EntityPlayerMP)
+        if(trackedEntity instanceof EntityPlayer)
         {
-            ((EntityPlayerMP)trackedEntity).playerNetServerHandler.sendPacket(packet);
+            ((EntityPlayer)trackedEntity).playerNetServerHandler.sendPacket(packet);
         }
     }
 
@@ -155,7 +155,7 @@ public class EntityTrackerEntry
         sendPacketToTrackedPlayers(new Packet29DestroyEntity(trackedEntity.entityId));
     }
 
-    public void removeFromTrackedPlayers(EntityPlayerMP entityplayermp)
+    public void removeFromTrackedPlayers(EntityPlayer entityplayermp)
     {
         if(trackedPlayers.contains(entityplayermp))
         {
@@ -163,7 +163,7 @@ public class EntityTrackerEntry
         }
     }
 
-    public void updatePlayerEntity(EntityPlayerMP entityplayermp)
+    public void updatePlayerEntity(EntityPlayer entityplayermp)
     {
         if(entityplayermp == trackedEntity)
         {
@@ -203,7 +203,7 @@ public class EntityTrackerEntry
     {
         for(int i = 0; i < list.size(); i++)
         {
-            updatePlayerEntity((EntityPlayerMP)list.get(i));
+            updatePlayerEntity((EntityPlayer)list.get(i));
         }
 
     }
@@ -219,9 +219,9 @@ public class EntityTrackerEntry
             entityitem.posZ = (double)packet21pickupspawn.zPosition / 32D;
             return packet21pickupspawn;
         }
-        if(trackedEntity instanceof EntityPlayerMP)
+        if(trackedEntity instanceof EntityPlayer)
         {
-            return new Packet20NamedEntitySpawn((EntityPlayer)trackedEntity);
+            return new Packet20NamedEntitySpawn((EntityHuman)trackedEntity);
         }
         if(trackedEntity instanceof TileEntitySign)
         {
@@ -288,7 +288,7 @@ public class EntityTrackerEntry
         }
     }
 
-    public void removeTrackedPlayerSymmetric(EntityPlayerMP entityplayermp)
+    public void removeTrackedPlayerSymmetric(EntityPlayer entityplayermp)
     {
         if(trackedPlayers.contains(entityplayermp))
         {

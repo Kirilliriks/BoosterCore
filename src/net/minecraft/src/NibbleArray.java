@@ -4,7 +4,7 @@ package net.minecraft.src;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.item.ItemStack;
 
@@ -59,7 +59,7 @@ public class NibbleArray
     {
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         return true;
     }

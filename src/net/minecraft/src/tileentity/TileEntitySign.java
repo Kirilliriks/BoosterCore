@@ -571,7 +571,7 @@ label0:
         {
             return;
         }
-        if((entity instanceof EntityLiving) && !(entity instanceof EntityPlayer) && field_26625_d == 0 && motionX * motionX + motionZ * motionZ > 0.01D && riddenByEntity == null && entity.ridingEntity == null)
+        if((entity instanceof EntityLiving) && !(entity instanceof EntityHuman) && field_26625_d == 0 && motionX * motionX + motionZ * motionZ > 0.01D && riddenByEntity == null && entity.ridingEntity == null)
         {
             entity.mountEntity(this);
         }
@@ -689,11 +689,11 @@ label0:
     {
     }
 
-    public boolean interact(EntityPlayer entityplayer)
+    public boolean interact(EntityHuman entityplayer)
     {
         if(field_26625_d == 0)
         {
-            if(riddenByEntity != null && (riddenByEntity instanceof EntityPlayer) && riddenByEntity != entityplayer)
+            if(riddenByEntity != null && (riddenByEntity instanceof EntityHuman) && riddenByEntity != entityplayer)
             {
                 return true;
             }
@@ -726,7 +726,7 @@ label0:
         return true;
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         if(isDead)
         {

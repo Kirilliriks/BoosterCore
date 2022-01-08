@@ -4,7 +4,7 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.tileentity.TileEntityNote;
@@ -40,7 +40,7 @@ public class BlockNote extends BlockContainer
         }
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         if(world.singleplayerWorld)
         {
@@ -54,7 +54,7 @@ public class BlockNote extends BlockContainer
         }
     }
 
-    public void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public void onBlockClicked(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         if(world.singleplayerWorld)
         {

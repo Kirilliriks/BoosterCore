@@ -6,7 +6,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemRecord extends Item
 {
@@ -18,7 +18,7 @@ public class ItemRecord extends Item
         maxStackSize = 1;
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         if(world.getBlockId(i, j, k) == Block.jukebox.blockID && world.getBlockMetadata(i, j, k) == 0)
         {

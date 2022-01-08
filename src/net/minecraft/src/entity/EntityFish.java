@@ -34,7 +34,7 @@ public class EntityFish extends Entity
     {
     }
 
-    public EntityFish(World world, EntityPlayer entityplayer)
+    public EntityFish(World world, EntityHuman entityplayer)
     {
         super(world);
         xTile = -1;
@@ -345,7 +345,7 @@ public class EntityFish extends Entity
     private int inTile;
     private boolean inGround;
     public int shake;
-    public EntityPlayer angler;
+    public EntityHuman angler;
     private int ticksInGround;
     private int ticksInAir;
     private int ticksCatchable;

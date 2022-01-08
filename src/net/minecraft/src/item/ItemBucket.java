@@ -6,7 +6,7 @@ package net.minecraft.src.item;
 import net.minecraft.src.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.entity.EntityCow;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.world.World;
 
@@ -20,7 +20,7 @@ public class ItemBucket extends Item
         isFull = j;
     }
 
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityHuman entityplayer)
     {
         float f = 1.0F;
         float f1 = entityplayer.prevRotationPitch + (entityplayer.rotationPitch - entityplayer.prevRotationPitch) * f;

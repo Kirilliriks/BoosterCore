@@ -6,7 +6,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.*;
 import net.minecraft.src.entity.EntityBoat;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.world.World;
 
 public class ItemBoat extends Item
@@ -18,7 +18,7 @@ public class ItemBoat extends Item
         maxStackSize = 1;
     }
 
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityHuman entityplayer)
     {
         float f = 1.0F;
         float f1 = entityplayer.prevRotationPitch + (entityplayer.rotationPitch - entityplayer.prevRotationPitch) * f;

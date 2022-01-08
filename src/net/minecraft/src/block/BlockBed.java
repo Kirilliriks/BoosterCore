@@ -5,7 +5,7 @@ package net.minecraft.src.block;
 
 import net.minecraft.src.*;
 import net.minecraft.src.chunk.ChunkCoordinates;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.world.World;
@@ -21,7 +21,7 @@ public class BlockBed extends Block
         setBounds();
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         int l = world.getBlockMetadata(i, j, k);
         if(!func_22020_d(l))

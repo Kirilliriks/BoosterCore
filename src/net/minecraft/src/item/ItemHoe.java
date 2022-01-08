@@ -7,7 +7,7 @@ import net.minecraft.src.material.Material;
 import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.entity.EntityItem;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemHoe extends Item
 {
@@ -19,7 +19,7 @@ public class ItemHoe extends Item
         setMaxDamage(enumtoolmaterial.getMaxUses());
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         int i1 = world.getBlockId(i, j, k);
         Material material = world.getBlockMaterial(i, j + 1, k);

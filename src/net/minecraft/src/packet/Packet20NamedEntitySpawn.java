@@ -4,7 +4,7 @@ package net.minecraft.src.packet;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.MathHelper;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.network.NetHandler;
 
@@ -17,7 +17,7 @@ public class Packet20NamedEntitySpawn extends Packet
     {
     }
 
-    public Packet20NamedEntitySpawn(EntityPlayer entityplayer)
+    public Packet20NamedEntitySpawn(EntityHuman entityplayer)
     {
         entityId = entityplayer.entityId;
         name = entityplayer.username;

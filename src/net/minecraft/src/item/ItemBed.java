@@ -8,7 +8,7 @@ import net.minecraft.src.MathHelper;
 import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.block.BlockBed;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemBed extends Item
 {
@@ -18,7 +18,7 @@ public class ItemBed extends Item
         super(i);
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         if(l != 1)
         {

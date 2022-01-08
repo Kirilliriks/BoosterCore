@@ -6,7 +6,7 @@ package net.minecraft.src.block;
 import net.minecraft.src.*;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.EntityItem;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.material.Material;
@@ -64,7 +64,7 @@ public class BlockSnow extends Block
         }
     }
 
-    public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l)
+    public void harvestBlock(World world, EntityHuman entityplayer, int i, int j, int k, int l)
     {
         int i1 = Item.snowball.shiftedIndex;
         float f = 0.7F;

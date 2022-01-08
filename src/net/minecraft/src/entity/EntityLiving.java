@@ -623,7 +623,7 @@ public abstract class EntityLiving extends Entity
     protected void updatePlayerActionState()
     {
         age++;
-        EntityPlayer entityplayer = worldObj.getClosestPlayerToEntity(this, -1D);
+        EntityHuman entityplayer = worldObj.getClosestPlayerToEntity(this, -1D);
         if(func_25020_s() && entityplayer != null)
         {
             double d = ((Entity) (entityplayer)).posX - posX;
@@ -650,7 +650,7 @@ public abstract class EntityLiving extends Entity
         float f = 8F;
         if(rand.nextFloat() < 0.02F)
         {
-            EntityPlayer entityplayer1 = worldObj.getClosestPlayerToEntity(this, f);
+            EntityHuman entityplayer1 = worldObj.getClosestPlayerToEntity(this, f);
             if(entityplayer1 != null)
             {
                 currentTarget = entityplayer1;

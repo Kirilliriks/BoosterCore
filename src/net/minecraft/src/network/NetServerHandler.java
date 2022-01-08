@@ -8,11 +8,12 @@ import java.util.logging.Logger;
 
 import com.booster.core.BoosterServer;
 import com.booster.core.entity.BoosterPlayer;
+import com.booster.core.util.Vector;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import net.minecraft.src.chunk.ChunkCoordinates;
 import net.minecraft.src.entity.Entity;
-import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.inventory.InventoryPlayer;
 import net.minecraft.src.item.ItemInWorldManager;
 import net.minecraft.src.item.ItemStack;
@@ -26,7 +27,7 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
     public NetworkManager netManager;
     public boolean connectionClosed;
     private MinecraftServer minecraftServer;
-    private EntityPlayerMP playerEntity;
+    private EntityPlayer playerEntity;
     private int field_15_f;
     private int field_22004_g;
     private boolean field_22003_h;
@@ -40,15 +41,15 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
     private BoosterServer boosterServer;
     //
 
-    public NetServerHandler(MinecraftServer minecraftServer, NetworkManager networkmanager, EntityPlayerMP entityplayermp) {
+    public NetServerHandler(MinecraftServer minecraftServer, NetworkManager networkmanager, EntityPlayer entityPlayer) {
         connectionClosed = false;
         hasMoved = true;
         field_10_k = new HashMap<>();
         this.minecraftServer = minecraftServer;
         netManager = networkmanager;
         networkmanager.setNetHandler(this);
-        playerEntity = entityplayermp;
-        entityplayermp.playerNetServerHandler = this;
+        playerEntity = entityPlayer;
+        entityPlayer.playerNetServerHandler = this;
 
         //Booster
         this.boosterServer = minecraftServer.getBoosterServer();
@@ -199,15 +200,20 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
         }
     }
 
-    public void teleportTo(double d, double d1, double d2, float f, 
-            float f1)
-    {
+    // Booster start
+    public void teleportTo(Vector vector)  {
+        teleportTo(vector.getX(), vector.getY(), vector.getY(), 0, 0);
+    }
+    // Booster end
+
+    public void teleportTo(double x, double y, double z, float yaw,
+            float pitch)  {
         hasMoved = false;
-        lastPosX = d;
-        lastPosY = d1;
-        lastPosZ = d2;
-        playerEntity.setPositionAndRotation(d, d1, d2, f, f1);
-        playerEntity.playerNetServerHandler.sendPacket(new Packet13PlayerLookMove(d, d1 + 1.6200000047683716D, d1, d2, f, f1, false));
+        lastPosX = x;
+        lastPosY = y;
+        lastPosZ = z;
+        playerEntity.setPositionAndRotation(x, y, z, yaw, pitch);
+        playerEntity.playerNetServerHandler.sendPacket(new Packet13PlayerLookMove(x, y + 1.6200000047683716D, y, z, yaw, pitch, false));
     }
 
     public void handleBlockDig(Packet14BlockDig packet14blockdig)

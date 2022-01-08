@@ -201,7 +201,7 @@ public class Block
         return blockID;
     }
 
-    public float blockStrength(EntityPlayer entityplayer)
+    public float blockStrength(EntityHuman entityplayer)
     {
         if(blockHardness < 0.0F)
         {
@@ -394,7 +394,7 @@ public class Block
         return l == 0 || blocksList[l].blockMaterial.getIsLiquid();
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         return false;
     }
@@ -407,7 +407,7 @@ public class Block
     {
     }
 
-    public void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public void onBlockClicked(World world, int i, int j, int k, EntityHuman entityplayer)
     {
     }
 
@@ -438,7 +438,7 @@ public class Block
         return false;
     }
 
-    public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l)
+    public void harvestBlock(World world, EntityHuman entityplayer, int i, int j, int k, int l)
     {
         entityplayer.func_26604_a(StatList.field_25094_y[blockID], 1);
         dropBlockAsItem(world, i, j, k, l);

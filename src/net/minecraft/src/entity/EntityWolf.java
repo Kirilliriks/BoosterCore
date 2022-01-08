@@ -116,7 +116,7 @@ public class EntityWolf extends EntityAnimals
         super.updatePlayerActionState();
         if(!hasAttacked && !func_25023_z() && func_25030_y())
         {
-            EntityPlayer entityplayer = worldObj.getPlayerEntityByName(func_25034_v());
+            EntityHuman entityplayer = worldObj.getPlayerEntityByName(func_25034_v());
             if(entityplayer != null)
             {
                 float f = entityplayer.getDistanceToEntity(this);
@@ -155,9 +155,9 @@ public class EntityWolf extends EntityAnimals
         if(func_26581_O() && !func_25023_z() && !func_25028_x())
         {
             Entity entity = func_26580_P();
-            if(entity instanceof EntityPlayer)
+            if(entity instanceof EntityHuman)
             {
-                EntityPlayer entityplayer = (EntityPlayer)entity;
+                EntityHuman entityplayer = (EntityHuman)entity;
                 ItemStack itemstack = entityplayer.inventory.getCurrentItem();
                 if(itemstack != null)
                 {
@@ -284,7 +284,7 @@ public class EntityWolf extends EntityAnimals
     public boolean attackEntityFrom(Entity entity, int i)
     {
         func_25031_b(false);
-        if(entity != null && !(entity instanceof EntityPlayer) && !(entity instanceof EntityArrow))
+        if(entity != null && !(entity instanceof EntityHuman) && !(entity instanceof EntityArrow))
         {
             i = (i + 1) / 2;
         }
@@ -292,7 +292,7 @@ public class EntityWolf extends EntityAnimals
         {
             if(!func_25030_y() && !func_25028_x())
             {
-                if(entity instanceof EntityPlayer)
+                if(entity instanceof EntityHuman)
                 {
                     func_25037_c(true);
                     playerToAttack = entity;
@@ -316,7 +316,7 @@ public class EntityWolf extends EntityAnimals
                         if(!entitywolf.func_25030_y() && entitywolf.playerToAttack == null)
                         {
                             entitywolf.playerToAttack = entity;
-                            if(entity instanceof EntityPlayer)
+                            if(entity instanceof EntityHuman)
                             {
                                 entitywolf.func_25037_c(true);
                             }
@@ -326,7 +326,7 @@ public class EntityWolf extends EntityAnimals
             } else
             if(entity != this && entity != null)
             {
-                if(func_25030_y() && (entity instanceof EntityPlayer) && ((EntityPlayer)entity).username.equals(func_25034_v()))
+                if(func_25030_y() && (entity instanceof EntityHuman) && ((EntityHuman)entity).username.equals(func_25034_v()))
                 {
                     return true;
                 }
@@ -376,7 +376,7 @@ public class EntityWolf extends EntityAnimals
         }
     }
 
-    public boolean interact(EntityPlayer entityplayer)
+    public boolean interact(EntityHuman entityplayer)
     {
         ItemStack itemstack = entityplayer.inventory.getCurrentItem();
         if(!func_25030_y())

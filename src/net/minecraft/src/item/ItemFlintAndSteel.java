@@ -3,7 +3,7 @@ package net.minecraft.src.item;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
 
@@ -17,7 +17,7 @@ public class ItemFlintAndSteel extends Item
         setMaxDamage(64);
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         if(l == 0)
         {

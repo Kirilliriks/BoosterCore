@@ -5,7 +5,7 @@ package net.minecraft.src.block;
 
 import net.minecraft.src.*;
 import net.minecraft.src.entity.AxisAlignedBB;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.material.Material;
 import net.minecraft.src.world.World;
 
@@ -149,12 +149,12 @@ public class BlockDispenser extends Block
         }
     }
 
-    public void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public void onBlockClicked(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         blockActivated(world, i, j, k, entityplayer);
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         if(world.singleplayerWorld)
         {

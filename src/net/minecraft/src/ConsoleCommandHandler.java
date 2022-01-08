@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.logging.Logger;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.item.Item;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.packet.Packet3Chat;
@@ -87,7 +87,7 @@ public class ConsoleCommandHandler {
             String s6 = command.substring(command.indexOf(" ")).trim();
             serverConfigurationManager.banPlayer(s6);
             broadcast(s1, (new StringBuilder()).append("Banning ").append(s6).toString());
-            EntityPlayerMP entityplayermp = serverConfigurationManager.getPlayerEntity(s6);
+            EntityPlayer entityplayermp = serverConfigurationManager.getPlayerEntity(s6);
             if(entityplayermp != null)
             {
                 entityplayermp.playerNetServerHandler.kickPlayer("Banned by admin");
@@ -102,10 +102,10 @@ public class ConsoleCommandHandler {
         if(command.toLowerCase().startsWith("kick "))
         {
             String s8 = command.substring(command.indexOf(" ")).trim();
-            EntityPlayerMP entityplayermp1 = null;
+            EntityPlayer entityplayermp1 = null;
             for(int i = 0; i < serverConfigurationManager.playerEntities.size(); i++)
             {
-                EntityPlayerMP entityplayermp5 = serverConfigurationManager.playerEntities.get(i);
+                EntityPlayer entityplayermp5 = serverConfigurationManager.playerEntities.get(i);
                 if(entityplayermp5.username.equalsIgnoreCase(s8))
                 {
                     entityplayermp1 = entityplayermp5;
@@ -126,8 +126,8 @@ public class ConsoleCommandHandler {
             String as[] = command.split(" ");
             if(as.length == 3)
             {
-                EntityPlayerMP entityplayermp2 = serverConfigurationManager.getPlayerEntity(as[1]);
-                EntityPlayerMP entityplayermp3 = serverConfigurationManager.getPlayerEntity(as[2]);
+                EntityPlayer entityplayermp2 = serverConfigurationManager.getPlayerEntity(as[1]);
+                EntityPlayer entityplayermp3 = serverConfigurationManager.getPlayerEntity(as[2]);
                 if(entityplayermp2 == null)
                 {
                     icommandlistener.log((new StringBuilder()).append("Can't find user ").append(as[1]).append(". No tp.").toString());
@@ -153,7 +153,7 @@ public class ConsoleCommandHandler {
                 return;
             }
             String s9 = as1[1];
-            EntityPlayerMP entityplayermp4 = serverConfigurationManager.getPlayerEntity(s9);
+            EntityPlayer entityplayermp4 = serverConfigurationManager.getPlayerEntity(s9);
             if(entityplayermp4 != null)
             {
                 try

@@ -5,7 +5,7 @@ package net.minecraft.src.inventory;
 
 
 import net.minecraft.src.crafting.CraftingInventoryCB;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.ItemStack;
 
 public class InventoryCrafting
@@ -92,7 +92,7 @@ public class InventoryCrafting
     {
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         return true;
     }

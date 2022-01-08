@@ -37,7 +37,7 @@ public class EntityMobs extends EntityCreature implements IMobs {
 
     protected Entity findPlayerToAttack()
     {
-        EntityPlayer entityplayer = worldObj.getClosestPlayerToEntity(this, 16D);
+        EntityHuman entityplayer = worldObj.getClosestPlayerToEntity(this, 16D);
         if(entityplayer != null && canEntityBeSeen(entityplayer))
         {
             return entityplayer;

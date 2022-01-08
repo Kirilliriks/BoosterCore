@@ -49,7 +49,7 @@ public class WorldServer extends World {
         {
             entity.setEntityDead();
         }
-        if(entity.riddenByEntity == null || !(entity.riddenByEntity instanceof EntityPlayer))
+        if(entity.riddenByEntity == null || !(entity.riddenByEntity instanceof EntityHuman))
         {
             super.updateEntityWithOptionalForce(entity, flag);
         }
@@ -82,7 +82,7 @@ public class WorldServer extends World {
         return arraylist;
     }
 
-    public boolean canMineBlock(EntityPlayer entityplayer, int i, int j, int k)
+    public boolean canMineBlock(EntityHuman entityplayer, int i, int j, int k)
     {
         int l = (int)MathHelper.abs(i - worldInfo.getSpawnX());
         int i1 = (int)MathHelper.abs(k - worldInfo.getSpawnZ());

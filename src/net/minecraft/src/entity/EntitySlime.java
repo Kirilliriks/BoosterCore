@@ -81,7 +81,7 @@ public class EntitySlime extends EntityLiving implements IMobs {
 
     protected void updatePlayerActionState()
     {
-        EntityPlayer entityplayer = worldObj.getClosestPlayerToEntity(this, 16D);
+        EntityHuman entityplayer = worldObj.getClosestPlayerToEntity(this, 16D);
         if(entityplayer != null)
         {
             faceEntity(entityplayer, 10F, 20F);
@@ -130,7 +130,7 @@ public class EntitySlime extends EntityLiving implements IMobs {
         super.setEntityDead();
     }
 
-    public void onCollideWithPlayer(EntityPlayer entityplayer)
+    public void onCollideWithPlayer(EntityHuman entityplayer)
     {
         int i = func_25027_m();
         if(i > 1 && canEntityBeSeen(entityplayer) && (double)getDistanceToEntity(entityplayer) < 0.59999999999999998D * (double)i && entityplayer.attackEntityFrom(this, i))

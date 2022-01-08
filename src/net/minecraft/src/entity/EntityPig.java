@@ -50,7 +50,7 @@ public class EntityPig extends EntityAnimals
         return "mob.pigdeath";
     }
 
-    public boolean interact(EntityPlayer entityplayer)
+    public boolean interact(EntityHuman entityplayer)
     {
         if(func_26603_v() && !worldObj.singleplayerWorld && (riddenByEntity == null || riddenByEntity == entityplayer))
         {

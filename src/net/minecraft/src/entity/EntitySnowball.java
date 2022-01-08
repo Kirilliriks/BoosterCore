@@ -232,7 +232,7 @@ public class EntitySnowball extends Entity
         inGroundSnowball = nbttagcompound.getByte("inGround") == 1;
     }
 
-    public void onCollideWithPlayer(EntityPlayer entityplayer)
+    public void onCollideWithPlayer(EntityHuman entityplayer)
     {
         if(inGroundSnowball && owner == entityplayer && shakeSnowball <= 0 && entityplayer.inventory.addItemStackToInventory(new ItemStack(Item.arrow, 1)))
         {

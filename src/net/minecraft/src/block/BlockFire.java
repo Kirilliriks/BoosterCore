@@ -4,8 +4,8 @@ package net.minecraft.src.block;
 // Decompiler options: packimports(3) braces deadcode 
 
 
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.entity.EntityPlayer;
-import net.minecraft.src.entity.EntityPlayerMP;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.packet.Packet53BlockChange;
 import net.minecraft.src.world.World;
@@ -118,12 +118,12 @@ public class BlockFire
         if(flag && chanceToEncourageFire.canHarvestBlock(Block.blocksList[l]))
         {
             Block.blocksList[l].harvestBlock(abilityToCatchFire, chanceToEncourageFire, i, j, k, i1);
-            ((EntityPlayerMP)chanceToEncourageFire).playerNetServerHandler.sendPacket(new Packet53BlockChange(i, j, k, abilityToCatchFire));
+            ((EntityPlayer)chanceToEncourageFire).playerNetServerHandler.sendPacket(new Packet53BlockChange(i, j, k, abilityToCatchFire));
         }
         return flag;
     }
 
-    public boolean func_26554_a(EntityPlayer entityplayer, World world, ItemStack itemstack)
+    public boolean func_26554_a(EntityHuman entityplayer, World world, ItemStack itemstack)
     {
         int i = itemstack.stackSize;
         ItemStack itemstack1 = itemstack.useItemRightClick(world, entityplayer);
@@ -141,7 +141,7 @@ public class BlockFire
         }
     }
 
-    public boolean func_26555_a(EntityPlayer entityplayer, World world, ItemStack itemstack, int i, int j, int k, int l)
+    public boolean func_26555_a(EntityHuman entityplayer, World world, ItemStack itemstack, int i, int j, int k, int l)
     {
         int i1 = world.getBlockId(i, j, k);
         if(i1 > 0 && Block.blocksList[i1].blockActivated(world, i, j, k, entityplayer))
@@ -158,7 +158,7 @@ public class BlockFire
     }
 
     private World abilityToCatchFire;
-    public EntityPlayer chanceToEncourageFire;
+    public EntityHuman chanceToEncourageFire;
     private float field_26566_c;
     private int field_26565_d;
     private int field_26564_e;

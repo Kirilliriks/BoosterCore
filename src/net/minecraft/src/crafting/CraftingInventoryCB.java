@@ -4,7 +4,7 @@ package net.minecraft.src.crafting;
 // Decompiler options: packimports(3) braces deadcode 
 
 import net.minecraft.src.*;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.inventory.InventoryPlayer;
 import net.minecraft.src.item.ItemStack;
@@ -84,7 +84,7 @@ public abstract class CraftingInventoryCB
         return (Slot)inventorySlots.get(i);
     }
 
-    public ItemStack placeItem(int i, int j, EntityPlayer entityplayer)
+    public ItemStack placeItem(int i, int j, EntityHuman entityplayer)
     {
         ItemStack itemstack = null;
         if(j == 0 || j == 1)
@@ -204,7 +204,7 @@ public abstract class CraftingInventoryCB
         return itemstack;
     }
 
-    public void onCraftGuiClosed(EntityPlayer entityplayer)
+    public void onCraftGuiClosed(EntityHuman entityplayer)
     {
         InventoryPlayer inventoryplayer = entityplayer.inventory;
         if(inventoryplayer.getItemStack() != null)
@@ -219,12 +219,12 @@ public abstract class CraftingInventoryCB
         updateCraftingMatrix();
     }
 
-    public boolean getCanCraft(EntityPlayer entityplayer)
+    public boolean getCanCraft(EntityHuman entityplayer)
     {
         return !field_20131_b.contains(entityplayer);
     }
 
-    public void setCanCraft(EntityPlayer entityplayer, boolean flag)
+    public void setCanCraft(EntityHuman entityplayer, boolean flag)
     {
         if(flag)
         {
@@ -235,7 +235,7 @@ public abstract class CraftingInventoryCB
         }
     }
 
-    public abstract boolean canInteractWith(EntityPlayer entityplayer);
+    public abstract boolean canInteractWith(EntityHuman entityplayer);
 
     public List inventoryItemStacks;
     public List inventorySlots;

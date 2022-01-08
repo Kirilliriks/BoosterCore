@@ -6,7 +6,7 @@ package net.minecraft.src;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.entity.EntityPlayer;
 
 public class ISaveHandler
 {
@@ -52,7 +52,7 @@ public class ISaveHandler
         }
     }
 
-    public void func_26682_a(EntityPlayerMP entityplayermp)
+    public void func_26682_a(EntityPlayer entityplayermp)
     {
         int i = (int)entityplayermp.posX >> 4;
         int j = (int)entityplayermp.posZ >> 4;
@@ -90,7 +90,7 @@ public class ISaveHandler
         field_26693_a.add(entityplayermp);
     }
 
-    public void func_26681_b(EntityPlayerMP entityplayermp)
+    public void func_26681_b(EntityPlayer entityplayermp)
     {
         int i = (int)entityplayermp.field_9155_d >> 4;
         int j = (int)entityplayermp.field_9154_e >> 4;
@@ -121,7 +121,7 @@ public class ISaveHandler
         return j1 >= -10 && j1 <= 10;
     }
 
-    public void func_26688_c(EntityPlayerMP entityplayermp)
+    public void func_26688_c(EntityPlayer entityplayermp)
     {
         int i = (int)entityplayermp.posX >> 4;
         int j = (int)entityplayermp.posZ >> 4;

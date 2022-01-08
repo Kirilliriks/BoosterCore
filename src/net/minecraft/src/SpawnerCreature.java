@@ -44,9 +44,9 @@ public final class SpawnerCreature {
         }
         eligibleChunksForSpawning.clear();
         for(int i = 0; i < world.playerEntities.size(); i++) {
-            EntityPlayer entityPlayer = (EntityPlayer)world.playerEntities.get(i);
-            int k = MathHelper.floor_double(entityPlayer.posX / 16D);
-            int l = MathHelper.floor_double(entityPlayer.posZ / 16D);
+            EntityHuman entityHuman = (EntityHuman)world.playerEntities.get(i);
+            int k = MathHelper.floor_double(entityHuman.posX / 16D);
+            int l = MathHelper.floor_double(entityHuman.posZ / 16D);
             byte byte0 = 8;
             for(int k1 = -byte0; k1 <= byte0; k1++) {
                 for(int l1 = -byte0; l1 <= byte0; l1++) {
@@ -162,7 +162,7 @@ public final class SpawnerCreature {
             {
                 break;
             }
-            EntityPlayer entityplayer = (EntityPlayer)iterator.next();
+            EntityHuman entityplayer = (EntityHuman)iterator.next();
             Class aclass[] = field_22213_a;
             if(aclass != null && aclass.length != 0)
             {

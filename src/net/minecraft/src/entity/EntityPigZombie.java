@@ -69,7 +69,7 @@ public class EntityPigZombie extends EntityZombie
 
     public boolean attackEntityFrom(Entity entity, int i)
     {
-        if(entity instanceof EntityPlayer)
+        if(entity instanceof EntityHuman)
         {
             List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(32D, 32D, 32D));
             for(int j = 0; j < list.size(); j++)

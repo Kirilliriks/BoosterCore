@@ -252,7 +252,7 @@ public class EntityArrow extends Entity
         inGround = nbttagcompound.getByte("inGround") == 1;
     }
 
-    public void onCollideWithPlayer(EntityPlayer entityplayer)
+    public void onCollideWithPlayer(EntityHuman entityplayer)
     {
         if(worldObj.singleplayerWorld)
         {

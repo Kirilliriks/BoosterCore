@@ -80,7 +80,7 @@ public class EntitySquid extends EntityWaterMob
 
     }
 
-    public boolean interact(EntityPlayer entityplayer)
+    public boolean interact(EntityHuman entityplayer)
     {
         return false;
     }

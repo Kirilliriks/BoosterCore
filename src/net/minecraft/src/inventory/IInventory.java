@@ -4,7 +4,7 @@ package net.minecraft.src.inventory;
 // Decompiler options: packimports(3) braces deadcode 
 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.item.ItemStack;
 
 public interface IInventory
@@ -24,5 +24,5 @@ public interface IInventory
 
     public abstract void onInventoryChanged();
 
-    public abstract boolean canInteractWith(EntityPlayer entityplayer);
+    public abstract boolean canInteractWith(EntityHuman entityplayer);
 }

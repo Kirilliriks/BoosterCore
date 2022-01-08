@@ -207,7 +207,7 @@ public class EntityItem extends Entity
         item = new ItemStack(nbttagcompound1);
     }
 
-    public void onCollideWithPlayer(EntityPlayer entityplayer)
+    public void onCollideWithPlayer(EntityHuman entityplayer)
     {
         if(worldObj.singleplayerWorld)
         {

@@ -6,7 +6,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemRedstone extends Item
 {
@@ -16,7 +16,7 @@ public class ItemRedstone extends Item
         super(i);
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         if(l == 0)
         {

@@ -3,7 +3,7 @@ package net.minecraft.src.world;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.nbt.NBTTagCompound;
 
 import java.util.List;
@@ -60,11 +60,11 @@ public class WorldInfo
     public NBTTagCompound func_22183_a(List list)
     {
         NBTTagCompound nbttagcompound = new NBTTagCompound();
-        EntityPlayer entityplayer = null;
+        EntityHuman entityplayer = null;
         NBTTagCompound nbttagcompound1 = null;
         if(list.size() > 0)
         {
-            entityplayer = (EntityPlayer)list.get(0);
+            entityplayer = (EntityHuman)list.get(0);
         }
         if(entityplayer != null)
         {

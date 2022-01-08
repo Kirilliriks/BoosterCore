@@ -3,7 +3,7 @@ package net.minecraft.src.tileentity;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) braces deadcode 
 
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.item.ItemStack;
 import net.minecraft.src.nbt.NBTTagCompound;
@@ -132,7 +132,7 @@ public class TileEntityDispenser extends TileEntity
         return 64;
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         if(worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) != this)
         {

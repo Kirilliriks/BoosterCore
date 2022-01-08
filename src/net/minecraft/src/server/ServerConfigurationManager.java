@@ -13,8 +13,8 @@ import net.minecraft.src.tileentity.TileEntity;
 import net.minecraft.src.world.WorldServer;
 import net.minecraft.src.block.BlockFire;
 import net.minecraft.src.chunk.ChunkCoordinates;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.entity.EntityPlayer;
-import net.minecraft.src.entity.EntityPlayerMP;
 import net.minecraft.src.network.NetLoginHandler;
 import net.minecraft.src.packet.Packet;
 import net.minecraft.src.packet.Packet3Chat;
@@ -24,7 +24,7 @@ import net.minecraft.src.packet.Packet9;
 public class ServerConfigurationManager {
 
     public static Logger logger = Logger.getLogger("Minecraft");
-    public List<EntityPlayerMP> playerEntities;
+    public List<EntityPlayer> playerEntities;
     private MinecraftServer mcServer;
     private ISaveHandler playerManagerObj;
     private int maxPlayers;
@@ -73,22 +73,22 @@ public class ServerConfigurationManager {
         return playerManagerObj.func_26687_b();
     }
 
-    public void playerLoggedIn(EntityPlayerMP entityPlayerMP)
+    public void playerLoggedIn(EntityPlayer entityPlayer)
     {
-        playerEntities.add(entityPlayerMP);
-        playerNBTManagerObj.readPlayerData(entityPlayerMP);
-        mcServer.worldManager.chunkProvider.loadChunk((int)entityPlayerMP.posX >> 4, (int)entityPlayerMP.posZ >> 4);
-        for(; mcServer.worldManager.getCollidingBoundingBoxes(entityPlayerMP, entityPlayerMP.boundingBox).size() != 0; entityPlayerMP.setPosition(entityPlayerMP.posX, entityPlayerMP.posY + 1.0D, entityPlayerMP.posZ)) { }
-        mcServer.worldManager.entityJoinedWorld(entityPlayerMP);
-        playerManagerObj.func_26682_a(entityPlayerMP);
+        playerEntities.add(entityPlayer);
+        playerNBTManagerObj.readPlayerData(entityPlayer);
+        mcServer.worldManager.chunkProvider.loadChunk((int) entityPlayer.posX >> 4, (int) entityPlayer.posZ >> 4);
+        for(; mcServer.worldManager.getCollidingBoundingBoxes(entityPlayer, entityPlayer.boundingBox).size() != 0; entityPlayer.setPosition(entityPlayer.posX, entityPlayer.posY + 1.0D, entityPlayer.posZ)) { }
+        mcServer.worldManager.entityJoinedWorld(entityPlayer);
+        playerManagerObj.func_26682_a(entityPlayer);
     }
 
-    public void func_613_b(EntityPlayerMP entityplayermp)
+    public void func_613_b(EntityPlayer entityplayermp)
     {
         playerManagerObj.func_26688_c(entityplayermp);
     }
 
-    public void playerLoggedOut(EntityPlayerMP entityplayermp)
+    public void playerLoggedOut(EntityPlayer entityplayermp)
     {
         playerNBTManagerObj.writePlayerData(entityplayermp);
         mcServer.worldManager.func_22085_d(entityplayermp);
@@ -96,7 +96,7 @@ public class ServerConfigurationManager {
         playerManagerObj.func_26681_b(entityplayermp);
     }
 
-    public EntityPlayerMP login(NetLoginHandler netloginhandler, String s, String s1)
+    public EntityPlayer login(NetLoginHandler netloginhandler, String s, String s1)
     {
         if(bannedPlayers.contains(s.trim().toLowerCase()))
         {
@@ -123,17 +123,17 @@ public class ServerConfigurationManager {
         }
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayerMP entityplayermp = playerEntities.get(i);
+            EntityPlayer entityplayermp = playerEntities.get(i);
             if(entityplayermp.username.equalsIgnoreCase(s))
             {
                 entityplayermp.playerNetServerHandler.kickPlayer("You logged in from another location");
             }
         }
 
-        return new EntityPlayerMP(mcServer, mcServer.worldManager, s, new BlockFire(mcServer.worldManager));
+        return new EntityPlayer(mcServer, mcServer.worldManager, s, new BlockFire(mcServer.worldManager));
     }
 
-    public EntityPlayerMP recreatePlayerEntity(EntityPlayerMP entityplayermp)
+    public EntityPlayer recreatePlayerEntity(EntityPlayer entityplayermp)
     {
         mcServer.entityTracker.removeTrackedPlayerSymmetric(entityplayermp);
         mcServer.entityTracker.untrackEntity(entityplayermp);
@@ -141,12 +141,12 @@ public class ServerConfigurationManager {
         playerEntities.remove(entityplayermp);
         mcServer.worldManager.removePlayer(entityplayermp);
         ChunkCoordinates chunkcoordinates = entityplayermp.func_25049_H();
-        EntityPlayerMP entityplayermp1 = new EntityPlayerMP(mcServer, mcServer.worldManager, entityplayermp.username, new BlockFire(mcServer.worldManager));
+        EntityPlayer entityplayermp1 = new EntityPlayer(mcServer, mcServer.worldManager, entityplayermp.username, new BlockFire(mcServer.worldManager));
         entityplayermp1.entityId = entityplayermp.entityId;
         entityplayermp1.playerNetServerHandler = entityplayermp.playerNetServerHandler;
         if(chunkcoordinates != null)
         {
-            ChunkCoordinates chunkcoordinates1 = EntityPlayer.func_25051_a(mcServer.worldManager, chunkcoordinates);
+            ChunkCoordinates chunkcoordinates1 = EntityHuman.func_25051_a(mcServer.worldManager, chunkcoordinates);
             if(chunkcoordinates1 != null)
             {
                 entityplayermp1.setLocationAndAngles((float)chunkcoordinates1.posX + 0.5F, (float)chunkcoordinates1.posY + 0.1F, (float)chunkcoordinates1.posZ + 0.5F, 0.0F, 0.0F);
@@ -182,7 +182,7 @@ public class ServerConfigurationManager {
     {
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)playerEntities.get(i);
+            EntityPlayer entityplayermp = (EntityPlayer)playerEntities.get(i);
             entityplayermp.playerNetServerHandler.sendPacket(packet);
         }
 
@@ -197,7 +197,7 @@ public class ServerConfigurationManager {
             {
                 s = (new StringBuilder()).append(s).append(", ").toString();
             }
-            s = (new StringBuilder()).append(s).append(((EntityPlayerMP)playerEntities.get(i)).username).toString();
+            s = (new StringBuilder()).append(s).append(((EntityPlayer)playerEntities.get(i)).username).toString();
         }
 
         return s;
@@ -402,11 +402,11 @@ public class ServerConfigurationManager {
         return ops.contains(s.trim().toLowerCase());
     }
 
-    public EntityPlayerMP getPlayerEntity(String s)
+    public EntityPlayer getPlayerEntity(String s)
     {
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)playerEntities.get(i);
+            EntityPlayer entityplayermp = (EntityPlayer)playerEntities.get(i);
             if(entityplayermp.username.equalsIgnoreCase(s))
             {
                 return entityplayermp;
@@ -418,7 +418,7 @@ public class ServerConfigurationManager {
 
     public void sendChatMessageToPlayer(String s, String s1)
     {
-        EntityPlayerMP entityplayermp = getPlayerEntity(s);
+        EntityPlayer entityplayermp = getPlayerEntity(s);
         if(entityplayermp != null)
         {
             entityplayermp.playerNetServerHandler.sendPacket(new Packet3Chat(s1));
@@ -429,7 +429,7 @@ public class ServerConfigurationManager {
     {
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)playerEntities.get(i);
+            EntityPlayer entityplayermp = (EntityPlayer)playerEntities.get(i);
             double d4 = d - entityplayermp.posX;
             double d5 = d1 - entityplayermp.posY;
             double d6 = d2 - entityplayermp.posZ;
@@ -446,7 +446,7 @@ public class ServerConfigurationManager {
         Packet3Chat packet3chat = new Packet3Chat(s);
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            EntityPlayerMP entityplayermp = playerEntities.get(i);
+            EntityPlayer entityplayermp = playerEntities.get(i);
             if(isOp(entityplayermp.username))
             {
                 entityplayermp.playerNetServerHandler.sendPacket(packet3chat);
@@ -457,7 +457,7 @@ public class ServerConfigurationManager {
 
     public boolean sendPacketToPlayer(String s, Packet packet)
     {
-        EntityPlayerMP entityplayermp = getPlayerEntity(s);
+        EntityPlayer entityplayermp = getPlayerEntity(s);
         if(entityplayermp != null)
         {
             entityplayermp.playerNetServerHandler.sendPacket(packet);
@@ -472,7 +472,7 @@ public class ServerConfigurationManager {
     {
         for(int i = 0; i < playerEntities.size(); i++)
         {
-            playerNBTManagerObj.writePlayerData((EntityPlayer)playerEntities.get(i));
+            playerNBTManagerObj.writePlayerData((EntityHuman)playerEntities.get(i));
         }
 
     }

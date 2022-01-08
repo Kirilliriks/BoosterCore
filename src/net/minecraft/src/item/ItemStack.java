@@ -10,7 +10,7 @@ import net.minecraft.src.world.World;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityLiving;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public final class ItemStack
 {
@@ -69,7 +69,7 @@ public final class ItemStack
         return Item.itemsList[itemID];
     }
 
-    public boolean useItem(EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean useItem(EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         boolean flag = getItem().onItemUse(this, entityplayer, world, i, j, k, l);
         if(flag)
@@ -84,7 +84,7 @@ public final class ItemStack
         return getItem().getStrVsBlock(this, block);
     }
 
-    public ItemStack useItemRightClick(World world, EntityPlayer entityplayer)
+    public ItemStack useItemRightClick(World world, EntityHuman entityplayer)
     {
         return getItem().onItemRightClick(this, world, entityplayer);
     }
@@ -153,9 +153,9 @@ public final class ItemStack
         itemDamage += i;
         if(itemDamage > getMaxDamage())
         {
-            if(entity instanceof EntityPlayer)
+            if(entity instanceof EntityHuman)
             {
-                ((EntityPlayer)entity).func_26604_a(StatList.field_25105_B[itemID], 1);
+                ((EntityHuman)entity).func_26604_a(StatList.field_25105_B[itemID], 1);
             }
             stackSize--;
             if(stackSize < 0)
@@ -166,7 +166,7 @@ public final class ItemStack
         }
     }
 
-    public void hitEntity(EntityLiving entityliving, EntityPlayer entityplayer)
+    public void hitEntity(EntityLiving entityliving, EntityHuman entityplayer)
     {
         boolean flag = Item.itemsList[itemID].hitEntity(this, entityliving, entityplayer);
         if(flag)
@@ -175,7 +175,7 @@ public final class ItemStack
         }
     }
 
-    public void func_25124_a(int i, int j, int k, int l, EntityPlayer entityplayer)
+    public void func_25124_a(int i, int j, int k, int l, EntityHuman entityplayer)
     {
         boolean flag = Item.itemsList[itemID].func_25007_a(this, i, j, k, l, entityplayer);
         if(flag)
@@ -194,7 +194,7 @@ public final class ItemStack
         return Item.itemsList[itemID].canHarvestBlock(block);
     }
 
-    public void func_577_a(EntityPlayer entityplayer)
+    public void func_577_a(EntityHuman entityplayer)
     {
     }
 

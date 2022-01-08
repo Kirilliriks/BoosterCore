@@ -10,7 +10,7 @@ import net.minecraft.src.block.BlockCloth;
 import net.minecraft.src.block.BlockCrops;
 import net.minecraft.src.block.BlockSapling;
 import net.minecraft.src.entity.EntityLiving;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.entity.EntitySheep;
 
 public class ItemDye extends Item
@@ -23,7 +23,7 @@ public class ItemDye extends Item
         setMaxDamage(0);
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         if(itemstack.getItemDamage() == 15)
         {

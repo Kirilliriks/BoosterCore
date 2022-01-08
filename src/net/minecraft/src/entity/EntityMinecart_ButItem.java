@@ -16,7 +16,7 @@ public class EntityMinecart_ButItem extends Item
         super(i);
     }
 
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l)
+    public boolean onItemUse(ItemStack itemstack, EntityHuman entityplayer, World world, int i, int j, int k, int l)
     {
         if(l == 0)
         {

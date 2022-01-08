@@ -9,12 +9,12 @@ import net.minecraft.src.Slot;
 import net.minecraft.src.StatList;
 import net.minecraft.src.achievement.AchievementList;
 import net.minecraft.src.block.Block;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemFood extends Slot
 {
 
-    public ItemFood(EntityPlayer entityplayer, IInventory iinventory, IInventory iinventory1, int i, int j, int k)
+    public ItemFood(EntityHuman entityplayer, IInventory iinventory, IInventory iinventory1, int i, int j, int k)
     {
         super(iinventory1, i, j, k);
         field_26508_e = entityplayer;
@@ -55,5 +55,5 @@ public class ItemFood extends Slot
     }
 
     private final IInventory field_26509_d;
-    private EntityPlayer field_26508_e;
+    private EntityHuman field_26508_e;
 }

@@ -7,7 +7,7 @@ import net.minecraft.src.*;
 import net.minecraft.src.entity.AxisAlignedBB;
 import net.minecraft.src.entity.Entity;
 import net.minecraft.src.entity.EntityLiving;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.world.World;
 
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class BlockStairs extends Block
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
-    public void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public void onBlockClicked(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         modelBlock.onBlockClicked(world, i, j, k, entityplayer);
     }
@@ -170,7 +170,7 @@ public class BlockStairs extends Block
         modelBlock.updateTick(world, i, j, k, random);
     }
 
-    public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer)
+    public boolean blockActivated(World world, int i, int j, int k, EntityHuman entityplayer)
     {
         return modelBlock.blockActivated(world, i, j, k, entityplayer);
     }

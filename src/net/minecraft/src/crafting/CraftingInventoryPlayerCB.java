@@ -5,7 +5,7 @@ package net.minecraft.src.crafting;
 
 
 import net.minecraft.src.*;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.inventory.IInventory;
 import net.minecraft.src.inventory.InventoryCrafting;
 import net.minecraft.src.inventory.InventoryPlayer;
@@ -64,7 +64,7 @@ public class CraftingInventoryPlayerCB extends CraftingInventoryCB
         craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(craftMatrix));
     }
 
-    public void onCraftGuiClosed(EntityPlayer entityplayer)
+    public void onCraftGuiClosed(EntityHuman entityplayer)
     {
         super.onCraftGuiClosed(entityplayer);
         for(int i = 0; i < 4; i++)
@@ -79,7 +79,7 @@ public class CraftingInventoryPlayerCB extends CraftingInventoryCB
 
     }
 
-    public boolean canInteractWith(EntityPlayer entityplayer)
+    public boolean canInteractWith(EntityHuman entityplayer)
     {
         return true;
     }

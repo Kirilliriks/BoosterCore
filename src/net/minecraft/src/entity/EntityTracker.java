@@ -23,10 +23,10 @@ public class EntityTracker
 
     public void trackEntity(Entity entity)
     {
-        if(entity instanceof EntityPlayerMP)
+        if(entity instanceof EntityPlayer)
         {
             trackEntity(entity, 512, 2);
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)entity;
+            EntityPlayer entityplayermp = (EntityPlayer)entity;
             Iterator iterator = trackedEntitySet.iterator();
             do
             {
@@ -117,9 +117,9 @@ public class EntityTracker
 
     public void untrackEntity(Entity entity)
     {
-        if(entity instanceof EntityPlayerMP)
+        if(entity instanceof EntityPlayer)
         {
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)entity;
+            EntityPlayer entityplayermp = (EntityPlayer)entity;
             EntityTrackerEntry entitytrackerentry1;
             for(Iterator iterator = trackedEntitySet.iterator(); iterator.hasNext(); entitytrackerentry1.removeFromTrackedPlayers(entityplayermp))
             {
@@ -147,15 +147,15 @@ public class EntityTracker
             }
             EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry)iterator.next();
             entitytrackerentry.updatePlayerList(mcServer.worldManager.playerEntities);
-            if(entitytrackerentry.playerEntitiesUpdated && (entitytrackerentry.trackedEntity instanceof EntityPlayerMP))
+            if(entitytrackerentry.playerEntitiesUpdated && (entitytrackerentry.trackedEntity instanceof EntityPlayer))
             {
-                arraylist.add((EntityPlayerMP)entitytrackerentry.trackedEntity);
+                arraylist.add((EntityPlayer)entitytrackerentry.trackedEntity);
             }
         } while(true);
 label0:
         for(int i = 0; i < arraylist.size(); i++)
         {
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)arraylist.get(i);
+            EntityPlayer entityplayermp = (EntityPlayer)arraylist.get(i);
             Iterator iterator1 = trackedEntitySet.iterator();
             do
             {
@@ -191,7 +191,7 @@ label0:
         }
     }
 
-    public void removeTrackedPlayerSymmetric(EntityPlayerMP entityplayermp)
+    public void removeTrackedPlayerSymmetric(EntityPlayer entityplayermp)
     {
         EntityTrackerEntry entitytrackerentry;
         for(Iterator iterator = trackedEntitySet.iterator(); iterator.hasNext(); entitytrackerentry.removeTrackedPlayerSymmetric(entityplayermp))

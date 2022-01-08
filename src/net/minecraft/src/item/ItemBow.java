@@ -5,7 +5,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.world.World;
 import net.minecraft.src.entity.EntityArrow;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemBow extends Item
 {
@@ -16,7 +16,7 @@ public class ItemBow extends Item
         maxStackSize = 1;
     }
 
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityHuman entityplayer)
     {
         if(entityplayer.inventory.consumeInventoryItem(Item.arrow.shiftedIndex))
         {

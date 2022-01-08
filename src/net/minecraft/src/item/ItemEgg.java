@@ -5,7 +5,7 @@ package net.minecraft.src.item;
 
 import net.minecraft.src.packet.Packet25_ButEntity;
 import net.minecraft.src.world.World;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 
 public class ItemEgg extends Item
 {
@@ -16,7 +16,7 @@ public class ItemEgg extends Item
         maxStackSize = 16;
     }
 
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityHuman entityplayer)
     {
         itemstack.stackSize--;
         world.playSoundAtEntity(entityplayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));

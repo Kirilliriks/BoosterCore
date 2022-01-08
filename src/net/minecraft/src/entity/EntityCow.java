@@ -54,7 +54,7 @@ public class EntityCow extends EntityAnimals
         return Item.leather.shiftedIndex;
     }
 
-    public boolean interact(EntityPlayer entityplayer)
+    public boolean interact(EntityHuman entityplayer)
     {
         ItemStack itemstack = entityplayer.inventory.getCurrentItem();
         if(itemstack != null && itemstack.itemID == Item.bucketEmpty.shiftedIndex)

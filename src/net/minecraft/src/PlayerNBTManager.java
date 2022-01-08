@@ -5,7 +5,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.chunk.ChunkLoader;
 import net.minecraft.src.chunk.IChunkLoader;
-import net.minecraft.src.entity.EntityPlayer;
+import net.minecraft.src.entity.EntityHuman;
 import net.minecraft.src.nbt.NBTTagCompound;
 import net.minecraft.src.world.WorldInfo;
 import net.minecraft.src.world.WorldProvider;
@@ -178,7 +178,7 @@ public class PlayerNBTManager
         }
     }
 
-    public void writePlayerData(EntityPlayer entityplayer)
+    public void writePlayerData(EntityHuman entityplayer)
     {
         try
         {
@@ -199,7 +199,7 @@ public class PlayerNBTManager
         }
     }
 
-    public void readPlayerData(EntityPlayer entityplayer)
+    public void readPlayerData(EntityHuman entityplayer)
     {
         NBTTagCompound nbttagcompound = func_25074_a(entityplayer.username);
         if(nbttagcompound != null)

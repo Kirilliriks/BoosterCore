@@ -8,7 +8,7 @@ import java.util.*;
 import net.minecraft.src.block.Block;
 import net.minecraft.src.chunk.ChunkCoordinate;
 import net.minecraft.src.packet.Packet52MultiBlockChange;
-import net.minecraft.src.entity.EntityPlayerMP;
+import net.minecraft.src.entity.EntityPlayer;
 import net.minecraft.src.packet.Packet;
 import net.minecraft.src.packet.Packet50PreChunk;
 import net.minecraft.src.packet.Packet51MapChunk;
@@ -42,7 +42,7 @@ class PlayerInstance {
         ISaveHandler.func_26686_a(isavehandler).worldManager.chunkProvider.loadChunk(i, j);
     }
 
-    public void addPlayer(EntityPlayerMP entityplayermp)
+    public void addPlayer(EntityPlayer entityplayermp)
     {
         if(players.contains(entityplayermp))
         {
@@ -57,7 +57,7 @@ class PlayerInstance {
         }
     }
 
-    public void removePlayer(EntityPlayerMP entityplayermp)
+    public void removePlayer(EntityPlayer entityplayermp)
     {
         if(!players.contains(entityplayermp))
         {
@@ -134,7 +134,7 @@ class PlayerInstance {
     {
         for(int i = 0; i < players.size(); i++)
         {
-            EntityPlayerMP entityplayermp = (EntityPlayerMP)players.get(i);
+            EntityPlayer entityplayermp = (EntityPlayer)players.get(i);
             if(entityplayermp.field_420_ah.contains(currentChunk))
             {
                 entityplayermp.playerNetServerHandler.sendPacket(packet);
