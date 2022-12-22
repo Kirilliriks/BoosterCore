@@ -26,15 +26,15 @@ public class BoosterEntity implements com.booster.api.entity.Entity {
         entityHandler.setLocationAndAngles(vector.getX(), vector.getY(), vector.getZ(), 0, 0);
     }
 
+    public Entity getHandle() {
+        return entityHandler;
+    }
+
     public static BoosterEntity newBoosterEntity(net.minecraft.src.entity.Entity entity){
         if (entity instanceof EntityPlayer) return new BoosterPlayer((EntityPlayer) entity);
         return null;
 
         // TODO Добавить когда все сущности будут работать на API
         // throw new RuntimeException("Find unknown entity " + entity.getClass().getName());
-    }
-
-    public Entity getHandle() {
-        return entityHandler;
     }
 }

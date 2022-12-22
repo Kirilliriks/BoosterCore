@@ -6,23 +6,23 @@ public final class Vector {
     private double y;
     private double z;
 
-    public Vector(){
+    public Vector() {
         this(0, 0, 0);
     }
 
-    public Vector(double x, double y, double z){
+    public Vector(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public void add(Vector vector){
+    public void add(Vector vector) {
         this.x += vector.getX();
         this.y += vector.getY();
         this.z += vector.getZ();
     }
 
-    public void divide(Vector vector){
+    public void minus(Vector vector) {
         this.x -= vector.getX();
         this.y -= vector.getY();
         this.z -= vector.getZ();
@@ -52,7 +52,7 @@ public final class Vector {
         return z;
     }
 
-    public void zero(){
+    public void zero() {
         this.x = 0;
         this.y = 0;
         this.z = 0;
