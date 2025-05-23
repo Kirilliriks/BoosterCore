@@ -20,3 +20,13 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.withType<Jar> {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes["Main-Class"] = "com.booster.core.Main"
+    }
+
+    from(configurations.compileClasspath.get().map { if (it.isDirectory()) it else zipTree(it) })
+}
