@@ -23,13 +23,13 @@ public class PluginManager {
 
     private final List<Plugin> plugins;
 
-    public PluginManager(BoosterServer boosterServer){
+    public PluginManager(BoosterServer boosterServer) {
         this.boosterServer = boosterServer;
         this.plugins = new ArrayList<>();
         loadPlugins("plugins/");
     }
 
-    public void loadPlugins(String path){
+    public void loadPlugins(String path) {
         final File mainDirectory = new File(path);
         if (!mainDirectory.exists()) {
             if (!mainDirectory.mkdir()) throw new RuntimeException("Error with create directory");
@@ -37,7 +37,7 @@ public class PluginManager {
         final File[] files = mainDirectory.listFiles();
         if (files == null) return;
 
-        for (final File file : files){
+        for (final File file : files) {
             final JavaPlugin plugin = loadPlugin(file);
             if (plugin == null) continue;
 
@@ -47,18 +47,19 @@ public class PluginManager {
         }
     }
 
-    public JavaPlugin loadPlugin(File pluginFile){
+    public JavaPlugin loadPlugin(File pluginFile) {
         JarFile jar;
         try {
             jar = new JarFile(pluginFile);
 
             // Get plugin.yml
             final JarEntry entry = jar.getJarEntry("plugin.yml");
-            if (entry == null){
+            if (entry == null) {
                 BoosterServer.logger.info("Not found plugin.yml for " + pluginFile.getName());
                 return null;
             }
-            final Yaml yaml = new Yaml();
+
+            final var yaml = new Yaml();
             final Map<String, Object> obj = yaml.load(new InputStreamReader(jar.getInputStream(entry)));
             final String mainClassName = (String) obj.get("main");
             //
@@ -89,8 +90,8 @@ public class PluginManager {
         }
     }
 
-    public void disablePlugins(){
-        for (final Plugin plugin : plugins){
+    public void disablePlugins() {
+        for (final Plugin plugin : plugins) {
             plugin.onDisable();
         }
         plugins.clear();

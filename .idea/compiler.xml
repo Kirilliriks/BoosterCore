@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="BoosterCore.app.main" target="21" />
+      <module name="BoosterCore.app.test" target="21" />
+      <module name="BoosterCore.untitled.main" target="19" />
+      <module name="BoosterCore.untitled.test" target="19" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
