@@ -1,10 +1,11 @@
 plugins {
     id("java")
     id("java-library")
+    `maven-publish`
 }
 
-group = "me.kirillirik"
-version = "unspecified"
+group = "com.booster"
+version = "0.1"
 
 repositories {
     mavenCentral()
@@ -28,5 +29,18 @@ tasks.withType<Jar> {
         attributes["Main-Class"] = "com.booster.core.Main"
     }
 
+    archiveFileName.set("core.jar")
+
     from(configurations.compileClasspath.get().map { if (it.isDirectory()) it else zipTree(it) })
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
 }
